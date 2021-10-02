@@ -8,9 +8,11 @@ const api = axios.create({
 });
 
 function MyApp({ Component, pageProps }) {
+  const [getUser, setGetUser] = useState();
   const [randomNumber, setRandomNumber] = useState(
     Math.floor(Math.random() * 12)
   );
+  console.log(getUser);
   const [background, setBackground] = useState();
   const domain = process.env.REACT_APP_AUTH0_DOMAIN;
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
@@ -436,6 +438,7 @@ function MyApp({ Component, pageProps }) {
         editMode={editMode}
         editModeColor={editModeColor}
         setEditModeColor={setEditModeColor}
+        setGetUser={setGetUser}
       />
     </Auth0Provider>
   );

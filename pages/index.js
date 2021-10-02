@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
@@ -13,8 +14,12 @@ export default function Home({
   background,
   setRandomNumber,
   randomNumber,
+  setGetUser,
 }) {
   const { user, isAuthenticated } = useAuth0();
+  useEffect(() => {
+    setGetUser(user);
+  }, []);
 
   return (
     <div className={styles.container}>
