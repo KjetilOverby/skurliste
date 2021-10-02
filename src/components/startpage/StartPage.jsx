@@ -121,9 +121,9 @@ const StartPage = ({
               <button className="button">Rediger</button>
             </Link>
           )}
-          <Link href='/mkv-calculator-mobile.vercel.app'>
+          <a href='https://mkv-calculator-mobile.vercel.app'>
             <button className="button">Postarkiv</button>
-          </Link>
+          </a>
 
           <button className="button">
             <LoginButton />
