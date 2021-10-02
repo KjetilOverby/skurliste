@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Auth0Provider } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const api = axios.create({
   baseURL: process.env.api,
@@ -9,10 +10,11 @@ const api = axios.create({
 
 function MyApp({ Component, pageProps }) {
   const [getUser, setGetUser] = useState();
+  const { user, isAuthenticated } = useAuth0();
   const [randomNumber, setRandomNumber] = useState(
     Math.floor(Math.random() * 12)
   );
-  console.log(getUser);
+
   const [background, setBackground] = useState();
   const domain = process.env.REACT_APP_AUTH0_DOMAIN;
   const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
@@ -207,7 +209,7 @@ function MyApp({ Component, pageProps }) {
       alert("Du må legg inn tørkeprosent");
     } else {
       api
-        .post("/api/skurlister/createField", {
+        .post(`/api/skurlister/createField?user=${getUser.sub}`, {
           treslag: treslag,
           klasse: klasse,
           klgr: klasseGrense,
@@ -291,39 +293,46 @@ function MyApp({ Component, pageProps }) {
     }
   }, []);
   const deleteFieldHandler = () => {
-    api.delete(`/api/skurlister/deleteField/?del=${getIdField}`).then((res) => {
-      if (res.status === 200) {
-        setUpdateDB(Math.random());
-        setOpenDeleteModal(false);
-      }
-    });
+    api
+      .delete(
+        `/api/skurlister/deleteField/?del=${getIdField}&user=${getUser.sub}`
+      )
+      .then((res) => {
+        if (res.status === 200) {
+          setUpdateDB(Math.random());
+          setOpenDeleteModal(false);
+        }
+      });
   };
   const saveUpdateField = () => {
     api
-      .patch(`/api/skurlister/updateField?ids=${getIdField}`, {
-        treslag: treslag,
-        klasse: klasse,
-        klgr: klasseGrense,
-        klType: klasseType,
-        ant: antall,
-        m3: kubikk,
-        status: status,
-        post: post,
-        breddePost: breddePlank,
-        xLog: xLog,
-        prosent: prosent,
-        anm: anm1,
-        anm2: anm2,
-        vs66: vs66Ty,
-        vs66Br: vs66Br,
-        vs66Xtra: vs66xtraTy,
-        vs66XtraBr: vs66XtraBr,
-        blad: sagblad,
-        mkvBord: mkvTy,
-        mkvBr: mkvBr,
-        date: new Date(),
-        progress: getProgress,
-      })
+      .patch(
+        `/api/skurlister/updateField?ids=${getIdField}&user=${getUser.sub}`,
+        {
+          treslag: treslag,
+          klasse: klasse,
+          klgr: klasseGrense,
+          klType: klasseType,
+          ant: antall,
+          m3: kubikk,
+          status: status,
+          post: post,
+          breddePost: breddePlank,
+          xLog: xLog,
+          prosent: prosent,
+          anm: anm1,
+          anm2: anm2,
+          vs66: vs66Ty,
+          vs66Br: vs66Br,
+          vs66Xtra: vs66xtraTy,
+          vs66XtraBr: vs66XtraBr,
+          blad: sagblad,
+          mkvBord: mkvTy,
+          mkvBr: mkvBr,
+          date: new Date(),
+          progress: getProgress,
+        }
+      )
       .then((res) => {
         if (res.status === 200) {
           setShowEditTools(false);

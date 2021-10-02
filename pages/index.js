@@ -19,7 +19,7 @@ export default function Home({
   const { user, isAuthenticated } = useAuth0();
   useEffect(() => {
     setGetUser(user);
-  }, []);
+  }, [user]);
 
   return (
     <div className={styles.container}>
