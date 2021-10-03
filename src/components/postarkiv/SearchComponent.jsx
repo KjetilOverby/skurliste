@@ -113,7 +113,7 @@ const SearchComponent = ({
             border-radius: 10px;
             margin-bottom: 1rem;
             justify-content: space-between;
-            background: #fff;
+            background: #ffffff;
           }
           .item-container:hover {
             border-radius: 10px;
@@ -136,18 +136,24 @@ const SearchComponent = ({
           }
           .search-list-container {
             overflow: scroll;
-            height: 100%;
+
             padding: 2rem;
             box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
             border: 1px solid rgba(0, 0, 0, 0.2);
-            background: #fff;
+            background: #e7f6e4;
+            height: 35vh;
           }
           .text {
             font-size: 1.2rem;
             margin-bottom: 1rem;
             color: #1f1a58;
           }
+          @media (max-width: 1100px) {
+            .container {
+              width: 85%;
+            }
+          } ;
         `}
       </style>
     </>

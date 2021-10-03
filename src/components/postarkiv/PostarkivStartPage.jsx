@@ -56,7 +56,24 @@ const PostarkivStartPage = ({
           }
           .button {
             margin-bottom: 1rem;
-            padding: 0.5rem 0;
+            padding: 1.5rem 0;
+            border: none;
+            background-image: linear-gradient(
+              to right,
+              #74ebd5 0%,
+              #9face6 100%
+            );
+            font-size: 1rem;
+            transition: 0.5s;
+          }
+          .button:hover {
+            background-image: linear-gradient(
+              to left,
+              #74ebd5 0%,
+              #9face6 100%
+            );
+            color: #fff;
+            cursor: pointer;
           }
           .container {
             display: grid;
@@ -71,7 +88,7 @@ const PostarkivStartPage = ({
           .circle {
             height: 90rem;
             width: 90rem;
-            background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+            background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
             position: absolute;
             border-radius: 50%;
             left: 50%;
@@ -85,7 +102,7 @@ const PostarkivStartPage = ({
             color: #808080;
           }
           .search-component-container {
-            background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+            background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
             border-radius: 10px;
             position: relative;
             overflow: hidden;
@@ -93,6 +110,26 @@ const PostarkivStartPage = ({
             place-items: center;
             grid-area: search;
             height: 100%;
+            padding-bottom: 5rem;
+          }
+          @media (max-width: 1620px) {
+            .container {
+              grid-template-columns: 15rem 1fr 10rem;
+            }
+            .search-component-container {
+              margin-bottom: 10rem;
+            }
+          }
+          @media (max-width: 1100px) {
+            .container {
+              grid-template-rows: 10rem 15rem 1fr 5rem;
+              grid-template-columns: 20rem 1fr 1fr;
+              grid-template-areas:
+                "header header header"
+                "btn btn btn"
+                "search search search"
+                "search search search";
+            }
           }
         `}
       </style>
