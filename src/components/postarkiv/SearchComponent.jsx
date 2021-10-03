@@ -6,17 +6,20 @@ const SearchComponent = ({
   setGetSearch,
   getSearch,
   setGetID,
+  getID,
   setHeaderPostOppsett,
   setStartRingsPostOppsett,
   setRawRingsPostOppsett,
   setEndRingsPostOppsett,
   setBladstamme,
+  rawRingsPostOppsett,
 }) => {
   const [searchresult, setSearchresult] = useState();
-
+  console.log(getID);
   const getSearchHandler = (e) => {
     setGetSearch(e.target.value);
   };
+
   useEffect(() => {
     if (postarkiv) {
       setSearchresult(
@@ -47,11 +50,30 @@ const SearchComponent = ({
                 setBladstamme(result.blades.bladStamme);
                 router.push("/postoppsett");
               };
+              const onMouseOverHandler = () => {
+                setGetID(result._id);
+
+                setRawRingsPostOppsett(result.rawInput);
+              };
               return (
-                <div className="item-container">
-                  <p className="header" onClick={getPostHandler}>
-                    {result.header}
-                  </p>
+                <div
+                  key={result._id}
+                  className="item-container"
+                  onMouseOver={onMouseOverHandler}
+                  onClick={getPostHandler}
+                >
+                  <div>
+                    <p className="header">{result.header}</p>
+                  </div>
+                  <div className="show-raw-input-container">
+                    {getID === result._id &&
+                      rawRingsPostOppsett &&
+                      rawRingsPostOppsett.map((inp) => (
+                        <p key={inp._id} className="raw-input-text">
+                          {inp.input}
+                        </p>
+                      ))}
+                  </div>
                 </div>
               );
             })}
@@ -62,12 +84,11 @@ const SearchComponent = ({
           .container {
             height: 40vh;
             width: 50rem;
-
-            padding: 1rem;
           }
           .header {
-            cursor: pointer;
+            color: #49745b;
           }
+
           .input {
             width: 100%;
             padding: 1rem;
@@ -79,10 +100,31 @@ const SearchComponent = ({
           }
           .item-container {
             padding: 0.5rem;
+            display: flex;
+            border: 1px solid #d8d8d885;
+            align-items: center;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            justify-content: space-between;
           }
           .item-container:hover {
-            background: rgba(0, 0, 0, 0.2);
             border-radius: 10px;
+            cursor: pointer;
+            background: rgba(44, 65, 184, 0.2);
+          }
+          .raw-input-text {
+            color: #2b7cc7;
+          }
+          .raw-input-text::after {
+            content: "+";
+            color: #a06332;
+            margin: 0 0.5rem;
+          }
+          .raw-input-text:last-child::after {
+            content: "";
+          }
+          .show-raw-input-container {
+            display: flex;
           }
           .search-list-container {
             overflow: scroll;

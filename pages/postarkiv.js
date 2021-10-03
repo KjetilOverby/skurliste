@@ -6,10 +6,11 @@ const api = axios.create({
   baseURL: process.env.api,
 });
 
-const postarkiv = ({
+const Postarkiv = ({
   setHeaderPostOppsett,
   setStartRingsPostOppsett,
   setRawRingsPostOppsett,
+  rawRingsPostOppsett,
   setEndRingsPostOppsett,
   setBladstamme,
 }) => {
@@ -25,7 +26,6 @@ const postarkiv = ({
       console.log(error);
     }
   }, [getSearch]);
-  console.log(getID);
 
   return (
     <>
@@ -35,9 +35,11 @@ const postarkiv = ({
           setGetSearch={setGetSearch}
           getSearch={getSearch}
           setGetID={setGetID}
+          getID={getID}
           setHeaderPostOppsett={setHeaderPostOppsett}
           setStartRingsPostOppsett={setStartRingsPostOppsett}
           setRawRingsPostOppsett={setRawRingsPostOppsett}
+          rawRingsPostOppsett={rawRingsPostOppsett}
           setEndRingsPostOppsett={setEndRingsPostOppsett}
           setBladstamme={setBladstamme}
         />
@@ -52,4 +54,4 @@ const postarkiv = ({
   );
 };
 
-export default postarkiv;
+export default Postarkiv;

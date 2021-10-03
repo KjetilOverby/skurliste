@@ -6,11 +6,13 @@ const PostarkivStartPage = ({
   setGetSearch,
   getSearch,
   setGetID,
+  getID,
   setHeaderPostOppsett,
   setStartRingsPostOppsett,
   setRawRingsPostOppsett,
   setEndRingsPostOppsett,
   setBladstamme,
+  rawRingsPostOppsett,
 }) => {
   return (
     <>
@@ -21,11 +23,13 @@ const PostarkivStartPage = ({
           setGetSearch={setGetSearch}
           getSearch={getSearch}
           setGetID={setGetID}
+          getID={getID}
           setHeaderPostOppsett={setHeaderPostOppsett}
           setStartRingsPostOppsett={setStartRingsPostOppsett}
           setRawRingsPostOppsett={setRawRingsPostOppsett}
           setEndRingsPostOppsett={setEndRingsPostOppsett}
           setBladstamme={setBladstamme}
+          rawRingsPostOppsett={rawRingsPostOppsett}
         />
       </div>
       <style jsx>

@@ -31,7 +31,7 @@ const SearchListFromBtn = ({
               };
               return (
                 <>
-                  <p onClick={getPostOppsett} className="btn">
+                  <p key={item._id} onClick={getPostOppsett} className="btn">
                     {item.header}
                   </p>
                 </>
