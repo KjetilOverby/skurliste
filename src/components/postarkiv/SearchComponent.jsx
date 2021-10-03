@@ -33,6 +33,11 @@ const SearchComponent = ({
   return (
     <>
       <div className="container">
+        <div>
+          <p className="text">
+            Antall treff: {searchresult && searchresult.length}
+          </p>
+        </div>
         <input
           placeholder="Søk i poster"
           className="input"
@@ -83,7 +88,8 @@ const SearchComponent = ({
         {`
           .container {
             height: 40vh;
-            width: 50rem;
+            width: 50vw;
+            z-index: 100;
           }
           .header {
             color: #49745b;
@@ -97,6 +103,7 @@ const SearchComponent = ({
             outline: none;
             margin-bottom: 2rem;
             box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+            font-size: 1.5rem;
           }
           .item-container {
             padding: 0.5rem;
@@ -106,6 +113,7 @@ const SearchComponent = ({
             border-radius: 10px;
             margin-bottom: 1rem;
             justify-content: space-between;
+            background: #fff;
           }
           .item-container:hover {
             border-radius: 10px;
@@ -133,6 +141,12 @@ const SearchComponent = ({
             box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
             border: 1px solid rgba(0, 0, 0, 0.2);
+            background: #fff;
+          }
+          .text {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #1f1a58;
           }
         `}
       </style>
