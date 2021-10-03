@@ -119,6 +119,10 @@ function MyApp({ Component, pageProps }) {
   const [antallSum, setAntallSum] = useState();
   const [kubikkSum, setKubikkSum] = useState();
 
+ 
+
+  
+
   useEffect(() => {
     if (lists) {
       setAntallSum(lists.map((item) => item.ant));

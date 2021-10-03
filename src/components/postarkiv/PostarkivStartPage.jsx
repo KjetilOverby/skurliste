@@ -88,7 +88,7 @@ const PostarkivStartPage = ({
           .circle {
             height: 90rem;
             width: 90rem;
-            background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
+            background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
             position: absolute;
             border-radius: 50%;
             left: 50%;
@@ -102,7 +102,7 @@ const PostarkivStartPage = ({
             color: #808080;
           }
           .search-component-container {
-            background-image: linear-gradient(to top, #96fbc4 0%, #f9f586 100%);
+            background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
             border-radius: 10px;
             position: relative;
             overflow: hidden;
