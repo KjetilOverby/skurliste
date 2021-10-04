@@ -7,17 +7,33 @@ import TopComponent from "./TopComponent";
 
 const CreateMainPage = () => {
   const [startFillRings, setStartFillRings] = useState();
+  const [rawButtonValue, setRawButtonValue] = useState();
   const [leftPanelSlide, setLeftPanelSlide] = useState("container-closed");
+  const [startFillringsCollection, setStartFillringsCollection] = useState("");
+  const [rawRingsCollection, setRawRingsCollection] = useState("");
+
   return (
     <>
       <div className="container">
         <TopComponent />
         <LeftComponent setLeftPanelSlide={setLeftPanelSlide} />
-        <MiddleComponent startFillRings={startFillRings} />
-        <RawInputList leftPanelSlide={leftPanelSlide} />
+        <MiddleComponent
+          startFillRings={startFillRings}
+          startFillringsCollection={startFillringsCollection}
+          setStartFillringsCollection={setStartFillringsCollection}
+          rawButtonValue={rawButtonValue}
+          rawRingsCollection={rawRingsCollection}
+          setRawRingsCollection={setRawRingsCollection}
+        />
+        <RawInputList
+          leftPanelSlide={leftPanelSlide}
+          setRawButtonValue={setRawButtonValue}
+        />
         <RingList
           leftPanelSlide={leftPanelSlide}
           setStartFillRings={setStartFillRings}
+          startFillringsCollection={startFillringsCollection}
+          setStartFillringsCollection={setStartFillringsCollection}
         />
       </div>
       <style jsx>

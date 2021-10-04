@@ -8,7 +8,7 @@ const TopComponent = () => {
         {`
           .container {
             grid-area: top;
-            background: #dbdbdb;
+            background: #ffffff;
           }
         `}
       </style>

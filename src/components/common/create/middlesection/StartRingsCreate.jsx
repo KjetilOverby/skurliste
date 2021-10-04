@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import RingComponent from "./RingComponent";
 
-const StartRingsCreate = ({ startFillRings }) => {
-  const [startFillringsCollection, setStartFillringsCollection] = useState("");
+const StartRingsCreate = ({
+  startFillRings,
+  setStartRingSum,
+  startFillringsCollection,
+  setStartFillringsCollection,
+}) => {
   const [getId, setGetId] = useState();
   const [update, setUpdate] = useState();
+
   useEffect(() => {
     if (startFillringsCollection === undefined) {
       setStartFillringsCollection(null);
@@ -18,7 +24,6 @@ const StartRingsCreate = ({ startFillRings }) => {
       ]);
     }
   }, [startFillRings]);
-  console.log(startFillringsCollection);
   useEffect(() => {
     if (startFillringsCollection) {
       const remove = startFillringsCollection.filter(
@@ -27,6 +32,17 @@ const StartRingsCreate = ({ startFillRings }) => {
       setStartFillringsCollection(remove);
     }
   }, [getId, update]);
+
+  useEffect(() => {
+    if (startFillringsCollection) {
+      setStartRingSum(
+        startFillringsCollection.reduce(
+          (num, { input }) => Number(num) + Number(input),
+          0
+        )
+      );
+    }
+  }, [startFillringsCollection]);
   return (
     <>
       <div className="container">
@@ -40,10 +56,13 @@ const StartRingsCreate = ({ startFillRings }) => {
               };
               return (
                 <>
-                  <div key={item.id} className="ring">
+                  <RingComponent
+                    key={item.id}
+                    color={"linear-gradient(to top, #d9afd9 0%, #97d9e1 100%)"}
+                  >
                     <h4>{item.input}</h4>
                     <button onClick={getStartFillRingsIdHandler}>X</button>
-                  </div>
+                  </RingComponent>
                 </>
               );
             })}
@@ -51,21 +70,6 @@ const StartRingsCreate = ({ startFillRings }) => {
       </div>
       <style jsx>
         {`
-          .ring {
-            height: 6rem;
-            width: 3rem;
-            background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-            border-radius: 5px;
-            display: grid;
-            place-items: center;
-            margin-bottom: 1rem;
-            border: 1px solid #8d8d8d;
-            font-size: 0.8rem;
-            font-weight: 300;
-            margin-right: 0.1rem;
-            transition: 0.5s;
-            color: #426d7e;
-          }
           .start-fillrings-container {
             display: flex;
           }
