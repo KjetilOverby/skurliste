@@ -9,6 +9,7 @@ const RingList = ({ setStartFillRings }) => {
         <div className="box-container">
           {ringObject.small.map((smallRings) => (
             <div
+              key={smallRings}
               className="ring-box"
               onClick={(e) => setStartFillRings(e.target.innerHTML)}
             >
@@ -20,6 +21,7 @@ const RingList = ({ setStartFillRings }) => {
         <div className="box-container">
           {ringObject.big.map((bigRings) => (
             <div
+              key={bigRings}
               className="ring-box"
               onClick={(e) => setStartFillRings(e.target.innerHTML)}
             >
@@ -31,6 +33,7 @@ const RingList = ({ setStartFillRings }) => {
         <div className="box-container">
           {ringObject.shims.map((shims) => (
             <div
+              key={shims}
               className="ring-box"
               onClick={(e) => setStartFillRings(e.target.innerHTML)}
             >
@@ -57,7 +60,7 @@ const RingList = ({ setStartFillRings }) => {
             font-weight: 100;
           }
           .ring-box {
-            background-color: #314255;
+            background-color: #3e505c;
             height: 3.5rem;
             width: 3.5rem;
             display: grid;
@@ -65,6 +68,7 @@ const RingList = ({ setStartFillRings }) => {
             border-radius: 50%;
             color: white;
             transition: 0.5s;
+            box-shadow: 10px 10px 20px #858585fa;
           }
           .ring-box:hover {
             cursor: pointer;
