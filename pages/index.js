@@ -18,7 +18,9 @@ export default function Home({
 }) {
   const { user, isAuthenticated } = useAuth0();
   useEffect(() => {
-    setGetUser(user);
+    if (user) {
+      setGetUser(user);
+    }
   }, [user]);
 
   return (

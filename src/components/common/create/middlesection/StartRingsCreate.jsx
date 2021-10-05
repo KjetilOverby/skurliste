@@ -7,10 +7,11 @@ const StartRingsCreate = ({
   setStartRingSum,
   startFillringsCollection,
   setStartFillringsCollection,
+  setGetId,
+  getId,
+  update,
+  setUpdate,
 }) => {
-  const [getId, setGetId] = useState();
-  const [update, setUpdate] = useState();
-
   useEffect(() => {
     if (startFillringsCollection === undefined) {
       setStartFillringsCollection(null);
@@ -24,6 +25,7 @@ const StartRingsCreate = ({
       ]);
     }
   }, [startFillRings]);
+
   useEffect(() => {
     if (startFillringsCollection) {
       const remove = startFillringsCollection.filter(

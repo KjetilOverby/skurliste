@@ -2,6 +2,12 @@ import React from "react";
 import raw from "./RawInputObject";
 
 const RawInputList = ({ leftPanelSlide, setRawButtonValue }) => {
+  const getRawRings = (e) => {
+    setRawButtonValue(e.target.innerHTML);
+    setTimeout(() => {
+      setRawButtonValue("");
+    }, 100);
+  };
   return (
     <>
       <div className={`container ${leftPanelSlide}`}>
@@ -19,11 +25,7 @@ const RawInputList = ({ leftPanelSlide, setRawButtonValue }) => {
           <p className="list-header">18%</p>
           {raw.map((item) => {
             return (
-              <p
-                onClick={(event) => setRawButtonValue(event.target.innerHTML)}
-                key={item.nom}
-                className="nom"
-              >
+              <p onClick={getRawRings} key={item.nom} className="nom">
                 {item.r18}
               </p>
             );
@@ -34,11 +36,7 @@ const RawInputList = ({ leftPanelSlide, setRawButtonValue }) => {
           <p className="list-header">12%</p>
           {raw.map((item) => {
             return (
-              <p
-                onClick={(event) => setRawButtonValue(event.target.innerHTML)}
-                key={item.nom}
-                className="nom"
-              >
+              <p onClick={getRawRings} key={item.nom} className="nom">
                 {item.r12}
               </p>
             );

@@ -1,21 +1,20 @@
-import { set } from "mongoose";
-import React, { useState } from "react";
-import ringObject from "../create/ringObject";
+import React from "react";
+import ringObject from "../ringObject";
 
-const RingList = ({ setStartFillRings, startFillRings }) => {
-  const getRings = (e) => {
-    setStartFillRings(e.target.innerHTML);
+const RingListEnd = ({ setEndFillRings, endringPanel }) => {
+  const getEndRings = (e) => {
+    setEndFillRings(e.target.innerHTML);
     setTimeout(() => {
-      setStartFillRings("");
+      setEndFillRings("");
     }, 100);
   };
   return (
     <>
-      <div className="container">
+      <div className={`container ${endringPanel}`}>
         <h1 className="header">Små ringer</h1>
         <div className="box-container">
           {ringObject.small.map((smallRings) => (
-            <div key={smallRings} className="ring-box" onClick={getRings}>
+            <div key={smallRings} className="ring-box" onClick={getEndRings}>
               {smallRings}
             </div>
           ))}
@@ -23,7 +22,7 @@ const RingList = ({ setStartFillRings, startFillRings }) => {
         <h1 className="header">Store ringer</h1>
         <div className="box-container">
           {ringObject.big.map((bigRings) => (
-            <div key={bigRings} className="ring-box" onClick={getRings}>
+            <div key={bigRings} className="ring-box" onClick={getEndRings}>
               {bigRings}
             </div>
           ))}
@@ -31,7 +30,7 @@ const RingList = ({ setStartFillRings, startFillRings }) => {
         <h1 className="header">Skims</h1>
         <div className="box-container">
           {ringObject.shims.map((shims) => (
-            <div key={shims} className="ring-box" onClick={getRings}>
+            <div key={shims} className="ring-box" onClick={getEndRings}>
               {shims}
             </div>
           ))}
@@ -49,13 +48,21 @@ const RingList = ({ setStartFillRings, startFillRings }) => {
           .container {
             grid-area: right;
             padding: 1rem;
+            z-index: 1000;
+            background-color: #fff;
+          }
+          .container-open {
+            animation: slide 0.8s forwards;
+          }
+          .container-closed {
+            animation: slideBack 0.8s forwards;
           }
           .header {
             margin: 2rem 0;
             font-weight: 100;
           }
           .ring-box {
-            background-color: #3e505c;
+            background-color: #458664;
             height: 3.5rem;
             width: 3.5rem;
             display: grid;
@@ -69,10 +76,26 @@ const RingList = ({ setStartFillRings, startFillRings }) => {
             cursor: pointer;
             background: #6b8eb6;
           }
+          @keyframes slide {
+            0% {
+              transform: translateX(30rem);
+            }
+            100% {
+              transform: translateX(0rem);
+            }
+          }
+          @keyframes slideBack {
+            0% {
+              transform: translateX(0rem);
+            }
+            100% {
+              transform: translateX(30rem);
+            }
+          }
         `}
       </style>
     </>
   );
 };
 
-export default RingList;
+export default RingListEnd;

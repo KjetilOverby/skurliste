@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import EndRingsCreate from "./EndRingsCreate";
 import RawRingsCreate from "./RawRingsCreate";
 import StartRingsCreate from "./StartRingsCreate";
 
@@ -11,6 +12,14 @@ const MiddleComponent = ({
   rawRings,
   setRawRingsCollection,
   rawRingsCollection,
+  endFillRingsCollection,
+  setEndFillRingsCollection,
+  endFillRings,
+  setEndFillRings,
+  setGetId,
+  getId,
+  update,
+  setUpdate,
 }) => {
   const [startRingSum, setStartRingSum] = useState();
   return (
@@ -26,6 +35,10 @@ const MiddleComponent = ({
             setStartRingSum={setStartRingSum}
             startFillringsCollection={startFillringsCollection}
             setStartFillringsCollection={setStartFillringsCollection}
+            setGetId={setGetId}
+            getId={getId}
+            setUpdate={setUpdate}
+            update={update}
           />
 
           <RawRingsCreate
@@ -33,8 +46,22 @@ const MiddleComponent = ({
             setRawRingsCollection={setRawRingsCollection}
             rawRings={rawRings}
             rawButtonValue={rawButtonValue}
+            setGetId={setGetId}
+            getId={getId}
+            setUpdate={setUpdate}
+            update={update}
           />
           <div className="blade"></div>
+          <EndRingsCreate
+            endFillRingsCollection={endFillRingsCollection}
+            setEndFillRingsCollection={setEndFillRingsCollection}
+            endFillRings={endFillRings}
+            setEndFillRings={setEndFillRings}
+            setGetId={setGetId}
+            getId={getId}
+            setUpdate={setUpdate}
+            update={update}
+          />
         </div>
         <div className="start-ring-calculate-container">
           <p>{startRingSum}</p>
@@ -45,13 +72,13 @@ const MiddleComponent = ({
           height: 14rem;
           width: 2px;
           background: #4173ac;
-          margin: -3rem -4px;
+          margin: -3rem 2px -3rem -4px;
         }
         .container {
-          background-color: #f1f1f1;
+          background-color: #ffffff;
           grid-area: middle;
           display: grid;
-          grid-template-rows: 10rem 20rem 1fr;
+          grid-template-rows: 20rem 20rem 1fr;
           grid-template-areas:
             "header header"
             "post post"

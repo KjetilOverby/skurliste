@@ -21,7 +21,8 @@ const RingComponent = ({ children, color }) => {
             font-weight: 300;
             margin-right: 0.3rem;
             transition: 0.5s;
-            color: #426d7e;
+            color: #ffffff;
+            box-shadow: 10px 10px 20px #7e7e7eba;
           }
         `}
       </style>

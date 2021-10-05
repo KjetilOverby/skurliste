@@ -7,9 +7,11 @@ const RawRingsCreate = ({
   rawButtonValue,
   rawRingsCollection,
   setRawRingsCollection,
+  setGetId,
+  getId,
+  setUpdate,
+  update,
 }) => {
-  const [getId, setGetId] = useState();
-  const [update, setUpdate] = useState();
   useEffect(() => {
     if (rawRingsCollection === undefined) {
       setRawRingsCollection(null);

@@ -1,25 +1,28 @@
 import React from "react";
 
-const LeftComponent = ({ setLeftPanelSlide }) => {
+const LeftComponent = ({ setLeftPanelSlide, setEndringPanel }) => {
+  const rawInputBtn = () => {
+    setLeftPanelSlide("container-open");
+    setEndringPanel("container-closed");
+  };
+  const startRingInput = () => {
+    setLeftPanelSlide("container-closed");
+    setEndringPanel("container-closed");
+  };
+  const endRingInput = () => {
+    setEndringPanel("container-open");
+    setLeftPanelSlide("container-closed");
+  };
   return (
     <>
       <div className="container">
-        <button
-          onClick={() => setLeftPanelSlide("container-open")}
-          className="btn"
-        >
+        <button onClick={rawInputBtn} className="btn">
           Legg til råmål
         </button>
-        <button
-          onClick={() => setLeftPanelSlide("container-closed")}
-          className="btn"
-        >
+        <button onClick={startRingInput} className="btn">
           Legg til utfylling foran
         </button>
-        <button
-          onClick={() => setLeftPanelSlide("container-closed")}
-          className="btn"
-        >
+        <button onClick={endRingInput} className="btn">
           Legg til utfylling bak
         </button>
       </div>
