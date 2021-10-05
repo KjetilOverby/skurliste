@@ -112,7 +112,6 @@ const CreateMainPage = () => {
           endRingLabel={endRingLabel}
           greenColorWhenZero={greenColorWhenZero}
           greenColorWhenZero2={greenColorWhenZero2}
-          bladeDimension={bladeDimension}
           prosentValg={prosentValg}
           plankeTykkelse={plankeTykkelse}
           SpesiellePlankeTykkelser={SpesiellePlankeTykkelser}

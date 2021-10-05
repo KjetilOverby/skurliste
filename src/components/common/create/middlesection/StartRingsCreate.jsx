@@ -74,6 +74,7 @@ const StartRingsCreate = ({
         {`
           .start-fillrings-container {
             display: flex;
+            flex-direction: row-reverse;
           }
         `}
       </style>

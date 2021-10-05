@@ -31,7 +31,11 @@ const LeftComponent = ({ setLeftPanelSlide, setEndringPanel }) => {
           .container {
             grid-area: left;
             background: #ffffff;
-            padding: 2rem;
+            border-right: 1px solid #bebebe;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 2rem;
           }
           .btn {
             width: 11rem;

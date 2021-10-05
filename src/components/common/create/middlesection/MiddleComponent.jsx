@@ -121,6 +121,8 @@ const MiddleComponent = ({
         }
         .header {
           font-weight: 100;
+          width: 100%;
+          text-align: center;
         }
         .post-container {
           grid-area: post;
