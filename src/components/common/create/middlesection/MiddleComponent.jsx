@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import EndRingsCreate from "./EndRingsCreate";
+import LabelHeaderCalc from "./LabelHeaderCalc";
 import RawRingsCreate from "./RawRingsCreate";
 import StartRingsCreate from "./StartRingsCreate";
 
@@ -20,13 +21,24 @@ const MiddleComponent = ({
   getId,
   update,
   setUpdate,
+  setRawRingSum,
+  bladeDimension,
+  setBladeDimensionSum,
+  startRingLabel,
+  setStartRingSum,
+  setEndRingSum,
+  endRingLabel,
+  greenColorWhenZero,
+  greenColorWhenZero2,
 }) => {
-  const [startRingSum, setStartRingSum] = useState();
   return (
     <>
       <div className="container">
         <div className="header-container">
-          <h1 className="header">3x50-18%-4.2</h1>
+          <h1 className="header">
+            {rawRingsCollection.length > 0 && rawRingsCollection.length + "x"}
+            50/38-18%-4.2
+          </h1>
         </div>
 
         <div className="post-container">
@@ -50,6 +62,9 @@ const MiddleComponent = ({
             getId={getId}
             setUpdate={setUpdate}
             update={update}
+            setRawRingSum={setRawRingSum}
+            bladeDimension={bladeDimension}
+            setBladeDimensionSum={setBladeDimensionSum}
           />
           <div className="blade"></div>
           <EndRingsCreate
@@ -61,10 +76,16 @@ const MiddleComponent = ({
             getId={getId}
             setUpdate={setUpdate}
             update={update}
+            setEndRingSum={setEndRingSum}
           />
         </div>
-        <div className="start-ring-calculate-container">
-          <p>{startRingSum}</p>
+        <div className={`label-container-left ${greenColorWhenZero}`}>
+          <h3>{startRingLabel}</h3>
+          {/* <p>{startRingSum}</p>
+          <LabelHeaderCalc rawRingsCollection={rawRingsCollection} /> */}
+        </div>
+        <div className={`label-container-right ${greenColorWhenZero2}`}>
+          <h3>{endRingLabel}</h3>
         </div>
       </div>
       <style jsx>{`
@@ -78,11 +99,11 @@ const MiddleComponent = ({
           background-color: #ffffff;
           grid-area: middle;
           display: grid;
-          grid-template-rows: 20rem 20rem 1fr;
+          grid-template-rows: 20rem 20rem 1fr 10rem;
           grid-template-areas:
             "header header"
             "post post"
-            "label2 ."
+            "label1 label2"
             ". .";
         }
         .header-container {
@@ -98,8 +119,20 @@ const MiddleComponent = ({
           display: flex;
           justify-content: center;
         }
-        .start-ring-calculate-container {
+        .label-container-right {
           grid-area: label2;
+          display: flex;
+          justify-content: center;
+          color: red;
+        }
+        .label-container-left {
+          grid-area: label1;
+          display: flex;
+          justify-content: center;
+          color: red;
+        }
+        .green {
+          color: #479947;
         }
       `}</style>
     </>

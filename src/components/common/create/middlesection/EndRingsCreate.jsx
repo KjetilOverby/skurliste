@@ -10,6 +10,7 @@ const EndRingsCreate = ({
   getId,
   setUpdate,
   update,
+  setEndRingSum,
 }) => {
   useEffect(() => {
     if (endFillRingsCollection === undefined) {
@@ -31,16 +32,16 @@ const EndRingsCreate = ({
     }
   }, [getId, update]);
 
-  //   useEffect(() => {
-  //     if (endFillRingsCollection) {
-  //       setStartRingSum(
-  //         endFillRingsCollection.reduce(
-  //           (num, { input }) => Number(num) + Number(input),
-  //           0
-  //         )
-  //       );
-  //     }
-  //   }, [endFillRingsCollection]);
+  useEffect(() => {
+    if (endFillRingsCollection) {
+      setEndRingSum(
+        endFillRingsCollection.reduce(
+          (num, { input }) => Number(num) + Number(input),
+          0
+        )
+      );
+    }
+  }, [endFillRingsCollection]);
   return (
     <>
       <div className="container">

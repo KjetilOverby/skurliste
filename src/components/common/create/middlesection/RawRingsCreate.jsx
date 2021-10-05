@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from "uuid";
 import RingComponent from "./RingComponent";
 
 const RawRingsCreate = ({
-  rawRingsingsCollection,
   rawButtonValue,
   rawRingsCollection,
   setRawRingsCollection,
@@ -11,7 +10,12 @@ const RawRingsCreate = ({
   getId,
   setUpdate,
   update,
+  setRawRingSum,
+  bladeDimension,
+  setBladeDimensionSum,
 }) => {
+  const antallPlank = rawRingsCollection.length;
+
   useEffect(() => {
     if (rawRingsCollection === undefined) {
       setRawRingsCollection(null);
@@ -31,6 +35,19 @@ const RawRingsCreate = ({
       setRawRingsCollection(remove);
     }
   }, [getId, update]);
+  useEffect(() => {
+    if (rawRingsCollection) {
+      setRawRingSum(
+        rawRingsCollection.reduce(
+          (num, { input }) => Number(num) + Number(input),
+          0
+        )
+      );
+    }
+  }, [rawRingsCollection]);
+  useEffect(() => {
+    setBladeDimensionSum(((antallPlank * bladeDimension) / 2).toFixed(2));
+  }, [rawRingsCollection]);
   return (
     <>
       <div className="container">
