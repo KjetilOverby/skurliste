@@ -30,15 +30,23 @@ const MiddleComponent = ({
   endRingLabel,
   greenColorWhenZero,
   greenColorWhenZero2,
+  prosentValg,
+  plankeTykkelse,
+  SpesiellePlankeTykkelser,
 }) => {
   return (
     <>
       <div className="container">
         <div className="header-container">
-          <h1 className="header">
-            {rawRingsCollection.length > 0 && rawRingsCollection.length + "x"}
-            50/38-18%-4.2
-          </h1>
+          {rawRingsCollection.length > 0 && (
+            <h1 className="header">
+              <span>{rawRingsCollection.length}x</span>
+              {plankeTykkelse}
+              {prosentValg}
+              <span>{(Number(bladeDimension) + 1.4).toFixed(1)}</span>
+              {SpesiellePlankeTykkelser}
+            </h1>
+          )}
         </div>
 
         <div className="post-container">
@@ -133,6 +141,10 @@ const MiddleComponent = ({
         }
         .green {
           color: #479947;
+        }
+        span {
+          color: blue;
+          font-weight: bold;
         }
       `}</style>
     </>

@@ -4,7 +4,7 @@ import MiddleComponent from "./middlesection/MiddleComponent";
 import RingListEnd from "./middlesection/RingListEnd";
 import RawInputList from "./RawInputList";
 import RingList from "./RingList";
-import TopComponent from "./TopComponent";
+import TopComponent from "./topsection/TopComponent";
 
 const CreateMainPage = () => {
   const [startFillRings, setStartFillRings] = useState();
@@ -34,6 +34,9 @@ const CreateMainPage = () => {
   const sleeveCenterEnd = 217.2;
   const [greenColorWhenZero, setGreenColorWhenZero] = useState("");
   const [greenColorWhenZero2, setGreenColorWhenZero2] = useState("");
+  const [prosentValg, setProsentValg] = useState("-18%-");
+  const [plankeTykkelse, setPlankeTykkelse] = useState();
+  const [SpesiellePlankeTykkelser, setSpesiellePlankeTykkelser] = useState();
 
   // RawRing calculations
   useEffect(() => {
@@ -74,7 +77,12 @@ const CreateMainPage = () => {
   return (
     <>
       <div className="container">
-        <TopComponent />
+        <TopComponent
+          setBladeDimension={setBladeDimension}
+          setProsentValg={setProsentValg}
+          setPlankeTykkelse={setPlankeTykkelse}
+          setSpesiellePlankeTykkelser={setSpesiellePlankeTykkelser}
+        />
         <LeftComponent
           setLeftPanelSlide={setLeftPanelSlide}
           setEndringPanel={setEndringPanel}
@@ -104,6 +112,10 @@ const CreateMainPage = () => {
           endRingLabel={endRingLabel}
           greenColorWhenZero={greenColorWhenZero}
           greenColorWhenZero2={greenColorWhenZero2}
+          bladeDimension={bladeDimension}
+          prosentValg={prosentValg}
+          plankeTykkelse={plankeTykkelse}
+          SpesiellePlankeTykkelser={SpesiellePlankeTykkelser}
         />
         <RawInputList
           leftPanelSlide={leftPanelSlide}
