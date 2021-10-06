@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const LeftComponent = ({
   setLeftPanelSlide,
@@ -32,6 +33,16 @@ const LeftComponent = ({
         <button onClick={saveCreatedPost} className="btn">
           Lagre post
         </button>
+        <hr style={{ width: "80%", color: "#f8f8f899" }} />
+        <Link href="/">
+          <button className="btn link">Startsiden</button>
+        </Link>
+        <Link href="/skurliste">
+          <button className="btn link">Skurliste</button>
+        </Link>
+        <Link href="/postarkiv">
+          <button className="btn link">Søk i postarkiv</button>
+        </Link>
       </div>
       <style jsx>
         {`
@@ -54,6 +65,9 @@ const LeftComponent = ({
           }
           .btn:hover {
             cursor: pointer;
+          }
+          .link {
+            background: #7ea9e0;
           }
         `}
       </style>

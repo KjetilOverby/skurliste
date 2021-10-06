@@ -11,6 +11,7 @@ const EndRingsCreate = ({
   setUpdate,
   update,
   setEndRingSum,
+  reversStartRingsCollection,
 }) => {
   useEffect(() => {
     if (endFillRingsCollection === undefined) {

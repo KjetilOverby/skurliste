@@ -53,7 +53,6 @@ const StartRingsCreate = ({
             startFillringsCollection.map((item) => {
               const getStartFillRingsIdHandler = () => {
                 setGetId(item.id);
-
                 setUpdate(Math.random());
               };
               return (
@@ -74,7 +73,6 @@ const StartRingsCreate = ({
         {`
           .start-fillrings-container {
             display: flex;
-            flex-direction: row-reverse;
           }
         `}
       </style>

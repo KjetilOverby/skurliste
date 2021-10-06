@@ -34,6 +34,7 @@ const MiddleComponent = ({
   plankeTykkelse,
   SpesiellePlankeTykkelser,
   setHeaderString,
+  reversStartRingsCollection,
 }) => {
   useEffect(() => {
     setHeaderString(
@@ -103,6 +104,7 @@ const MiddleComponent = ({
             setUpdate={setUpdate}
             update={update}
             setEndRingSum={setEndRingSum}
+            reversStartRingsCollection={reversStartRingsCollection}
           />
         </div>
         <div className={`label-container-left ${greenColorWhenZero}`}>

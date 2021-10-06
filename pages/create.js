@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CreateMainPage from "../src/components/common/create/CreateMainPage";
 import axios from "axios";
 
@@ -8,10 +8,20 @@ const api = axios.create({
 
 const Create = () => {
   const [startFillringsCollection, setStartFillringsCollection] = useState("");
+  const [reversStartRingsCollection, setReversStartRingsCollection] =
+    useState();
   const [rawRingsCollection, setRawRingsCollection] = useState("");
   const [endFillRingsCollection, setEndFillRingsCollection] = useState("");
   const [bladeDimension, setBladeDimension] = useState({ bladStamme: 2.8 });
   const [headerString, setHeaderString] = useState();
+
+  // useEffect(() => {
+  //   if (startFillringsCollection) {
+  //     for (var i = startFillringsCollection.length - 1; i >= 0; i--) {
+  //       setReversStartRingsCollection(startFillringsCollection[i]);
+  //     }
+  //   }
+  // });
 
   const saveCreatedPost = () => {
     api
@@ -43,6 +53,7 @@ const Create = () => {
           bladeDimension={bladeDimension}
           setBladeDimension={setBladeDimension}
           setHeaderString={setHeaderString}
+          reversStartRingsCollection={reversStartRingsCollection}
         />
       </div>
       <style jsx>

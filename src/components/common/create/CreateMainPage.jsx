@@ -17,6 +17,7 @@ const CreateMainPage = ({
   bladeDimension,
   setBladeDimension,
   setHeaderString,
+  reversStartRingsCollection,
 }) => {
   const [startFillRings, setStartFillRings] = useState();
   const [rawButtonValue, setRawButtonValue] = useState();
@@ -128,6 +129,7 @@ const CreateMainPage = ({
           plankeTykkelse={plankeTykkelse}
           SpesiellePlankeTykkelser={SpesiellePlankeTykkelser}
           setHeaderString={setHeaderString}
+          reversStartRingsCollection={reversStartRingsCollection}
         />
         <RawInputList
           leftPanelSlide={leftPanelSlide}
