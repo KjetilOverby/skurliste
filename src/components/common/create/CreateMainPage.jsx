@@ -154,7 +154,7 @@ const CreateMainPage = ({
             grid-template-areas:
               "left top right"
               "left middle right";
-            grid-template-columns: 16rem 1fr 30rem;
+            grid-template-columns: 16rem 1fr 22rem;
             grid-template-rows: 10rem 1fr;
             min-height: 100vh;
             overflow: hidden;

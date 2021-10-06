@@ -63,7 +63,7 @@ const RawRingsCreate = ({
             };
             return (
               <div key={raw.id} className="main-container">
-                <div className="blade"></div>
+                {/* <div className="blade"></div> */}
 
                 <RingComponent
                   color={"linear-gradient( #b16955 0%, #f9d423 100%);"}

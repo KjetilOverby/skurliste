@@ -11,6 +11,7 @@ const RingListEnd = ({ setEndFillRings, endringPanel }) => {
   return (
     <>
       <div className={`container ${endringPanel}`}>
+        <h1>Utfylling bak</h1>
         <h1 className="header">Små ringer</h1>
         <div className="box-container">
           {ringObject.small.map((smallRings) => (
@@ -50,6 +51,8 @@ const RingListEnd = ({ setEndFillRings, endringPanel }) => {
             padding: 1rem;
             z-index: 1000;
             background-color: #fff;
+            overflow: scroll;
+            height: 100vh;
           }
           .container-open {
             animation: slide 0.8s forwards;
@@ -60,6 +63,7 @@ const RingListEnd = ({ setEndFillRings, endringPanel }) => {
           .header {
             margin: 2rem 0;
             font-weight: 100;
+            font-size: 1.2rem;
           }
           .ring-box {
             background-color: #458664;
@@ -70,7 +74,7 @@ const RingListEnd = ({ setEndFillRings, endringPanel }) => {
             border-radius: 50%;
             color: white;
             transition: 0.5s;
-            box-shadow: 10px 10px 20px #858585fa;
+            box-shadow: 10px 10px 10px #858585fa;
           }
           .ring-box:hover {
             cursor: pointer;

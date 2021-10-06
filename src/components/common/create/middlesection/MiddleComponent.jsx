@@ -93,7 +93,7 @@ const MiddleComponent = ({
             bladeDimension={bladeDimension}
             setBladeDimensionSum={setBladeDimensionSum}
           />
-          <div className="blade"></div>
+          {/* <div className="blade"></div> */}
           <EndRingsCreate
             endFillRingsCollection={endFillRingsCollection}
             setEndFillRingsCollection={setEndFillRingsCollection}
@@ -127,7 +127,7 @@ const MiddleComponent = ({
           background-color: #ffffff;
           grid-area: middle;
           display: grid;
-          grid-template-rows: 20rem 20rem 1fr 10rem;
+          grid-template-rows: 10rem 15rem 1fr 10rem;
           grid-template-areas:
             "header header"
             "post post"

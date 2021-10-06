@@ -12,6 +12,7 @@ const RingList = ({ setStartFillRings, startFillRings }) => {
   return (
     <>
       <div className="container">
+        <h1>Utfylling foran</h1>
         <h1 className="header">Små ringer</h1>
         <div className="box-container">
           {ringObject.small.map((smallRings) => (
@@ -49,10 +50,13 @@ const RingList = ({ setStartFillRings, startFillRings }) => {
           .container {
             grid-area: right;
             padding: 1rem;
+            overflow: scroll;
+            height: 100vh;
           }
           .header {
             margin: 2rem 0;
             font-weight: 100;
+            font-size: 1.2rem;
           }
           .ring-box {
             background-color: #3e505c;
@@ -63,7 +67,7 @@ const RingList = ({ setStartFillRings, startFillRings }) => {
             border-radius: 50%;
             color: white;
             transition: 0.5s;
-            box-shadow: 10px 10px 20px #858585fa;
+            box-shadow: 10px 10px 10px #858585fa;
           }
           .ring-box:hover {
             cursor: pointer;
