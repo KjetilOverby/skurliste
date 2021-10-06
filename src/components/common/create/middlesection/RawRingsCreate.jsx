@@ -23,7 +23,7 @@ const RawRingsCreate = ({
       setRawRingsCollection([
         ...rawRingsCollection,
         {
-          input: Number(rawButtonValue) + Number(1.4),
+          input: Number(rawButtonValue),
           id: uuidv4(),
         },
       ]);
@@ -45,8 +45,11 @@ const RawRingsCreate = ({
       );
     }
   }, [rawRingsCollection]);
+  console.log(rawRingsCollection);
   useEffect(() => {
-    setBladeDimensionSum(((antallPlank * bladeDimension) / 2).toFixed(2));
+    setBladeDimensionSum(
+      ((antallPlank * bladeDimension.bladStamme) / 2).toFixed(2)
+    );
   }, [rawRingsCollection]);
   return (
     <>
@@ -65,7 +68,8 @@ const RawRingsCreate = ({
                 <RingComponent
                   color={"linear-gradient( #b16955 0%, #f9d423 100%);"}
                 >
-                  <h4>{raw.input.toFixed(1)}</h4>
+                  <p className="input">{raw.input}</p>
+                  <h4>{(raw.input + 1.4).toFixed(1)}</h4>
                   <button onClick={getRawRingsIdHandler}>X</button>
                 </RingComponent>
               </div>
@@ -85,6 +89,13 @@ const RawRingsCreate = ({
           }
           .container {
             display: flex;
+          }
+          .input {
+            position: absolute;
+            top: -1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: black;
           }
           .main-container {
             position: relative;

@@ -4,7 +4,9 @@ const BladeSelectComponent = ({ setBladeDimension }) => {
   return (
     <>
       <div className="container">
-        <select onChange={(e) => setBladeDimension(e.target.value)}>
+        <select
+          onChange={(e) => setBladeDimension({ bladStamme: e.target.value })}
+        >
           <option value="">Velg sagblad</option>
           <option value="2.2">2.2-3.6</option>
           <option value="2.4">2.4-3.8</option>

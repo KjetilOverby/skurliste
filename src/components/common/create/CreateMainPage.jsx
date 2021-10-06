@@ -6,30 +6,35 @@ import RawInputList from "./RawInputList";
 import RingList from "./RingList";
 import TopComponent from "./topsection/TopComponent";
 
-const CreateMainPage = () => {
+const CreateMainPage = ({
+  saveCreatedPost,
+  startFillringsCollection,
+  setStartFillringsCollection,
+  rawRingsCollection,
+  setRawRingsCollection,
+  endFillRingsCollection,
+  setEndFillRingsCollection,
+  bladeDimension,
+  setBladeDimension,
+  setHeaderString,
+}) => {
   const [startFillRings, setStartFillRings] = useState();
   const [rawButtonValue, setRawButtonValue] = useState();
   const [leftPanelSlide, setLeftPanelSlide] = useState("container-closed");
   const [endringPanel, setEndringPanel] = useState("container-closed");
-  const [startFillringsCollection, setStartFillringsCollection] = useState("");
   const [startRingLabel, setStartRingLabel] = useState();
   const [startRingSum, setStartRingSum] = useState(0);
   //raw rings
-  const [rawRingsCollection, setRawRingsCollection] = useState("");
   const [rawRingSum, setRawRingSum] = useState(0);
-  const [bladeDimension, setBladeDimension] = useState(2.8);
   const [bladeDimensionSum, setBladeDimensionSum] = useState();
   const [bladeAndRawringSum, setBladeAndRawringSum] = useState();
   // Endrings
   const [endRingSum, setEndRingSum] = useState(0);
-  const [endFillRingsCollection, setEndFillRingsCollection] = useState("");
   const [endFillRings, setEndFillRings] = useState();
   const [endRingLabel, setEndRingLabel] = useState();
-
   const [getId, setGetId] = useState();
   const [update, setUpdate] = useState();
-
-  const halfBlade = bladeDimension / 2;
+  const halfBlade = bladeDimension.bladStamme / 2;
   const sleeveCenter = 200;
   const sleeveCenterEnd = 217.2;
   const [greenColorWhenZero, setGreenColorWhenZero] = useState("");
@@ -38,14 +43,20 @@ const CreateMainPage = () => {
   const [plankeTykkelse, setPlankeTykkelse] = useState();
   const [SpesiellePlankeTykkelser, setSpesiellePlankeTykkelser] = useState();
 
+  const getVigg = (rawRingsCollection.length * 1.4) / 2;
+
   // RawRing calculations
   useEffect(() => {
     setBladeAndRawringSum(
-      (Number(rawRingSum) / 2 + Number(bladeDimensionSum) + halfBlade).toFixed(
-        2
-      )
+      (
+        Number(rawRingSum) / 2 +
+        Number(bladeDimensionSum) +
+        halfBlade +
+        getVigg
+      ).toFixed(2)
     );
   });
+
   // Startlabel calculations
   useEffect(() => {
     setStartRingLabel(
@@ -86,6 +97,7 @@ const CreateMainPage = () => {
         <LeftComponent
           setLeftPanelSlide={setLeftPanelSlide}
           setEndringPanel={setEndringPanel}
+          saveCreatedPost={saveCreatedPost}
         />
         <MiddleComponent
           startFillRings={startFillRings}
@@ -115,6 +127,7 @@ const CreateMainPage = () => {
           prosentValg={prosentValg}
           plankeTykkelse={plankeTykkelse}
           SpesiellePlankeTykkelser={SpesiellePlankeTykkelser}
+          setHeaderString={setHeaderString}
         />
         <RawInputList
           leftPanelSlide={leftPanelSlide}

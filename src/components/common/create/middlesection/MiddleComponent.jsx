@@ -33,17 +33,35 @@ const MiddleComponent = ({
   prosentValg,
   plankeTykkelse,
   SpesiellePlankeTykkelser,
+  setHeaderString,
 }) => {
+  useEffect(() => {
+    setHeaderString(
+      `${rawRingsCollection.length}x${plankeTykkelse}${prosentValg}${(
+        Number(bladeDimension.bladStamme) + 1.4
+      ).toFixed(1)}${
+        SpesiellePlankeTykkelser === undefined ? "" : SpesiellePlankeTykkelser
+      }`
+    );
+  }, [
+    prosentValg,
+    plankeTykkelse,
+    SpesiellePlankeTykkelser,
+    bladeDimension,
+    rawRingsCollection,
+  ]);
+
   return (
     <>
       <div className="container">
         <div className="header-container">
           {rawRingsCollection.length > 0 && (
             <h1 className="header">
-              <span>{rawRingsCollection.length}x</span>
-              {plankeTykkelse}
+              {rawRingsCollection.length}x{plankeTykkelse}
               {prosentValg}
-              <span>{(Number(bladeDimension) + 1.4).toFixed(1)}</span>
+              <span>
+                {(Number(bladeDimension.bladStamme) + 1.4).toFixed(1)}
+              </span>
               {SpesiellePlankeTykkelser}
             </h1>
           )}
@@ -145,8 +163,7 @@ const MiddleComponent = ({
           color: #479947;
         }
         span {
-          color: blue;
-          font-weight: bold;
+          color: #d35a22;
         }
       `}</style>
     </>

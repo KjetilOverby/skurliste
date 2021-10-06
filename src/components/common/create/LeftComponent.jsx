@@ -1,6 +1,10 @@
 import React from "react";
 
-const LeftComponent = ({ setLeftPanelSlide, setEndringPanel }) => {
+const LeftComponent = ({
+  setLeftPanelSlide,
+  setEndringPanel,
+  saveCreatedPost,
+}) => {
   const rawInputBtn = () => {
     setLeftPanelSlide("container-open");
     setEndringPanel("container-closed");
@@ -24,6 +28,9 @@ const LeftComponent = ({ setLeftPanelSlide, setEndringPanel }) => {
         </button>
         <button onClick={endRingInput} className="btn">
           Legg til utfylling bak
+        </button>
+        <button onClick={saveCreatedPost} className="btn">
+          Lagre post
         </button>
       </div>
       <style jsx>
