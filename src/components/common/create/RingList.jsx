@@ -2,17 +2,17 @@ import { set } from "mongoose";
 import React, { useState } from "react";
 import ringObject from "../create/ringObject";
 
-const RingList = ({ setStartFillRings, startFillRings }) => {
+const RingList = ({ setRings, header, backgroundBtn }) => {
   const getRings = (e) => {
-    setStartFillRings(e.target.innerHTML);
-    setTimeout(() => {
-      setStartFillRings("");
-    }, 100);
+    setRings(e.target.innerHTML);
+    // setTimeout(() => {
+    //   setRings("");
+    // }, 100);
   };
   return (
     <>
       <div className="container">
-        <h1>Utfylling foran</h1>
+        <h1>{header}</h1>
         <h1 className="header">Små ringer</h1>
         <div className="box-container">
           {ringObject.small.map((smallRings) => (
@@ -59,7 +59,7 @@ const RingList = ({ setStartFillRings, startFillRings }) => {
             font-size: 1.2rem;
           }
           .ring-box {
-            background-color: #3e505c;
+            background-color: ${backgroundBtn};
             height: 3.5rem;
             width: 3.5rem;
             display: grid;

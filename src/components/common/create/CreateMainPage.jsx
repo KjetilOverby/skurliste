@@ -21,14 +21,17 @@ const CreateMainPage = ({
 }) => {
   const [startFillRings, setStartFillRings] = useState();
   const [rawButtonValue, setRawButtonValue] = useState();
-  const [leftPanelSlide, setLeftPanelSlide] = useState("container-closed");
-  const [endringPanel, setEndringPanel] = useState("container-closed");
+  const [leftPanelSlide, setLeftPanelSlide] = useState("container-open");
+  const [startRingsPanel, setStartRingsPanel] = useState(false);
   const [startRingLabel, setStartRingLabel] = useState();
   const [startRingSum, setStartRingSum] = useState(0);
+  const [ringShims, setRingShims] = useState();
+
   //raw rings
   const [rawRingSum, setRawRingSum] = useState(0);
   const [bladeDimensionSum, setBladeDimensionSum] = useState();
   const [bladeAndRawringSum, setBladeAndRawringSum] = useState();
+  const [ringShimsPanel, setRingShimsPanel] = useState(false);
   // Endrings
   const [endRingSum, setEndRingSum] = useState(0);
   const [endFillRings, setEndFillRings] = useState();
@@ -43,8 +46,10 @@ const CreateMainPage = ({
   const [prosentValg, setProsentValg] = useState("-18%-");
   const [plankeTykkelse, setPlankeTykkelse] = useState();
   const [SpesiellePlankeTykkelser, setSpesiellePlankeTykkelser] = useState();
+  const [endringPanel, setEndringPanel] = useState(false);
 
   const getVigg = (rawRingsCollection.length * 1.4) / 2;
+  //console.log(rawButtonValue);
 
   // RawRing calculations
   useEffect(() => {
@@ -99,6 +104,8 @@ const CreateMainPage = ({
           setLeftPanelSlide={setLeftPanelSlide}
           setEndringPanel={setEndringPanel}
           saveCreatedPost={saveCreatedPost}
+          setStartRingsPanel={setStartRingsPanel}
+          setRingShimsPanel={setRingShimsPanel}
         />
         <MiddleComponent
           startFillRings={startFillRings}
@@ -130,22 +137,42 @@ const CreateMainPage = ({
           SpesiellePlankeTykkelser={SpesiellePlankeTykkelser}
           setHeaderString={setHeaderString}
           reversStartRingsCollection={reversStartRingsCollection}
+          setRingShimsPanel={setRingShimsPanel}
+          setStartRingsPanel={setStartRingsPanel}
+          setEndringPanel={setEndringPanel}
+          setLeftPanelSlide={setLeftPanelSlide}
+          ringShims={ringShims}
         />
         <RawInputList
           leftPanelSlide={leftPanelSlide}
           setRawButtonValue={setRawButtonValue}
         />
-        <RingList
-          leftPanelSlide={leftPanelSlide}
-          setStartFillRings={setStartFillRings}
-          startFillRings={startFillRings}
-          startFillringsCollection={startFillringsCollection}
-          setStartFillringsCollection={setStartFillringsCollection}
-        />
-        <RingListEnd
-          setEndFillRings={setEndFillRings}
-          endringPanel={endringPanel}
-        />
+        {startRingsPanel && (
+          <RingList
+            leftPanelSlide={leftPanelSlide}
+            setRings={setStartFillRings}
+            startFillRings={startFillRings}
+            startFillringsCollection={startFillringsCollection}
+            setStartFillringsCollection={setStartFillringsCollection}
+            header="Utfylling foran"
+            backgroundBtn="#445766"
+          />
+        )}
+        {endringPanel && (
+          <RingList
+            setRings={setEndFillRings}
+            leftPanelSlide={leftPanelSlide}
+            header="Utfylling bak"
+            backgroundBtn="#4b6d52"
+          />
+        )}
+        {ringShimsPanel && (
+          <RingList
+            header="Legg til Ring"
+            backgroundBtn="#c79816"
+            setRings={setRingShims}
+          />
+        )}
       </div>
       <style jsx>
         {`

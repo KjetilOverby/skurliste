@@ -35,6 +35,11 @@ const MiddleComponent = ({
   SpesiellePlankeTykkelser,
   setHeaderString,
   reversStartRingsCollection,
+  setRingShimsPanel,
+  setStartRingsPanel,
+  setEndringPanel,
+  setLeftPanelSlide,
+  ringShims,
 }) => {
   useEffect(() => {
     setHeaderString(
@@ -92,6 +97,11 @@ const MiddleComponent = ({
             setRawRingSum={setRawRingSum}
             bladeDimension={bladeDimension}
             setBladeDimensionSum={setBladeDimensionSum}
+            setRingShimsPanel={setRingShimsPanel}
+            setEndringPanel={setEndringPanel}
+            setStartRingsPanel={setStartRingsPanel}
+            setLeftPanelSlide={setLeftPanelSlide}
+            ringShims={ringShims}
           />
           {/* <div className="blade"></div> */}
           <EndRingsCreate

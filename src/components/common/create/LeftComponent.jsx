@@ -5,18 +5,22 @@ const LeftComponent = ({
   setLeftPanelSlide,
   setEndringPanel,
   saveCreatedPost,
+  setStartRingsPanel,
+  setRingShimsPanel,
 }) => {
   const rawInputBtn = () => {
     setLeftPanelSlide("container-open");
-    setEndringPanel("container-closed");
   };
   const startRingInput = () => {
     setLeftPanelSlide("container-closed");
-    setEndringPanel("container-closed");
+    setStartRingsPanel(true);
+    setRingShimsPanel(false);
   };
   const endRingInput = () => {
-    setEndringPanel("container-open");
     setLeftPanelSlide("container-closed");
+    setStartRingsPanel(false);
+    setEndringPanel(true);
+    setRingShimsPanel(false);
   };
   return (
     <>
