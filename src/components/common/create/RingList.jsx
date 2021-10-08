@@ -2,12 +2,25 @@ import { set } from "mongoose";
 import React, { useState } from "react";
 import ringObject from "../create/ringObject";
 
-const RingList = ({ setRings, header, backgroundBtn }) => {
+const RingList = ({
+  setRings,
+  header,
+  backgroundBtn,
+  shimsMode,
+  shimsMode2,
+  setRingShimsPanel,
+  setRingShimsPanel2,
+}) => {
   const getRings = (e) => {
     setRings(e.target.innerHTML);
-    // setTimeout(() => {
-    //   setRings("");
-    // }, 100);
+    if (!shimsMode && !shimsMode2) {
+      setTimeout(() => {
+        setRings("");
+      }, 100);
+    } else if (shimsMode) {
+      setRingShimsPanel2(true);
+      setRingShimsPanel(false);
+    }
   };
   return (
     <>

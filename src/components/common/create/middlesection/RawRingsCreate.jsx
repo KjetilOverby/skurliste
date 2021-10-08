@@ -21,11 +21,14 @@ const RawRingsCreate = ({
   setEndringPanel,
   setLeftPanelSlide,
   ringShims,
+  setRingShimsPanel2,
+  ringShims2,
 }) => {
   const antallPlank = rawRingsCollection.length;
   const [rawRingId, setRawRingId] = useState();
-  const [openShimsRings, setOpenShimsRings] = useState();
-  const [test, setTest] = useState();
+  const [shimsModeColors, setShimsModeColors] = useState(
+    "linear-gradient( #aac3ad 0%, #23f9c3 100%);"
+  );
 
   useEffect(() => {
     if (rawRingsCollection === undefined) {
@@ -80,9 +83,19 @@ const RawRingsCreate = ({
   useEffect(() => {
     if (filteredObject) {
       setFilteredObject((filteredObject[0].ring = ringShims));
+      setFilteredObject(
+        rawRingsCollection.filter((item) => item.id === rawRingId)
+      );
     }
-  }, [ringShims]);
+  }, [ringShims, ringShims2]);
+  useEffect(() => {
+    if (filteredObject) {
+      setFilteredObject((filteredObject[0].shims2 = ringShims2));
+      setLeftPanelSlide("container-open");
+    }
+  }, [ringShims2]);
   console.log(filteredObject);
+  console.log(rawRingsCollection);
   return (
     <>
       <div className="container">
@@ -94,19 +107,17 @@ const RawRingsCreate = ({
               setUpdate(Math.random());
             };
             const addRingHandler = () => {
+              //setRingShims("");
               setRingShimsPanel(true);
               setStartRingsPanel(false);
               setEndringPanel(false);
               setLeftPanelSlide("container-closed");
               setRawRingId(raw.id);
+              setRingShimsPanel2(false);
             };
             return (
               <div key={raw.id} className="main-container">
-                {/* <div className="blade"></div> */}
-                {/* <ShimsRingList setTest={setTest} /> */}
-                <RingComponent
-                  color={"linear-gradient( #aac3ad 0%, #23f9c3 100%);"}
-                >
+                <RingComponent color={shimsModeColors}>
                   <p className="input">{raw.input}</p>
                   <h4 className="ring-value">{(raw.input + 1.4).toFixed(1)}</h4>
                   <MdAddCircle
@@ -119,7 +130,17 @@ const RawRingsCreate = ({
                   />
                   <p className="ring">{raw.ring}</p>
                   <p className="shims">
-                    {raw.ring && (raw.input + 1.4 - raw.ring).toFixed(1)}
+                    {raw.ring &&
+                      (
+                        raw.input +
+                        1.4 -
+                        raw.ring -
+                        (raw.shims2 !== undefined && raw.shims2)
+                      ).toFixed(1)}
+                  </p>
+                  <p className="shims2">
+                    {/* {raw.shims2 && raw.input + 1.4 - raw.ring} */}
+                    {raw.shims2}
                   </p>
                   <RiDeleteBin6Line
                     style={{
@@ -168,6 +189,11 @@ const RawRingsCreate = ({
             position: absolute;
             color: black;
             top: 9rem;
+          }
+          .shims2 {
+            position: absolute;
+            color: black;
+            top: 10rem;
           }
           .main-container {
             position: relative;

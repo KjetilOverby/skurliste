@@ -26,12 +26,14 @@ const CreateMainPage = ({
   const [startRingLabel, setStartRingLabel] = useState();
   const [startRingSum, setStartRingSum] = useState(0);
   const [ringShims, setRingShims] = useState();
+  const [ringShims2, setRingShims2] = useState();
 
   //raw rings
   const [rawRingSum, setRawRingSum] = useState(0);
   const [bladeDimensionSum, setBladeDimensionSum] = useState();
   const [bladeAndRawringSum, setBladeAndRawringSum] = useState();
   const [ringShimsPanel, setRingShimsPanel] = useState(false);
+  const [ringShimsPanel2, setRingShimsPanel2] = useState(false);
   // Endrings
   const [endRingSum, setEndRingSum] = useState(0);
   const [endFillRings, setEndFillRings] = useState();
@@ -90,7 +92,7 @@ const CreateMainPage = ({
       setGreenColorWhenZero2("");
     }
   });
-
+  console.log("rinshims2: " + ringShims2);
   return (
     <>
       <div className="container">
@@ -106,6 +108,7 @@ const CreateMainPage = ({
           saveCreatedPost={saveCreatedPost}
           setStartRingsPanel={setStartRingsPanel}
           setRingShimsPanel={setRingShimsPanel}
+          setRingShimsPanel2={setRingShimsPanel2}
         />
         <MiddleComponent
           startFillRings={startFillRings}
@@ -142,6 +145,9 @@ const CreateMainPage = ({
           setEndringPanel={setEndringPanel}
           setLeftPanelSlide={setLeftPanelSlide}
           ringShims={ringShims}
+          setRingShimsPanel2={setRingShimsPanel2}
+          setRingShims={setRingShims}
+          ringShims2={ringShims2}
         />
         <RawInputList
           leftPanelSlide={leftPanelSlide}
@@ -171,6 +177,17 @@ const CreateMainPage = ({
             header="Legg til Ring"
             backgroundBtn="#c79816"
             setRings={setRingShims}
+            shimsMode={true}
+            setRingShimsPanel={setRingShimsPanel}
+            setRingShimsPanel2={setRingShimsPanel2}
+          />
+        )}
+        {ringShimsPanel2 && (
+          <RingList
+            header="Legg til shims"
+            backgroundBtn="#c71616"
+            setRings={setRingShims2}
+            shimsMode2={true}
           />
         )}
       </div>

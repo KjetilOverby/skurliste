@@ -40,6 +40,9 @@ const MiddleComponent = ({
   setEndringPanel,
   setLeftPanelSlide,
   ringShims,
+  setRingShimsPanel2,
+  setRingShims,
+  ringShims2,
 }) => {
   useEffect(() => {
     setHeaderString(
@@ -102,6 +105,9 @@ const MiddleComponent = ({
             setStartRingsPanel={setStartRingsPanel}
             setLeftPanelSlide={setLeftPanelSlide}
             ringShims={ringShims}
+            setRingShimsPanel2={setRingShimsPanel2}
+            setRingShims={setRingShims}
+            ringShims2={ringShims2}
           />
           {/* <div className="blade"></div> */}
           <EndRingsCreate

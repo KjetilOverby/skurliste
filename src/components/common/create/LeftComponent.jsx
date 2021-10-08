@@ -7,6 +7,7 @@ const LeftComponent = ({
   saveCreatedPost,
   setStartRingsPanel,
   setRingShimsPanel,
+  setRingShimsPanel2,
 }) => {
   const rawInputBtn = () => {
     setLeftPanelSlide("container-open");
@@ -15,12 +16,14 @@ const LeftComponent = ({
     setLeftPanelSlide("container-closed");
     setStartRingsPanel(true);
     setRingShimsPanel(false);
+    setRingShimsPanel2(false);
   };
   const endRingInput = () => {
     setLeftPanelSlide("container-closed");
     setStartRingsPanel(false);
     setEndringPanel(true);
     setRingShimsPanel(false);
+    setRingShimsPanel2(false);
   };
   return (
     <>
