@@ -12,7 +12,7 @@ const Create = () => {
     useState();
   const [rawRingsCollection, setRawRingsCollection] = useState("");
   const [endFillRingsCollection, setEndFillRingsCollection] = useState("");
-  const [bladeDimension, setBladeDimension] = useState({ bladStamme: 2.8 });
+  const [bladeDimension, setBladeDimension] = useState({ bladStamme: "2.8" });
   const [headerString, setHeaderString] = useState();
 
   // useEffect(() => {

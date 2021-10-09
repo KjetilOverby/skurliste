@@ -66,7 +66,7 @@ const RawRingsCreate = ({
     setBladeDimensionSum(
       ((antallPlank * bladeDimension.bladStamme) / 2).toFixed(2)
     );
-  }, [rawRingsCollection]);
+  }, [rawRingsCollection, bladeDimension]);
   // Shims
   const [filteredObject, setFilteredObject] = useState();
   useEffect(() => {
@@ -121,7 +121,7 @@ const RawRingsCreate = ({
       setLeftPanelSlide("container-open");
     }
   }, [ringShims2]);
-  console.log(filteredObject);
+
   return (
     <>
       <div className="container">

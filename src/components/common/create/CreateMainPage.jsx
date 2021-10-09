@@ -51,8 +51,7 @@ const CreateMainPage = ({
   const [endringPanel, setEndringPanel] = useState(false);
 
   const getVigg = (rawRingsCollection.length * 1.4) / 2;
-  //console.log(rawButtonValue);
-
+  console.log(bladeDimensionSum);
   // RawRing calculations
   useEffect(() => {
     setBladeAndRawringSum(
@@ -92,7 +91,7 @@ const CreateMainPage = ({
       setGreenColorWhenZero2("");
     }
   });
-  console.log(ringShims);
+
   return (
     <>
       <div className="container">
@@ -127,6 +126,7 @@ const CreateMainPage = ({
           setUpdate={setUpdate}
           setRawRingSum={setRawRingSum}
           setBladeDimensionSum={setBladeDimensionSum}
+          bladeDimensionSum={bladeDimensionSum}
           bladeDimension={bladeDimension}
           startRingLabel={startRingLabel}
           startRingSum={startRingSum}
