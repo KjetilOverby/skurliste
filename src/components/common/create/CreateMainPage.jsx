@@ -25,7 +25,7 @@ const CreateMainPage = ({
   const [startRingsPanel, setStartRingsPanel] = useState(false);
   const [startRingLabel, setStartRingLabel] = useState();
   const [startRingSum, setStartRingSum] = useState(0);
-  const [ringShims, setRingShims] = useState();
+  const [ringShims, setRingShims] = useState({});
   const [ringShims2, setRingShims2] = useState();
 
   //raw rings
@@ -92,7 +92,7 @@ const CreateMainPage = ({
       setGreenColorWhenZero2("");
     }
   });
-  console.log("rinshims2: " + ringShims2);
+  console.log(ringShims);
   return (
     <>
       <div className="container">

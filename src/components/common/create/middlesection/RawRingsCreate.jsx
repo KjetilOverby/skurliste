@@ -23,6 +23,7 @@ const RawRingsCreate = ({
   ringShims,
   setRingShimsPanel2,
   ringShims2,
+  setRingShims,
 }) => {
   const antallPlank = rawRingsCollection.length;
   const [rawRingId, setRawRingId] = useState();
@@ -71,7 +72,7 @@ const RawRingsCreate = ({
   useEffect(() => {
     if (rawRingsCollection) {
       setFilteredObject(
-        rawRingsCollection.filter((item) => item.id === rawRingId)
+        rawRingsCollection.filter((item) => item.input === rawRingId)
       );
     }
   }, [rawRingId]);
@@ -83,19 +84,44 @@ const RawRingsCreate = ({
   useEffect(() => {
     if (filteredObject) {
       setFilteredObject((filteredObject[0].ring = ringShims));
+
+      if (filteredObject[1]) {
+        setFilteredObject((filteredObject[1].ring = ringShims));
+      }
+      if (filteredObject[2]) {
+        setFilteredObject((filteredObject[2].ring = ringShims));
+      }
+      if (filteredObject[3]) {
+        setFilteredObject((filteredObject[3].ring = ringShims));
+      }
+      if (filteredObject[4]) {
+        setFilteredObject((filteredObject[4].ring = ringShims));
+      }
+
       setFilteredObject(
-        rawRingsCollection.filter((item) => item.id === rawRingId)
+        rawRingsCollection.filter((item) => item.input === rawRingId)
       );
     }
   }, [ringShims, ringShims2]);
   useEffect(() => {
     if (filteredObject) {
       setFilteredObject((filteredObject[0].shims2 = ringShims2));
+      if (filteredObject[1]) {
+        setFilteredObject((filteredObject[1].shims2 = ringShims2));
+      }
+      if (filteredObject[2]) {
+        setFilteredObject((filteredObject[2].shims2 = ringShims2));
+      }
+      if (filteredObject[3]) {
+        setFilteredObject((filteredObject[3].shims2 = ringShims2));
+      }
+      if (filteredObject[4]) {
+        setFilteredObject((filteredObject[4].shims2 = ringShims2));
+      }
       setLeftPanelSlide("container-open");
     }
   }, [ringShims2]);
   console.log(filteredObject);
-  console.log(rawRingsCollection);
   return (
     <>
       <div className="container">
@@ -107,12 +133,11 @@ const RawRingsCreate = ({
               setUpdate(Math.random());
             };
             const addRingHandler = () => {
-              //setRingShims("");
               setRingShimsPanel(true);
               setStartRingsPanel(false);
               setEndringPanel(false);
               setLeftPanelSlide("container-closed");
-              setRawRingId(raw.id);
+              setRawRingId(raw.input);
               setRingShimsPanel2(false);
             };
             return (
@@ -183,17 +208,23 @@ const RawRingsCreate = ({
           .ring {
             position: absolute;
             color: black;
-            top: 8rem;
+            top: 6.5rem;
+            left: 50%;
+            transform: translateX(-50%);
           }
           .shims {
             position: absolute;
             color: black;
-            top: 9rem;
+            top: 7.5rem;
+            left: 50%;
+            transform: translateX(-50%);
           }
           .shims2 {
             position: absolute;
             color: black;
-            top: 10rem;
+            top: 8.5rem;
+            left: 50%;
+            transform: translateX(-50%);
           }
           .main-container {
             position: relative;
