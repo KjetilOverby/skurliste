@@ -9,8 +9,8 @@ const RingComponent = ({ children, color }) => {
           .container {
           }
           .ring {
-            height: 6rem;
-            width: 3rem;
+            height: 8.5rem;
+            width: 3.5rem;
             background-image: ${color};
             border-radius: 5px;
             display: grid;

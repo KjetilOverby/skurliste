@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import RingComponent from "./RingComponent";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const EndRingsCreate = ({
   endFillRingsCollection,
@@ -58,10 +59,14 @@ const EndRingsCreate = ({
                 <>
                   <RingComponent
                     key={item.id}
-                    color={"linear-gradient(to top, #d9afd9 0%, #7a979b 100%)"}
+                    color={"linear-gradient( #d7d2cc 0%, #304352 100%)"}
                   >
-                    <h4>{item.input}</h4>
-                    <button onClick={getEndFillRingsIdHandler}>X</button>
+                    <h4 className="value">{item.input}</h4>
+                    <div>bak</div>
+                    <RiDeleteBin6Line
+                      onClick={getEndFillRingsIdHandler}
+                      style={{ fontSize: "1.2rem", color: "#df7e7e" }}
+                    />
                   </RingComponent>
                 </>
               );
@@ -72,6 +77,10 @@ const EndRingsCreate = ({
         {`
           .start-fillrings-container {
             display: flex;
+          }
+          .value {
+            font-weight: 300;
+            color: #232e3d;
           }
         `}
       </style>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import RingComponent from "./RingComponent";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const StartRingsCreate = ({
   startFillRings,
@@ -60,10 +61,14 @@ const StartRingsCreate = ({
                 <>
                   <RingComponent
                     key={item.id}
-                    color={"linear-gradient(to top, #d9afd9 0%, #97d9e1 100%)"}
+                    color={"linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)"}
                   >
-                    <h4>{item.input}</h4>
-                    <button onClick={getStartFillRingsIdHandler}>X</button>
+                    <h4 className="value">{item.input}</h4>
+                    <div style={{ color: "#333" }}>foran</div>
+                    <RiDeleteBin6Line
+                      onClick={getStartFillRingsIdHandler}
+                      style={{ fontSize: "1.2rem", color: "red" }}
+                    />
                   </RingComponent>
                 </>
               );
@@ -74,6 +79,10 @@ const StartRingsCreate = ({
         {`
           .start-fillrings-container {
             display: flex;
+          }
+          .value {
+            font-weight: 300;
+            color: #232e3d;
           }
         `}
       </style>

@@ -147,7 +147,7 @@ const RawRingsCreate = ({
                   <h4 className="ring-value">{(raw.input + 1.4).toFixed(1)}</h4>
                   <MdAddCircle
                     style={{
-                      color: "#29904b",
+                      color: "#0f663a",
                       fontSize: "1.2rem",
                       cursor: "pointer",
                     }}
@@ -202,27 +202,27 @@ const RawRingsCreate = ({
             color: black;
           }
           .ring-value {
-            font-weight: 100;
-            color: black;
+            font-weight: 300;
+            color: #0e3b20;
           }
           .ring {
             position: absolute;
             color: black;
-            top: 6.5rem;
+            top: 9rem;
             left: 50%;
             transform: translateX(-50%);
           }
           .shims {
             position: absolute;
             color: black;
-            top: 7.5rem;
+            top: 10rem;
             left: 50%;
             transform: translateX(-50%);
           }
           .shims2 {
             position: absolute;
             color: black;
-            top: 8.5rem;
+            top: 11rem;
             left: 50%;
             transform: translateX(-50%);
           }
