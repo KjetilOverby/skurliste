@@ -13,6 +13,7 @@ const RingList = ({
 }) => {
   const getRings = (e) => {
     setRings(e.target.innerHTML);
+
     if (!shimsMode && !shimsMode2) {
       setTimeout(() => {
         setRings("");

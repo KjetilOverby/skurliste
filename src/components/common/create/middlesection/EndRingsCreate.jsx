@@ -12,8 +12,14 @@ const EndRingsCreate = ({
   setUpdate,
   update,
   setEndRingSum,
-  reversStartRingsCollection,
 }) => {
+  const [reversedEndRIngList, setReversedEndRIngList] = useState();
+  useEffect(() => {
+    if (endFillRingsCollection) {
+      setEndFillRingsCollection(endFillRingsCollection.reverse());
+    }
+  }, [endFillRings]);
+
   useEffect(() => {
     if (endFillRingsCollection === undefined) {
       setEndFillRingsCollection(null);
@@ -27,6 +33,7 @@ const EndRingsCreate = ({
       ]);
     }
   }, [endFillRings]);
+
   useEffect(() => {
     if (endFillRingsCollection) {
       const remove = endFillRingsCollection.filter((item) => item.id !== getId);
@@ -44,15 +51,21 @@ const EndRingsCreate = ({
       );
     }
   }, [endFillRingsCollection]);
+
+  useEffect(() => {
+    if (endFillRingsCollection) {
+      setReversedEndRIngList(endFillRingsCollection.reverse());
+    }
+  });
+
   return (
     <>
       <div className="container">
         <div className="start-fillrings-container">
-          {endFillRingsCollection &&
-            endFillRingsCollection.map((item) => {
+          {reversedEndRIngList &&
+            reversedEndRIngList.map((item) => {
               const getEndFillRingsIdHandler = () => {
                 setGetId(item.id);
-
                 setUpdate(Math.random());
               };
               return (

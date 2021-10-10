@@ -13,6 +13,13 @@ const StartRingsCreate = ({
   update,
   setUpdate,
 }) => {
+  const [reversedStartRIngList, setReversedStartRIngList] = useState();
+  useEffect(() => {
+    if (startFillringsCollection) {
+      setStartFillringsCollection(startFillringsCollection.reverse());
+    }
+  }, [startFillRings]);
+
   useEffect(() => {
     if (startFillringsCollection === undefined) {
       setStartFillringsCollection(null);
@@ -47,12 +54,18 @@ const StartRingsCreate = ({
     }
   }, [startFillringsCollection]);
 
+  useEffect(() => {
+    if (startFillringsCollection) {
+      setReversedStartRIngList(startFillringsCollection.reverse());
+    }
+  });
+
   return (
     <>
       <div className="container">
         <div className="start-fillrings-container">
-          {startFillringsCollection &&
-            startFillringsCollection.map((item) => {
+          {reversedStartRIngList &&
+            reversedStartRIngList.map((item) => {
               const getStartFillRingsIdHandler = () => {
                 setGetId(item.id);
                 setUpdate(Math.random());

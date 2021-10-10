@@ -9,6 +9,7 @@ const RawInputList2 = ({
   const getRawRings = (e) => {
     if (bladeDimension.bladStamme) {
       setRawButtonValue(e.target.innerHTML);
+
       setTimeout(() => {
         setRawButtonValue("");
       }, 100);
