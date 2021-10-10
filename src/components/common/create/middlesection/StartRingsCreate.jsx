@@ -13,10 +13,12 @@ const StartRingsCreate = ({
   update,
   setUpdate,
 }) => {
+  const [newUpdate, setNewUpdate] = useState();
   useEffect(() => {
     if (startFillringsCollection) {
       setStartFillringsCollection(startFillringsCollection.reverse());
     }
+    console.log("use1");
   }, [startFillRings]);
 
   useEffect(() => {
@@ -31,7 +33,12 @@ const StartRingsCreate = ({
         },
       ]);
     }
+    setNewUpdate(Math.random());
+    console.log("use2");
   }, [startFillRings]);
+  useEffect(() => {
+    startFillringsCollection;
+  }, [newUpdate]);
 
   useEffect(() => {
     if (startFillringsCollection) {
@@ -85,7 +92,6 @@ const StartRingsCreate = ({
         {`
           .start-fillrings-container {
             display: flex;
-            flex-direction: row-reverse;
           }
           .value {
             font-weight: 300;

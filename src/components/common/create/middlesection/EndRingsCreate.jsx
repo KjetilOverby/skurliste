@@ -13,6 +13,7 @@ const EndRingsCreate = ({
   update,
   setEndRingSum,
 }) => {
+  const [newUpdate, setNewUpdate] = useState();
   useEffect(() => {
     if (endFillRingsCollection) {
       setEndFillRingsCollection(endFillRingsCollection.reverse());
@@ -31,7 +32,11 @@ const EndRingsCreate = ({
         },
       ]);
     }
+    setNewUpdate(Math.random());
   }, [endFillRings]);
+  useEffect(() => {
+    endFillRingsCollection;
+  }, [newUpdate]);
 
   useEffect(() => {
     if (endFillRingsCollection) {
@@ -83,7 +88,6 @@ const EndRingsCreate = ({
         {`
           .start-fillrings-container {
             display: flex;
-            flex-direction: row-reverse;
           }
           .value {
             font-weight: 300;
