@@ -19,22 +19,31 @@ const Postoppsett = ({
   deletePostHandler,
 }) => {
   const { user, isAuthenticated } = useAuth0();
+
   return (
     <>
       <div className="container">
         <div className="info-box">
           <Link href="/skurliste">
-            <button className="btn">Tilbake</button>
+            <button className="btn">Skurliste</button>
           </Link>
           <Link href="/postarkiv">
             <button className="btn">Søk i postarkivet</button>
           </Link>
           <Link href="/">
-            <button className="btn">Startsiden</button>
+            <button className="btn ">Startsiden</button>
           </Link>
-          <button onClick={() => setOpenDeleteModal(true)} className="btn">
-            Slett denn posten
-          </button>
+        </div>
+        <div className="info-box2">
+          {user && user.sub === process.env.USER_SUB && (
+            <button
+              onClick={() => setOpenDeleteModal(true)}
+              className="btn btn-delete"
+            >
+              Slett denn posten
+            </button>
+          )}
+          <p className="info-text">Opprettelsesdato: </p>
         </div>
         <div className="headerContainer">
           <h1 className="header">{headerPostOppsett}</h1>
@@ -145,12 +154,39 @@ const Postoppsett = ({
             flex-direction: column;
             padding: 2rem;
           }
+          .info-box2 {
+            color: #bdbdbd;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            bottom: 0;
+          }
+          .info-text {
+            font-size: 0.8rem;
+          }
           .btn {
             height: 3rem;
-            width: 10rem;
+            width: 12rem;
             border: none;
-            background-color: #333;
+
             margin-bottom: 1rem;
+            transition: background 0.3s, color 0.3s;
+            background: linear-gradient(120deg, #222 50%, #4a6a76 50%);
+            background-size: 220%;
+            color: #aaa;
+          }
+          .btn:hover {
+            cursor: pointer;
+            background-position: 100%;
+          }
+          .btn-delete {
+            transition: background 0.3s, color 0.3s;
+            background: linear-gradient(120deg, #222 50%, #a23 50%);
+            background-size: 220%;
+          }
+          .btn-delete:hover {
+            background-position: 100%;
           }
           @keyframes move {
             0% {
