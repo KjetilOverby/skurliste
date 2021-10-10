@@ -13,7 +13,6 @@ const EndRingsCreate = ({
   update,
   setEndRingSum,
 }) => {
-  const [reversedEndRIngList, setReversedEndRIngList] = useState();
   useEffect(() => {
     if (endFillRingsCollection) {
       setEndFillRingsCollection(endFillRingsCollection.reverse());
@@ -52,18 +51,12 @@ const EndRingsCreate = ({
     }
   }, [endFillRingsCollection]);
 
-  useEffect(() => {
-    if (endFillRingsCollection) {
-      setReversedEndRIngList(endFillRingsCollection.reverse());
-    }
-  });
-
   return (
     <>
       <div className="container">
         <div className="start-fillrings-container">
-          {reversedEndRIngList &&
-            reversedEndRIngList.map((item) => {
+          {endFillRingsCollection &&
+            endFillRingsCollection.map((item) => {
               const getEndFillRingsIdHandler = () => {
                 setGetId(item.id);
                 setUpdate(Math.random());
@@ -90,6 +83,7 @@ const EndRingsCreate = ({
         {`
           .start-fillrings-container {
             display: flex;
+            flex-direction: row-reverse;
           }
           .value {
             font-weight: 300;
