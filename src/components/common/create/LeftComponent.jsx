@@ -17,6 +17,7 @@ const LeftComponent = ({
     setStartRingsPanel(true);
     setRingShimsPanel(false);
     setRingShimsPanel2(false);
+    setEndringPanel(false);
   };
   const endRingInput = () => {
     setLeftPanelSlide("container-closed");

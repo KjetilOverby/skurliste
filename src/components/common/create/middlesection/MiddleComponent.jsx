@@ -59,7 +59,7 @@ const MiddleComponent = ({
     bladeDimension,
     rawRingsCollection,
   ]);
-
+  console.log(startRingLabel);
   return (
     <>
       <div className="container">
@@ -69,7 +69,8 @@ const MiddleComponent = ({
               {rawRingsCollection.length}x{plankeTykkelse}
               {prosentValg}
               <span>
-                {(Number(bladeDimension.bladStamme) + 1.4).toFixed(1)}
+                {bladeDimension.bladStamme &&
+                  (Number(bladeDimension.bladStamme) + 1.4).toFixed(1)}
               </span>
               {SpesiellePlankeTykkelser}
             </h1>
@@ -123,14 +124,36 @@ const MiddleComponent = ({
             reversStartRingsCollection={reversStartRingsCollection}
           />
         </div>
-        <div className={`label-container-left ${greenColorWhenZero}`}>
-          <h3>{startRingLabel}</h3>
-          {/* <p>{startRingSum}</p>
+        {startRingLabel < 200 ? (
+          <>
+            <div className={`label-container-left ${greenColorWhenZero}`}>
+              <h3>{startRingLabel}</h3>
+              {/* <p>{startRingSum}</p>
           <LabelHeaderCalc rawRingsCollection={rawRingsCollection} /> */}
-        </div>
-        <div className={`label-container-right ${greenColorWhenZero2}`}>
-          <h3>{endRingLabel}</h3>
-        </div>
+            </div>
+            <div className={`label-container-right ${greenColorWhenZero2}`}>
+              <h3>{endRingLabel}</h3>
+            </div>
+          </>
+        ) : (
+          <div className="no-input-container">
+            <p
+              style={{
+                color: "#616161",
+                fontWeight: "100",
+                marginLeft: "2rem",
+              }}
+            >
+              Start med å velge sagbladtykkelse.
+            </p>
+
+            <img
+              className="img"
+              src="https://c8.alamy.com/zooms/9/f69edd8580574e05865a8287aa72cbf6/ja8ckb.jpg"
+              alt=""
+            />
+          </div>
+        )}
       </div>
       <style jsx>{`
         .blade {
@@ -164,6 +187,16 @@ const MiddleComponent = ({
           grid-area: post;
           display: flex;
           justify-content: center;
+        }
+        .no-input-container {
+          grid-area: post;
+          display: flex;
+          justify-content: center;
+          width: ;
+        }
+        .img {
+          height: 15rem;
+          margin-left: 2rem;
         }
         .label-container-right {
           grid-area: label2;

@@ -129,7 +129,6 @@ const RawRingsCreate = ({
           rawRingsCollection.map((raw) => {
             const getRawRingsIdHandler = () => {
               setGetId(raw.id);
-
               setUpdate(Math.random());
             };
             const addRingHandler = () => {

@@ -7,10 +7,15 @@ const TopComponent = ({
   setProsentValg,
   setPlankeTykkelse,
   setSpesiellePlankeTykkelser,
+  bladeDimension,
 }) => {
   return (
     <>
       <div className="container">
+        <div>
+          <h1 className="header">Post kalkulator</h1>
+          <p className="sub-header">Lag nye poster.</p>
+        </div>
         <div>
           <div className="blade-select-container">
             <BladeSelectComponent setBladeDimension={setBladeDimension} />
@@ -35,6 +40,14 @@ const TopComponent = ({
             />
           </div>
         </div>
+        {bladeDimension.bladStamme && (
+          <div className="blade-container">
+            <p>Sagbladtykkelse</p>
+            <h1 className="blade">
+              {(Number(bladeDimension.bladStamme) + 1.4).toFixed(1)}{" "}
+            </h1>
+          </div>
+        )}
       </div>
       <style jsx>
         {`
@@ -43,6 +56,14 @@ const TopComponent = ({
             background: #ffffff;
             padding: 2rem;
             display: flex;
+          }
+          .header {
+            margin-right: 5rem;
+            color: #60816f;
+            font-weight: 300;
+          }
+          .sub-header {
+            color: #60816f;
           }
           .input-container {
             margin-left: 1rem;
@@ -53,6 +74,15 @@ const TopComponent = ({
             font-size: 1rem;
             margin-bottom: 1rem;
             border: none;
+          }
+          .blade {
+            font-weight: 300;
+            font-size: 4rem;
+            color: #e66610;
+          }
+          .blade-container {
+            margin-left: 3rem;
+            color: #60816f;
           }
         `}
       </style>

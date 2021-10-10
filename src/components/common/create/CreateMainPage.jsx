@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import LeftComponent from "./LeftComponent";
 import MiddleComponent from "./middlesection/MiddleComponent";
 import RingListEnd from "./middlesection/RingListEnd";
-import RawInputList from "./RawInputList";
+import RawInputList from "./RawInputList2";
 import RingList from "./RingList";
 import TopComponent from "./topsection/TopComponent";
 
@@ -45,7 +45,7 @@ const CreateMainPage = ({
   const sleeveCenterEnd = 217.2;
   const [greenColorWhenZero, setGreenColorWhenZero] = useState("");
   const [greenColorWhenZero2, setGreenColorWhenZero2] = useState("");
-  const [prosentValg, setProsentValg] = useState("-18%-");
+  const [prosentValg, setProsentValg] = useState("");
   const [plankeTykkelse, setPlankeTykkelse] = useState();
   const [SpesiellePlankeTykkelser, setSpesiellePlankeTykkelser] = useState();
   const [endringPanel, setEndringPanel] = useState(false);
@@ -100,6 +100,7 @@ const CreateMainPage = ({
           setProsentValg={setProsentValg}
           setPlankeTykkelse={setPlankeTykkelse}
           setSpesiellePlankeTykkelser={setSpesiellePlankeTykkelser}
+          bladeDimension={bladeDimension}
         />
         <LeftComponent
           setLeftPanelSlide={setLeftPanelSlide}
@@ -152,6 +153,7 @@ const CreateMainPage = ({
         <RawInputList
           leftPanelSlide={leftPanelSlide}
           setRawButtonValue={setRawButtonValue}
+          bladeDimension={bladeDimension}
         />
         {startRingsPanel && (
           <RingList
