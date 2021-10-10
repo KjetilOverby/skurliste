@@ -14,6 +14,7 @@ const PostarkivStartPage = ({
   setEndRingsPostOppsett,
   setBladstamme,
   rawRingsPostOppsett,
+  setGetIdforDelete,
 }) => {
   return (
     <>
@@ -46,6 +47,7 @@ const PostarkivStartPage = ({
             setEndRingsPostOppsett={setEndRingsPostOppsett}
             setBladstamme={setBladstamme}
             rawRingsPostOppsett={rawRingsPostOppsett}
+            setGetIdforDelete={setGetIdforDelete}
           />
         </div>
       </div>

@@ -13,9 +13,10 @@ const SearchComponent = ({
   setEndRingsPostOppsett,
   setBladstamme,
   rawRingsPostOppsett,
+  setGetIdforDelete,
 }) => {
   const [searchresult, setSearchresult] = useState();
-  console.log(getID);
+
   const getSearchHandler = (e) => {
     setGetSearch(e.target.value);
   };
@@ -54,10 +55,10 @@ const SearchComponent = ({
                 setEndRingsPostOppsett(result.endRings);
                 setBladstamme(result.blades.bladStamme);
                 router.push("/postoppsett");
+                setGetIdforDelete(result._id);
               };
               const onMouseOverHandler = () => {
                 setGetID(result._id);
-
                 setRawRingsPostOppsett(result.rawInput);
               };
               return (

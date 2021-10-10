@@ -13,6 +13,7 @@ const Postarkiv = ({
   rawRingsPostOppsett,
   setEndRingsPostOppsett,
   setBladstamme,
+  setGetIdforDelete,
 }) => {
   const [postarkiv, setPostarkiv] = useState();
   const [getSearch, setGetSearch] = useState();
@@ -42,6 +43,7 @@ const Postarkiv = ({
           rawRingsPostOppsett={rawRingsPostOppsett}
           setEndRingsPostOppsett={setEndRingsPostOppsett}
           setBladstamme={setBladstamme}
+          setGetIdforDelete={setGetIdforDelete}
         />
       </div>
       <style jsx>

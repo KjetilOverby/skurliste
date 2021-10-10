@@ -1,11 +1,16 @@
 import React from "react";
 
-const ModalComponent = ({ setOpenDeleteModal, deleteFieldHandler, klasse }) => {
+const ModalComponent = ({
+  setOpenDeleteModal,
+  deleteHandler,
+  klasse,
+  header,
+}) => {
   return (
     <>
       <div className="container">
         <div className="modal-box">
-          <h2>Slette valgt post?</h2>
+          <h2>{header}?</h2>
           <div className="btn-box">
             <button
               className="btn cancelBtn"
@@ -13,7 +18,7 @@ const ModalComponent = ({ setOpenDeleteModal, deleteFieldHandler, klasse }) => {
             >
               Avbryt
             </button>
-            <button className="btn deleteBtn" onClick={deleteFieldHandler}>
+            <button className="btn deleteBtn" onClick={deleteHandler}>
               Slett
             </button>
           </div>
@@ -43,6 +48,7 @@ const ModalComponent = ({ setOpenDeleteModal, deleteFieldHandler, klasse }) => {
             background: #333333be;
             display: grid;
             place-items: center;
+            z-index: 9999;
           }
           .deleteBtn {
             background: red;

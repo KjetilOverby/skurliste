@@ -191,6 +191,7 @@ const CreateMainPage = ({
             shimsMode={true}
             setRingShimsPanel={setRingShimsPanel}
             setRingShimsPanel2={setRingShimsPanel2}
+            bladeDimension={bladeDimension}
           />
         )}
         {ringShimsPanel2 && (
@@ -199,6 +200,7 @@ const CreateMainPage = ({
             backgroundBtn="#c71616"
             setRings={setRingShims2}
             shimsMode2={true}
+            bladeDimension={bladeDimension}
           />
         )}
       </div>

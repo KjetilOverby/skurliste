@@ -71,8 +71,9 @@ const Rediger = ({
           {openDeleteModal && (
             <ModalComponent
               setOpenDeleteModal={setOpenDeleteModal}
-              deleteFieldHandler={deleteFieldHandler}
+              deleteHandler={deleteFieldHandler}
               klasse={klasse}
+              header="Slette valgt post"
             />
           )}
           <div className="inputContainer">

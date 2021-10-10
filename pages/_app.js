@@ -3,12 +3,14 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useRouter } from "next/router";
 
 const api = axios.create({
   baseURL: process.env.api,
 });
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
   const [getUser, setGetUser] = useState();
   const { user, isAuthenticated } = useAuth0();
   const [randomNumber, setRandomNumber] = useState(
@@ -84,6 +86,8 @@ function MyApp({ Component, pageProps }) {
   const [bladstamme, setBladstamme] = useState();
 
   const [dated, setDated] = useState();
+
+  const [getIdforDelete, setGetIdforDelete] = useState();
 
   // Rediger
   const [treslag, setTreslag] = useState();
@@ -363,6 +367,24 @@ function MyApp({ Component, pageProps }) {
         }
       });
   };
+  const deletePostHandler = () => {
+    api
+      .delete(
+        `/api/postarkiv/deletePost/?del=${getIdforDelete}&user=${getUser.sub}`
+      )
+      .then((res) => {
+        // setUpdate(Math.random());
+        router.push("/postarkiv");
+        setOpenDeleteModal(false);
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    router.push("/postarkiv");
+    setOpenDeleteModal(false);
+  };
+
   return (
     <Auth0Provider
       domain={domain}
@@ -448,6 +470,8 @@ function MyApp({ Component, pageProps }) {
         editModeColor={editModeColor}
         setEditModeColor={setEditModeColor}
         setGetUser={setGetUser}
+        setGetIdforDelete={setGetIdforDelete}
+        deletePostHandler={deletePostHandler}
       />
     </Auth0Provider>
   );

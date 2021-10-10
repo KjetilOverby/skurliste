@@ -4,6 +4,8 @@ import Fillrings from "../src/components/poster/Fillrings";
 import RawRings from "../src/components/poster/RawRings";
 import Users from "../utils/users";
 import { useAuth0 } from "@auth0/auth0-react";
+import Link from "next/link";
+import ModalComponent from "../src/components/common/ModalComponent";
 
 const Postoppsett = ({
   headerPostOppsett,
@@ -12,11 +14,28 @@ const Postoppsett = ({
   endRingsPostOppsett,
   bladstamme,
   background,
+  openDeleteModal,
+  setOpenDeleteModal,
+  deletePostHandler,
 }) => {
   const { user, isAuthenticated } = useAuth0();
   return (
     <>
       <div className="container">
+        <div className="info-box">
+          <Link href="/skurliste">
+            <button className="btn">Tilbake</button>
+          </Link>
+          <Link href="/postarkiv">
+            <button className="btn">Søk i postarkivet</button>
+          </Link>
+          <Link href="/">
+            <button className="btn">Startsiden</button>
+          </Link>
+          <button onClick={() => setOpenDeleteModal(true)} className="btn">
+            Slett denn posten
+          </button>
+        </div>
         <div className="headerContainer">
           <h1 className="header">{headerPostOppsett}</h1>
         </div>
@@ -68,6 +87,13 @@ const Postoppsett = ({
             </p>
           </div>
         )}
+        {openDeleteModal && (
+          <ModalComponent
+            header="Slett denne posten"
+            setOpenDeleteModal={setOpenDeleteModal}
+            deleteHandler={deletePostHandler}
+          />
+        )}
       </div>
       <style jsx>
         {`
@@ -111,6 +137,20 @@ const Postoppsett = ({
             color: #bdbdbd;
             animation: move 4s forwards;
             animation-timing-function: linear;
+          }
+          .info-box {
+            color: #bdbdbd;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+          }
+          .btn {
+            height: 3rem;
+            width: 10rem;
+            border: none;
+            background-color: #333;
+            margin-bottom: 1rem;
           }
           @keyframes move {
             0% {

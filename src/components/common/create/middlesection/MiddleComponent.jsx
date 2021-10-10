@@ -150,7 +150,7 @@ const MiddleComponent = ({
               )}
               {!user && (
                 <div className="not-loggedin-container">
-                  Du er ikke inlogget, post kan ikke lagres
+                  Du er ikke innlogget, posten kan ikke lagres
                 </div>
               )}
             </div>
