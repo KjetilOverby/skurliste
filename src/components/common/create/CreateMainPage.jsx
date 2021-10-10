@@ -17,13 +17,22 @@ const CreateMainPage = ({
   bladeDimension,
   setBladeDimension,
   setHeaderString,
-  reversStartRingsCollection,
+  prosentValg,
+  setProsentValg,
+  setPlankeTykkelse,
+  plankeTykkelse,
+  startRingLabel,
+  setStartRingLabel,
+  endRingLabel,
+  setEndRingLabel,
+
+  saveConfirmed,
 }) => {
   const [startFillRings, setStartFillRings] = useState();
   const [rawButtonValue, setRawButtonValue] = useState();
   const [leftPanelSlide, setLeftPanelSlide] = useState("container-open");
   const [startRingsPanel, setStartRingsPanel] = useState(false);
-  const [startRingLabel, setStartRingLabel] = useState();
+
   const [startRingSum, setStartRingSum] = useState(0);
   const [ringShims, setRingShims] = useState({});
   const [ringShims2, setRingShims2] = useState();
@@ -37,7 +46,7 @@ const CreateMainPage = ({
   // Endrings
   const [endRingSum, setEndRingSum] = useState(0);
   const [endFillRings, setEndFillRings] = useState();
-  const [endRingLabel, setEndRingLabel] = useState();
+
   const [getId, setGetId] = useState();
   const [update, setUpdate] = useState();
   const halfBlade = bladeDimension.bladStamme / 2;
@@ -45,14 +54,12 @@ const CreateMainPage = ({
   const sleeveCenterEnd = 217.2;
   const [greenColorWhenZero, setGreenColorWhenZero] = useState("");
   const [greenColorWhenZero2, setGreenColorWhenZero2] = useState("");
-  const [prosentValg, setProsentValg] = useState("");
-  const [plankeTykkelse, setPlankeTykkelse] = useState();
+
   const [SpesiellePlankeTykkelser, setSpesiellePlankeTykkelser] = useState();
   const [endringPanel, setEndringPanel] = useState(false);
 
   const getVigg = (rawRingsCollection.length * 1.4) / 2;
-  console.log(bladeDimensionSum);
-  // RawRing calculations
+
   useEffect(() => {
     setBladeAndRawringSum(
       (
@@ -140,7 +147,6 @@ const CreateMainPage = ({
           plankeTykkelse={plankeTykkelse}
           SpesiellePlankeTykkelser={SpesiellePlankeTykkelser}
           setHeaderString={setHeaderString}
-          reversStartRingsCollection={reversStartRingsCollection}
           setRingShimsPanel={setRingShimsPanel}
           setStartRingsPanel={setStartRingsPanel}
           setEndringPanel={setEndringPanel}
@@ -149,6 +155,7 @@ const CreateMainPage = ({
           setRingShimsPanel2={setRingShimsPanel2}
           setRingShims={setRingShims}
           ringShims2={ringShims2}
+          saveConfirmed={saveConfirmed}
         />
         <RawInputList
           leftPanelSlide={leftPanelSlide}

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const LeftComponent = ({
   setLeftPanelSlide,
@@ -9,6 +10,7 @@ const LeftComponent = ({
   setRingShimsPanel,
   setRingShimsPanel2,
 }) => {
+  const { user, isAuthenticated } = useAuth0();
   const rawInputBtn = () => {
     setLeftPanelSlide("container-open");
   };
@@ -38,9 +40,11 @@ const LeftComponent = ({
         <button onClick={endRingInput} className="btn">
           Legg til utfylling bak
         </button>
-        <button onClick={saveCreatedPost} className="btn">
-          Lagre post
-        </button>
+        {user && user.sub === process.env.USER_SUB && (
+          <button onClick={saveCreatedPost} className="btn">
+            Lagre post
+          </button>
+        )}
         <hr style={{ width: "80%", color: "#f8f8f899" }} />
         <Link href="/">
           <button className="btn link">Startsiden</button>

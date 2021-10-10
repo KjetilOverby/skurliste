@@ -28,6 +28,9 @@ const PostarkivStartPage = ({
           <Link href="/skurliste">
             <button className="button">Skurliste</button>
           </Link>
+          <Link href="/create">
+            <button className="button">Lag ny post</button>
+          </Link>
         </div>
         <div className="search-component-container">
           <div className="circle"></div>

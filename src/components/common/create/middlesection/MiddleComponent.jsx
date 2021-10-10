@@ -4,6 +4,7 @@ import EndRingsCreate from "./EndRingsCreate";
 import LabelHeaderCalc from "./LabelHeaderCalc";
 import RawRingsCreate from "./RawRingsCreate";
 import StartRingsCreate from "./StartRingsCreate";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const MiddleComponent = ({
   startFillRings,
@@ -34,7 +35,6 @@ const MiddleComponent = ({
   plankeTykkelse,
   SpesiellePlankeTykkelser,
   setHeaderString,
-  reversStartRingsCollection,
   setRingShimsPanel,
   setStartRingsPanel,
   setEndringPanel,
@@ -43,7 +43,18 @@ const MiddleComponent = ({
   setRingShimsPanel2,
   setRingShims,
   ringShims2,
+  saveConfirmed,
 }) => {
+  const { user, isAuthenticated } = useAuth0();
+  const [saveConfirmedDisplay, setSaveConfirmedDisplay] = useState(false);
+  useEffect(() => {
+    if (saveConfirmed) {
+      setSaveConfirmedDisplay(true);
+    }
+    setTimeout(() => {
+      setSaveConfirmedDisplay(false);
+    }, 5000);
+  }, [saveConfirmed]);
   useEffect(() => {
     setHeaderString(
       `${rawRingsCollection.length}x${plankeTykkelse}${prosentValg}${(
@@ -110,7 +121,7 @@ const MiddleComponent = ({
             setRingShims={setRingShims}
             ringShims2={ringShims2}
           />
-          {/* <div className="blade"></div> */}
+
           <EndRingsCreate
             endFillRingsCollection={endFillRingsCollection}
             setEndFillRingsCollection={setEndFillRingsCollection}
@@ -121,7 +132,6 @@ const MiddleComponent = ({
             setUpdate={setUpdate}
             update={update}
             setEndRingSum={setEndRingSum}
-            reversStartRingsCollection={reversStartRingsCollection}
           />
         </div>
         {startRingLabel < 200 ? (
@@ -133,6 +143,16 @@ const MiddleComponent = ({
             </div>
             <div className={`label-container-right ${greenColorWhenZero2}`}>
               <h3>{endRingLabel}</h3>
+              {saveConfirmedDisplay && (
+                <div className="saved-confirmed-container">
+                  <h1 className="saved-confirmed-text">{saveConfirmed}</h1>
+                </div>
+              )}
+              {!user && (
+                <div className="not-loggedin-container">
+                  Du er ikke inlogget, post kan ikke lagres
+                </div>
+              )}
             </div>
           </>
         ) : (
@@ -203,6 +223,7 @@ const MiddleComponent = ({
           display: flex;
           justify-content: center;
           color: red;
+          position: relative;
         }
         .label-container-left {
           grid-area: label1;
@@ -212,6 +233,25 @@ const MiddleComponent = ({
         }
         .green {
           color: #479947;
+        }
+        .saved-confirmed-container {
+          background-color: #73cc7f;
+          position: absolute;
+          padding: 0.5rem;
+          border-radius: 5px;
+          color: #62885d;
+          top: 5rem;
+        }
+        .saved-confirmed-text {
+          font-weight: 300;
+        }
+        .not-loggedin-container {
+          background-color: #cc7373;
+          position: absolute;
+          padding: 0.5rem;
+          border-radius: 5px;
+          color: #684242;
+          top: 5rem;
         }
         span {
           color: #d35a22;
