@@ -14,7 +14,7 @@ const RawInputList2 = ({
         setRawButtonValue("");
       }, 100);
     } else {
-      alert("Du må legge inn bladtykkelse før du kan legge in råmål");
+      alert("Du må legge inn bladtykkelse før du kan legge inn råmål");
     }
   };
   return (
@@ -31,67 +31,76 @@ const RawInputList2 = ({
           </div>
           <div className="table-container">
             <table>
-              <td>
-                {raw.map((item) => {
-                  return (
-                    <p key={item.id} className="nom nominell">
-                      {item.nom}
-                    </p>
-                  );
-                })}
-              </td>
-              <td>
-                {raw.map((item) => {
-                  return (
-                    <p
-                      onClick={getRawRings}
-                      key={item.id}
-                      className="nom nom18"
-                    >
-                      {item.r18}
-                    </p>
-                  );
-                })}
-              </td>
-              <td>
-                {raw.map((item) => {
-                  return (
-                    <p
-                      onClick={getRawRings}
-                      key={item.id}
-                      className="nom nom12"
-                    >
-                      {item.r12}
-                    </p>
-                  );
-                })}
-              </td>
-              <td>
-                {raw.map((item) => {
-                  return (
-                    <p
-                      onClick={getRawRings}
-                      key={item.id}
-                      className="nom nom12"
-                    >
-                      {item.r12s}
-                    </p>
-                  );
-                })}
-              </td>
-              <td>
-                {raw.map((item) => {
-                  return (
-                    <p
-                      onClick={getRawRings}
-                      key={item.id}
-                      className="nom nom12"
-                    >
-                      {item.r12s1}
-                    </p>
-                  );
-                })}
-              </td>
+              <tbody>
+                <tr>
+                  <th className="nominell">nom</th>
+                  <th className="nom18">18%</th>
+                  <th className="nom12">12%</th>
+                </tr>
+                <tr>
+                  <td>
+                    {raw.map((item) => {
+                      return (
+                        <p key={item.id} className="nom nominell">
+                          {item.nom}
+                        </p>
+                      );
+                    })}
+                  </td>
+                  <td>
+                    {raw.map((item) => {
+                      return (
+                        <p
+                          onClick={getRawRings}
+                          key={item.id}
+                          className="nom nom18"
+                        >
+                          {item.r18}
+                        </p>
+                      );
+                    })}
+                  </td>
+                  <td>
+                    {raw.map((item) => {
+                      return (
+                        <p
+                          onClick={getRawRings}
+                          key={item.id}
+                          className="nom nom12"
+                        >
+                          {item.r12}
+                        </p>
+                      );
+                    })}
+                  </td>
+                  <td>
+                    {raw.map((item) => {
+                      return (
+                        <p
+                          onClick={getRawRings}
+                          key={item.id}
+                          className="nom nom12"
+                        >
+                          {item.r12s}
+                        </p>
+                      );
+                    })}
+                  </td>
+                  <td>
+                    {raw.map((item) => {
+                      return (
+                        <p
+                          onClick={getRawRings}
+                          key={item.id}
+                          className="nom nom12"
+                        >
+                          {item.r12s1}
+                        </p>
+                      );
+                    })}
+                  </td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
@@ -101,15 +110,18 @@ const RawInputList2 = ({
           .container {
           }
           .table-container {
-            background-color: #b5cfb9;
+            background-color: #bed8c8;
+            border-radius: 5px
           }
 
           td {
-            border: 1px solid #333;
+           
+           
           }
           p {
-            border: 1px solid #333;
+           
             padding: 5px;
+            border-radius: 5px
           }
           .main-container {
             grid-area: right;
@@ -119,7 +131,7 @@ const RawInputList2 = ({
             overflow: scroll;
             height: 100vh;
             padding-top: 1rem;
-            padding:  2.5rem;
+            padding:  2.8rem;
           }
           .container {
             display: flex;
@@ -144,7 +156,7 @@ const RawInputList2 = ({
           .list-header {
             color: #307dc5;
             font-weig#a34949d;
-            border-bottom: 1px solid #333;
+           
           }
           .nom {
             background-color: #ffffff;
@@ -153,7 +165,7 @@ const RawInputList2 = ({
             width: 3rem;
             display: grid;
             place-items: center;
-            border-bottom: 1px solid #333;
+           
           }
           .nom18 {
             color: #3771df;

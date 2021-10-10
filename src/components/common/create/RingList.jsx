@@ -10,17 +10,24 @@ const RingList = ({
   shimsMode2,
   setRingShimsPanel,
   setRingShimsPanel2,
+  bladeDimension = { bladeDimension },
 }) => {
   const getRings = (e) => {
-    setRings(e.target.innerHTML);
+    if (bladeDimension.bladStamme) {
+      setRings(e.target.innerHTML);
 
-    if (!shimsMode && !shimsMode2) {
-      setTimeout(() => {
-        setRings("");
-      }, 100);
-    } else if (shimsMode) {
-      setRingShimsPanel2(true);
-      setRingShimsPanel(false);
+      if (!shimsMode && !shimsMode2) {
+        setTimeout(() => {
+          setRings("");
+        }, 100);
+      } else if (shimsMode) {
+        setRingShimsPanel2(true);
+        setRingShimsPanel(false);
+      }
+    } else {
+      alert(
+        "Du må legge inn bladtykkelse før du kan legge inn utfyllingsringer"
+      );
     }
   };
   return (

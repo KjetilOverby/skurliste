@@ -171,6 +171,7 @@ const CreateMainPage = ({
             setStartFillringsCollection={setStartFillringsCollection}
             header="Utfylling foran"
             backgroundBtn="#445766"
+            bladeDimension={bladeDimension}
           />
         )}
         {endringPanel && (
@@ -179,6 +180,7 @@ const CreateMainPage = ({
             leftPanelSlide={leftPanelSlide}
             header="Utfylling bak"
             backgroundBtn="#4b6d52"
+            bladeDimension={bladeDimension}
           />
         )}
         {ringShimsPanel && (

@@ -23,7 +23,6 @@ const RawRingsCreate = ({
   ringShims,
   setRingShimsPanel2,
   ringShims2,
-  setRingShims,
 }) => {
   const antallPlank = rawRingsCollection.length;
   const [rawRingId, setRawRingId] = useState();
@@ -76,10 +75,6 @@ const RawRingsCreate = ({
       );
     }
   }, [rawRingId]);
-
-  // const ringValueHandler = () => {
-  //   setFilteredObject((filteredObject[0].ring = 50));
-  // };
 
   useEffect(() => {
     if (filteredObject) {

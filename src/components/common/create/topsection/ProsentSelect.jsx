@@ -8,7 +8,7 @@ const ProsentSelect = ({ setProsentValg }) => {
           className="select"
           onChange={(e) => setProsentValg(e.target.value)}
         >
-          <option className="option" value="">
+          <option className="option" value="" selected disabled hidden>
             Velg prosent
           </option>
           <option className="option" value="-18%-">

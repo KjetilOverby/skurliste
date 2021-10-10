@@ -8,7 +8,7 @@ const BladeSelectComponent = ({ setBladeDimension }) => {
           className="select"
           onChange={(e) => setBladeDimension({ bladStamme: e.target.value })}
         >
-          <option className="option" value="">
+          <option className="option" value="" selected disabled hidden>
             Velg sagblad
           </option>
           <option className="option" value={2.2}>
