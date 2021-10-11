@@ -8,7 +8,11 @@ const RawInputList2 = ({
 }) => {
   const getRawRings = (e) => {
     if (bladeDimension.bladStamme) {
-      setRawButtonValue(e.target.innerHTML);
+      if (e.target.innerHTML === "-") {
+        setRawButtonValue(null);
+      } else {
+        setRawButtonValue(e.target.innerHTML);
+      }
 
       setTimeout(() => {
         setRawButtonValue("");

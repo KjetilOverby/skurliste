@@ -22,6 +22,9 @@ const Create = () => {
 
   const [saveConfirmed, setSaveConfirmed] = useState();
 
+  const [postArkivCheck, setPostArkivCheck] = useState();
+  const [headerDuplicate, setHeaderDuplicate] = useState();
+
   const { user, isAuthenticated } = useAuth0();
 
   const saveCreatedPost = () => {
@@ -33,6 +36,8 @@ const Create = () => {
       alert("Utfylling foran er ikke riktig.");
     } else if (endRingLabel > 0.05 || endRingLabel < -0.05) {
       alert("Utfylling bak er ikke riktig.");
+    } else if (headerDuplicate.includes(true)) {
+      alert("Denne posten finnes allerede");
     } else {
       api
         .post(`/api/postarkiv/save_created_post?user=${user.sub}`, {
@@ -52,6 +57,29 @@ const Create = () => {
         });
     }
   };
+  useEffect(() => {
+    try {
+      api.get(`/api/postarkiv/post_btn_search`).then((res) => {
+        setPostArkivCheck(res.data.data);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+  useEffect(() => {
+    if (postArkivCheck) {
+      setHeaderDuplicate(
+        postArkivCheck.map((item) => item.header === String(headerString))
+      );
+    }
+  }, [
+    bladeDimension,
+    rawRingsCollection,
+    prosentValg,
+    plankeTykkelse,
+    headerString,
+  ]);
+
   return (
     <>
       <div className="container">
@@ -75,6 +103,7 @@ const Create = () => {
           setStartRingLabel={setStartRingLabel}
           endRingLabel={endRingLabel}
           setEndRingLabel={setEndRingLabel}
+          headerDuplicate={headerDuplicate}
         />
       </div>
       <style jsx>

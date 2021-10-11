@@ -25,7 +25,7 @@ const CreateMainPage = ({
   setStartRingLabel,
   endRingLabel,
   setEndRingLabel,
-
+  headerDuplicate,
   saveConfirmed,
 }) => {
   const [startFillRings, setStartFillRings] = useState();
@@ -156,6 +156,7 @@ const CreateMainPage = ({
           setRingShims={setRingShims}
           ringShims2={ringShims2}
           saveConfirmed={saveConfirmed}
+          headerDuplicate={headerDuplicate}
         />
         <RawInputList
           leftPanelSlide={leftPanelSlide}

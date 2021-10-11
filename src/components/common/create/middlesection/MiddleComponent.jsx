@@ -44,6 +44,7 @@ const MiddleComponent = ({
   setRingShims,
   ringShims2,
   saveConfirmed,
+  headerDuplicate,
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const [saveConfirmedDisplay, setSaveConfirmedDisplay] = useState(false);
@@ -70,11 +71,14 @@ const MiddleComponent = ({
     bladeDimension,
     rawRingsCollection,
   ]);
-  console.log(startRingLabel);
+
   return (
     <>
       <div className="container">
         <div className="header-container">
+          {headerDuplicate && headerDuplicate.includes(true) && (
+            <p className="check">Denne overskriften er allered lagret</p>
+          )}
           {rawRingsCollection.length > 0 && (
             <h1 className="header">
               {rawRingsCollection.length}x{plankeTykkelse}
@@ -193,10 +197,19 @@ const MiddleComponent = ({
             "label1 label2"
             ". .";
         }
+        .check {
+          position: absolute;
+          top: 1.5rem;
+          background-color: #d38080;
+          padding: 0.5rem;
+          border-radius: 5px;
+          color: #fff;
+        }
         .header-container {
           grid-area: header;
           display: grid;
           place-items: center;
+          position: relative;
         }
         .header {
           font-weight: 100;
