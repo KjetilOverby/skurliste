@@ -24,6 +24,7 @@ const Create = () => {
 
   const [postArkivCheck, setPostArkivCheck] = useState();
   const [headerDuplicate, setHeaderDuplicate] = useState();
+  const [updatePostCheck, setUpdatePostCheck] = useState();
 
   const { user, isAuthenticated } = useAuth0();
 
@@ -51,6 +52,12 @@ const Create = () => {
         .then(function (response) {
           if (response.status === 200) {
             setSaveConfirmed("Posten ble lagret");
+            setTimeout(() => {
+              setUpdatePostCheck(Math.random());
+              setTimeout(() => {
+                setUpdatePostCheck(Math.random());
+              }, 2000);
+            }, 200);
           } else {
             setSaveConfirmed("Error: posten ble ikke lagret");
           }
@@ -65,7 +72,7 @@ const Create = () => {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [updatePostCheck]);
   useEffect(() => {
     if (postArkivCheck) {
       setHeaderDuplicate(
@@ -78,6 +85,7 @@ const Create = () => {
     prosentValg,
     plankeTykkelse,
     headerString,
+    updatePostCheck,
   ]);
 
   return (

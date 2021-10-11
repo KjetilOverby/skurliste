@@ -77,7 +77,7 @@ const MiddleComponent = ({
       <div className="container">
         <div className="header-container">
           {headerDuplicate && headerDuplicate.includes(true) && (
-            <p className="check">Denne overskriften er allered lagret</p>
+            <p className="check">Denne posten er allerede lagret</p>
           )}
           {rawRingsCollection.length > 0 && (
             <h1 className="header">
