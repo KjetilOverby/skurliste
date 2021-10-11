@@ -171,7 +171,7 @@ const CreateMainPage = ({
             startFillringsCollection={startFillringsCollection}
             setStartFillringsCollection={setStartFillringsCollection}
             header="Utfylling foran"
-            backgroundBtn="#445766"
+            backgroundBtn="linear-gradient(120deg, #3f5474 50%, #8dc0d8 50%)"
             bladeDimension={bladeDimension}
           />
         )}
@@ -180,14 +180,14 @@ const CreateMainPage = ({
             setRings={setEndFillRings}
             leftPanelSlide={leftPanelSlide}
             header="Utfylling bak"
-            backgroundBtn="#4b6d52"
+            backgroundBtn="linear-gradient(120deg, #3f644d 50%, #87dfb6 50%)"
             bladeDimension={bladeDimension}
           />
         )}
         {ringShimsPanel && (
           <RingList
             header="Legg til Ring"
-            backgroundBtn="#c79816"
+            backgroundBtn="linear-gradient(120deg, #b4601a 50%, #eecdc0 50%)"
             setRings={setRingShims}
             shimsMode={true}
             setRingShimsPanel={setRingShimsPanel}
@@ -198,7 +198,7 @@ const CreateMainPage = ({
         {ringShimsPanel2 && (
           <RingList
             header="Legg til shims"
-            backgroundBtn="#c71616"
+            backgroundBtn="linear-gradient(120deg, #879102 50%, #dff047 50%)"
             setRings={setRingShims2}
             shimsMode2={true}
             bladeDimension={bladeDimension}

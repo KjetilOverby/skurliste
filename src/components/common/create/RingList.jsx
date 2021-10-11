@@ -80,7 +80,7 @@ const RingList = ({
             font-size: 1.2rem;
           }
           .ring-box {
-            background-color: ${backgroundBtn};
+            background: ${backgroundBtn};
             height: 3.5rem;
             width: 3.5rem;
             display: grid;
@@ -89,10 +89,14 @@ const RingList = ({
             color: white;
             transition: 0.5s;
             box-shadow: 10px 10px 10px #858585fa;
+            transition: background 0.3s, color 0.3s;
+            background-size: 220%;
+            border: 1px solid #333;
           }
           .ring-box:hover {
             cursor: pointer;
-            background: #6b8eb6;
+            background-position: 100%;
+            color: black;
           }
           .top-header {
             color: #fd3636;
