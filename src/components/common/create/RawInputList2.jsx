@@ -22,7 +22,7 @@ const RawInputList2 = ({
       <div className={`main-container ${leftPanelSlide}`}>
         <div className="container">
           <div>
-            <h1>Legg til råmål</h1>
+            <h1 className="top-header">Legg til råmål</h1>
             <form className="form">
               <label>Skriv inn råmål</label>
               <input placeholder="Råmål" />
@@ -184,6 +184,10 @@ const RawInputList2 = ({
           .top-container {
             display: grid;
             place-items: center;
+          }
+          .top-header {
+            color: #fd3636;
+            font-weight: 300;
           }
           @keyframes slide {
             0% {

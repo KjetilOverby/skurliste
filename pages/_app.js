@@ -84,6 +84,7 @@ function MyApp({ Component, pageProps }) {
   const [rawRingsPostOppsett, setRawRingsPostOppsett] = useState();
   const [endRingsPostOppsett, setEndRingsPostOppsett] = useState();
   const [bladstamme, setBladstamme] = useState();
+  const [createDate, setCreateDate] = useState();
 
   const [dated, setDated] = useState();
 
@@ -472,6 +473,8 @@ function MyApp({ Component, pageProps }) {
         setGetUser={setGetUser}
         setGetIdforDelete={setGetIdforDelete}
         deletePostHandler={deletePostHandler}
+        setCreateDate={setCreateDate}
+        createDate={createDate}
       />
     </Auth0Provider>
   );

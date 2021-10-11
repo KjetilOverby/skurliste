@@ -33,7 +33,7 @@ const RingList = ({
   return (
     <>
       <div className="container">
-        <h1>{header}</h1>
+        <h1 className="top-header">{header}</h1>
         <h1 className="header">Små ringer</h1>
         <div className="box-container">
           {ringObject.small.map((smallRings) => (
@@ -93,6 +93,10 @@ const RingList = ({
           .ring-box:hover {
             cursor: pointer;
             background: #6b8eb6;
+          }
+          .top-header {
+            color: #fd3636;
+            font-weight: 300;
           }
         `}
       </style>

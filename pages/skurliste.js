@@ -23,6 +23,7 @@ const Skurliste = ({
   antallSum,
   kubikkSum,
   editModeColor,
+  setCreateDate,
 }) => {
   const { user, isAuthenticated } = useAuth0();
   return (
@@ -57,6 +58,7 @@ const Skurliste = ({
           antallSum={antallSum}
           kubikkSum={kubikkSum}
           editModeColor={editModeColor}
+          setCreateDate={setCreateDate}
         />
       </div>
       <style jsx>

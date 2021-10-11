@@ -11,6 +11,7 @@ const SearchListFromBtn = ({
   setBladstamme,
   setOpenSearchList,
   searchAllBlades,
+  setCreateDate,
 }) => {
   const router = useRouter();
 
@@ -26,6 +27,7 @@ const SearchListFromBtn = ({
                 setRawRingsPostOppsett(item.rawInput);
                 setEndRingsPostOppsett(item.endRings);
                 setBladstamme(item.blades.bladStamme);
+                setCreateDate(item.date);
                 router.push("/postoppsett");
                 setOpenSearchList(false);
               };

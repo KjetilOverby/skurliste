@@ -14,6 +14,7 @@ const Postarkiv = ({
   setEndRingsPostOppsett,
   setBladstamme,
   setGetIdforDelete,
+  setCreateDate,
 }) => {
   const [postarkiv, setPostarkiv] = useState();
   const [getSearch, setGetSearch] = useState();
@@ -44,6 +45,7 @@ const Postarkiv = ({
           setEndRingsPostOppsett={setEndRingsPostOppsett}
           setBladstamme={setBladstamme}
           setGetIdforDelete={setGetIdforDelete}
+          setCreateDate={setCreateDate}
         />
       </div>
       <style jsx>

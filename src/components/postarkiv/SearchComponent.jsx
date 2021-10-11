@@ -14,6 +14,7 @@ const SearchComponent = ({
   setBladstamme,
   rawRingsPostOppsett,
   setGetIdforDelete,
+  setCreateDate,
 }) => {
   const [searchresult, setSearchresult] = useState();
 
@@ -56,6 +57,7 @@ const SearchComponent = ({
                 setBladstamme(result.blades.bladStamme);
                 router.push("/postoppsett");
                 setGetIdforDelete(result._id);
+                setCreateDate(result.date);
               };
               const onMouseOverHandler = () => {
                 setGetID(result._id);

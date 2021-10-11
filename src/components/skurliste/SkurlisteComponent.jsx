@@ -30,6 +30,7 @@ const SkurlisteComponent = ({
   setGetProgress,
   setEditMode,
   setEditModeColor,
+  setCreateDate,
 }) => {
   const [post, setPost] = useState();
   const [percent, setPercent] = useState();
@@ -66,6 +67,7 @@ const SkurlisteComponent = ({
           setBladstamme={setBladstamme}
           setOpenSearchList={setOpenSearchList}
           searchAllBlades={searchAllBlades}
+          setCreateDate={setCreateDate}
         />
       )}
       {lists ? (

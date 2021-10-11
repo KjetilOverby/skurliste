@@ -6,6 +6,7 @@ import Users from "../utils/users";
 import { useAuth0 } from "@auth0/auth0-react";
 import Link from "next/link";
 import ModalComponent from "../src/components/common/ModalComponent";
+import dateFormat from "dateformat";
 
 const Postoppsett = ({
   headerPostOppsett,
@@ -17,6 +18,7 @@ const Postoppsett = ({
   openDeleteModal,
   setOpenDeleteModal,
   deletePostHandler,
+  createDate,
 }) => {
   const { user, isAuthenticated } = useAuth0();
 
@@ -43,7 +45,12 @@ const Postoppsett = ({
               Slett denn posten
             </button>
           )}
-          <p className="info-text">Opprettelsesdato: </p>
+          <p className="info-text">
+            Opprettelsesdato:{" "}
+            {createDate === undefined
+              ? "Ukjent"
+              : dateFormat(createDate, "dd.mm.yyyy HH:MM")}
+          </p>
         </div>
         <div className="headerContainer">
           <h1 className="header">{headerPostOppsett}</h1>
