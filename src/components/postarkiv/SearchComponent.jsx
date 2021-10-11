@@ -37,6 +37,9 @@ const SearchComponent = ({
       <div className="container">
         <div>
           <p className="text">
+            Anntall poster: {postarkiv && postarkiv.length}
+          </p>
+          <p className="text">
             Antall treff: {searchresult && searchresult.length}
           </p>
         </div>

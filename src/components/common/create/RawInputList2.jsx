@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import raw from "./RawInputObject";
 
 const RawInputList2 = ({
@@ -7,6 +7,9 @@ const RawInputList2 = ({
   bladeDimension,
 }) => {
   const getRawRings = (e) => {
+    if (getInputValue) {
+      setRawButtonValue(getInputValue);
+    }
     if (bladeDimension.bladStamme) {
       if (e.target.innerHTML === "-") {
         setRawButtonValue(null);
@@ -21,17 +24,32 @@ const RawInputList2 = ({
       alert("Du må legge inn bladtykkelse før du kan legge inn råmål");
     }
   };
+
+  const submitInputValue = () => {
+    if (bladeDimension.bladStamme) {
+      setRawButtonValue(getInputValue);
+      setTimeout(() => {
+        setRawButtonValue("");
+      }, 100);
+    } else {
+      alert("Du må legge inn bladtykkelse før du kan legge inn råmål");
+    }
+  };
+  const [getInputValue, setGetInputValue] = useState();
   return (
     <>
       <div className={`main-container ${leftPanelSlide}`}>
         <div className="container">
           <div>
             <h1 className="top-header">Legg til råmål</h1>
-            <form className="form">
+            <div className="form">
               <label>Skriv inn råmål</label>
-              <input placeholder="Råmål" />
-              <button>Legg til</button>
-            </form>
+              <input
+                onChange={(e) => setGetInputValue(e.target.value)}
+                placeholder="Råmål"
+              />
+              <button onClick={submitInputValue}>Legg til</button>
+            </div>
           </div>
           <div className="table-container">
             <table>

@@ -288,6 +288,7 @@ function MyApp({ Component, pageProps }) {
       console.log(error);
     }
   }, [updateDB]);
+
   useEffect(() => {
     try {
       api.get(`/api/postarkiv/post_btn_search`).then((res) => {
@@ -296,7 +297,7 @@ function MyApp({ Component, pageProps }) {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, [updateDB]);
   const deleteFieldHandler = () => {
     api
       .delete(
@@ -378,6 +379,7 @@ function MyApp({ Component, pageProps }) {
         router.push("/postarkiv");
         setOpenDeleteModal(false);
         console.log(res);
+        setUpdateDB(Math.random());
       })
       .catch((error) => {
         console.log(error);

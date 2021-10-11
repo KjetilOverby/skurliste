@@ -70,16 +70,28 @@ const LeftComponent = ({
           .btn {
             width: 11rem;
             height: 3rem;
-            background: #87aaaf;
             font-size: 0.9rem;
             border: none;
             margin-bottom: 1rem;
+            transition: background 0.3s, color 0.3s;
+            background: linear-gradient(120deg, #87aaaf 50%, #4d6468 50%);
+            background-size: 220%;
           }
           .btn:hover {
             cursor: pointer;
+            background-position: 100%;
+            color: white;
           }
           .link {
             background: #7ea9e0;
+            transition: background 0.3s, color 0.3s;
+            background: linear-gradient(120deg, #7ea9e0 50%, #364649 50%);
+            background-size: 220%;
+          }
+          .link:hover {
+            cursor: pointer;
+            background-position: 100%;
+            color: white;
           }
         `}
       </style>

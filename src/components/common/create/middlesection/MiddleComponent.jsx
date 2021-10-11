@@ -5,6 +5,8 @@ import LabelHeaderCalc from "./LabelHeaderCalc";
 import RawRingsCreate from "./RawRingsCreate";
 import StartRingsCreate from "./StartRingsCreate";
 import { useAuth0 } from "@auth0/auth0-react";
+import { GrStatusWarning } from "react-icons/gr";
+import { RiErrorWarningLine } from "react-icons/ri";
 
 const MiddleComponent = ({
   startFillRings,
@@ -77,7 +79,12 @@ const MiddleComponent = ({
       <div className="container">
         <div className="header-container">
           {headerDuplicate && headerDuplicate.includes(true) && (
-            <p className="check">Denne posten er allerede lagret</p>
+            <p className="check">
+              <RiErrorWarningLine
+                style={{ fontSize: "2rem", marginRight: "1rem" }}
+              />{" "}
+              Denne posten er allerede lagret
+            </p>
           )}
           {rawRingsCollection.length > 0 && (
             <h1 className="header">
@@ -142,8 +149,6 @@ const MiddleComponent = ({
           <>
             <div className={`label-container-left ${greenColorWhenZero}`}>
               <h3>{startRingLabel}</h3>
-              {/* <p>{startRingSum}</p>
-          <LabelHeaderCalc rawRingsCollection={rawRingsCollection} /> */}
             </div>
             <div className={`label-container-right ${greenColorWhenZero2}`}>
               <h3>{endRingLabel}</h3>
@@ -154,6 +159,12 @@ const MiddleComponent = ({
               )}
               {!user && (
                 <div className="not-loggedin-container">
+                  <GrStatusWarning
+                    style={{
+                      fontSize: "2rem",
+                      marginRight: "1rem",
+                    }}
+                  />
                   Du er ikke innlogget, posten kan ikke lagres
                 </div>
               )}
@@ -199,11 +210,14 @@ const MiddleComponent = ({
         }
         .check {
           position: absolute;
-          top: 1.5rem;
-          background-color: #d38080;
+          top: 0.1rem;
+          background-color: #80d3b7;
           padding: 0.5rem;
           border-radius: 5px;
-          color: #fff;
+          color: #425c4f;
+          border: 1px solid #696969;
+          display: flex;
+          align-items: center;
         }
         .header-container {
           grid-area: header;
@@ -259,12 +273,16 @@ const MiddleComponent = ({
           font-weight: 300;
         }
         .not-loggedin-container {
-          background-color: #cc7373;
+          background-color: #e2ec54;
           position: absolute;
           padding: 0.5rem;
           border-radius: 5px;
           color: #684242;
           top: 5rem;
+          color: #42422a;
+          border: 1px solid grey;
+          display: grid;
+          place-items: center;
         }
         span {
           color: #d35a22;
