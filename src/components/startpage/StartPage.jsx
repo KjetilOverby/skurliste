@@ -132,7 +132,7 @@ const StartPage = ({
         </div>
         {user && user.sub === Users && (
           <div className="userContainer">
-            <p>
+            <p className="bottom-text">
               innlogged som: {user.name} * email: {user.email} * © copyright
               2021
             </p>
@@ -145,6 +145,7 @@ const StartPage = ({
           position: absolute;
           left: 0;
         }
+
         .container {
           background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
             url(${background});

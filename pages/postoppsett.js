@@ -97,7 +97,7 @@ const Postoppsett = ({
         </div>
         {user && user.sub === Users && (
           <div className="userContainer">
-            <p>
+            <p className="bottom-text">
               innlogged som: {user.name} * email: {user.email} * © copyright
               2021
             </p>
