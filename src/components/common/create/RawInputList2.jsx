@@ -153,7 +153,7 @@ const RawInputList2 = ({
             overflow: scroll;
             height: 100vh;
             padding-top: 1rem;
-            padding:  2.8rem;
+            display: flex
           }
           .container {
             display: flex;
