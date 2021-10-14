@@ -30,7 +30,7 @@ const Skurliste = ({
     <>
       <div className="container">
         <h1 className="header">Skurplan</h1>
-        <p>Oppdatert: {dateFormat(dated, "dd.mm.yyyy")}</p>
+        <p>Oppdatert: {dateFormat(dated, "dd.mm.yyyy HH:mm")}</p>
         <div className="btn-container">
           <Link href="/">
             <button className="btn">Til startsiden</button>
