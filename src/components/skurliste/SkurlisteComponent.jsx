@@ -222,7 +222,7 @@ const SkurlisteComponent = ({
                     >
                       {item.treslag}
                     </p>
-                    <p>{dateFormat(item.date, "dd.mm.yyyy")}</p>
+                    <p>{dateFormat(item.date, "dd.mm.yyyy HH:MM:ss")}</p>
                   </div>
                   <div
                     key={item.header}
@@ -415,8 +415,8 @@ const SkurlisteComponent = ({
           }
           .container {
             display: grid;
-            background-color: #4b4b4b;
-            grid-gap: 3px 1px;
+            background-color: #8d8d8d;
+            grid-gap: 2px 1px;
             border: 1px solid black;
             width: 100%;
           }
@@ -429,7 +429,7 @@ const SkurlisteComponent = ({
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem 5px;
+            padding: 0.6rem 5px;
           }
 
           .tablesquareTop {

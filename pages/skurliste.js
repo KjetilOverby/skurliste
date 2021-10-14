@@ -29,17 +29,21 @@ const Skurliste = ({
   return (
     <>
       <div className="container">
-        <h1 className="header">Skurplan</h1>
-        <p>Oppdatert: {dateFormat(dated, "dd.mm.yyyy HH:mm")}</p>
-        <div className="btn-container">
-          <Link href="/">
-            <button className="btn">Til startsiden</button>
-          </Link>
-          {user && user.sub === Users && (
-            <Link href="/rediger">
-              <button className="btn">Rediger skurliste</button>
+        <div className="top-container">
+          <div className="header-container">
+            <h1 className="header">Skurplan</h1>
+            <p>Oppdatert: {dateFormat(dated, "dd.mm.yyyy HH:MM:ss")}</p>
+          </div>
+          <div className="btn-container">
+            <Link href="/">
+              <button className="btn">Til startsiden</button>
             </Link>
-          )}
+            {user && user.sub === Users && (
+              <Link href="/rediger">
+                <button className="btn">Rediger skurliste</button>
+              </Link>
+            )}
+          </div>
         </div>
         <SkurlisteComponent
           lists={lists}
@@ -67,7 +71,6 @@ const Skurliste = ({
             margin-bottom: 0.5rem;
           }
           .btn-container {
-            margin-top: 1rem;
             display: flex;
             flex-direction: column;
             width: 10rem;
@@ -77,8 +80,14 @@ const Skurliste = ({
           }
           .header {
           }
+          .header-container {
+            margin-right: 3rem;
+          }
           .headerType {
             color: seagreen;
+          }
+          .top-container {
+            display: flex;
           }
         `}
       </style>

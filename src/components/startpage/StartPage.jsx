@@ -92,7 +92,7 @@ const StartPage = ({
             Skurlister <span style={{ color: color }}>Moelven Våler</span>
           </h1>
           <p className="text">
-            Sist oppdatert: {dateFormat(dated, "dd.mm.yyyy HH:mm")}
+            Sist oppdatert: {dateFormat(dated, "dd.mm.yyyy HH:MM")}
           </p>
           <p className="text">Skurplaner: {antall && antall.length} </p>
           <p className="text">
