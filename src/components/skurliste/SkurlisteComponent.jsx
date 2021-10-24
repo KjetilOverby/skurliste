@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AppData } from "../../contexts/AppData";
 import SearchListFromBtn from "./SearchListFromBtn";
 import { useRouter } from "next/router";
 var dateFormat = require("dateformat");
@@ -6,9 +7,7 @@ import { BsFillXSquareFill } from "react-icons/bs";
 import { BiBlock } from "react-icons/bi";
 
 const SkurlisteComponent = ({
-  lists,
   setFilteredPostList,
-  postList,
   filteredPostList,
   setPostOppsett,
   setHeaderPostOppsett,
@@ -32,6 +31,7 @@ const SkurlisteComponent = ({
   setEditModeColor,
   setCreateDate,
 }) => {
+  const { lists, postList } = useContext(AppData);
   const [post, setPost] = useState();
   const [percent, setPercent] = useState();
   const [blade, setBlade] = useState();

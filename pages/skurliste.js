@@ -46,8 +46,6 @@ const Skurliste = ({
           </div>
         </div>
         <SkurlisteComponent
-          lists={lists}
-          postList={postList}
           setFilteredPostList={setFilteredPostList}
           filteredPostList={filteredPostList}
           setPostOppsett={setPostOppsett}

@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Home({
-  lists,
   dated,
   antallSum,
   kubikkSum,
@@ -32,7 +31,6 @@ export default function Home({
       </Head>
 
       <StartPage
-        antall={lists && lists}
         dated={dated}
         antallSum={antallSum}
         kubikkSum={kubikkSum}

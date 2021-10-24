@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { AppData } from "../../contexts/AppData";
 import Link from "next/link";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
@@ -6,6 +7,7 @@ import LoginButton from "../auth/LoginButton";
 import Logout from "../auth/Logout";
 var dateFormat = require("dateformat");
 import Users from "../../../utils/users";
+
 //https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1415&q=80
 //https://images.unsplash.com/photo-1545241201-fee9df605ca8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80
 //https://images.unsplash.com/photo-1487452066049-a710f7296400?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80
@@ -25,7 +27,6 @@ import Users from "../../../utils/users";
 //https://images.unsplash.com/photo-1590833058871-ed1c9655a981?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80
 
 const StartPage = ({
-  antall,
   dated,
   antallSum,
   kubikkSum,
@@ -34,6 +35,7 @@ const StartPage = ({
   randomNumber,
   user,
 }) => {
+  const { lists } = useContext(AppData);
   const [color, setColor] = useState();
   const upRandomNumber = () => {
     setRandomNumber(randomNumber + 1);
@@ -94,7 +96,7 @@ const StartPage = ({
           <p className="text">
             Sist oppdatert: {dateFormat(dated, "dd.mm.yyyy HH:MM")}
           </p>
-          <p className="text">Skurplaner: {antall && antall.length} </p>
+          <p className="text">Skurplaner: {lists && lists.length} </p>
           <p className="text">
             Stokker:{" "}
             {antallSum &&

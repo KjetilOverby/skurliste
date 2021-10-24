@@ -134,7 +134,6 @@ const Rediger = ({
             />
           </div>
           <SkurlisteComponent
-            lists={lists}
             setOpenDeleteModal={setOpenDeleteModal}
             setGetIdField={setGetIdField}
             showEditTools={showEditTools}
