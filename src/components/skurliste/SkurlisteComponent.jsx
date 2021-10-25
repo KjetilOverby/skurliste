@@ -7,6 +7,7 @@ import { BsFillXSquareFill } from "react-icons/bs";
 import { BiBlock } from "react-icons/bi";
 
 const SkurlisteComponent = ({
+  postList,
   setFilteredPostList,
   filteredPostList,
   setPostOppsett,
@@ -31,7 +32,7 @@ const SkurlisteComponent = ({
   setEditModeColor,
   setCreateDate,
 }) => {
-  const { lists, postList } = useContext(AppData);
+  const { lists } = useContext(AppData);
   const [post, setPost] = useState();
   const [percent, setPercent] = useState();
   const [blade, setBlade] = useState();

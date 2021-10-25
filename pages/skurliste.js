@@ -6,9 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Users from "../utils/users";
 
 const Skurliste = ({
-  lists,
   filteredPostList,
-  postList,
   setFilteredPostList,
   setPostOppsett,
   setHeaderPostOppsett,
@@ -24,6 +22,7 @@ const Skurliste = ({
   kubikkSum,
   editModeColor,
   setCreateDate,
+  postList,
 }) => {
   const { user, isAuthenticated } = useAuth0();
   return (
@@ -46,6 +45,7 @@ const Skurliste = ({
           </div>
         </div>
         <SkurlisteComponent
+          postList={postList}
           setFilteredPostList={setFilteredPostList}
           filteredPostList={filteredPostList}
           setPostOppsett={setPostOppsett}

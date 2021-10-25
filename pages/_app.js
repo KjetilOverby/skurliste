@@ -395,9 +395,10 @@ function MyApp({ Component, pageProps }) {
       clientId={clientId}
       redirectUri={typeof window !== "undefined" && window.location.origin}
     >
-      <AppData.Provider value={{ lists, postList }}>
+      <AppData.Provider value={{ lists }}>
         <Component
           {...pageProps}
+          postList={postList}
           setFilteredPostList={setFilteredPostList}
           filteredPostList={filteredPostList}
           setPostOppsett={setPostOppsett}
