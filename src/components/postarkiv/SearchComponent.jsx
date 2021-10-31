@@ -98,7 +98,7 @@ const SearchComponent = ({
             z-index: 100;
           }
           .header {
-            color: #49745b;
+            color: #41d8e6;
           }
 
           .input {
@@ -110,6 +110,8 @@ const SearchComponent = ({
             margin-bottom: 2rem;
             box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
             font-size: 1.5rem;
+            background: #333;
+            color: #56d8e9;
           }
           .item-container {
             padding: 0.5rem;
@@ -119,7 +121,7 @@ const SearchComponent = ({
             border-radius: 10px;
             margin-bottom: 1rem;
             justify-content: space-between;
-            background: #ffffff;
+            background: #414141;
           }
           .item-container:hover {
             border-radius: 10px;
@@ -147,7 +149,7 @@ const SearchComponent = ({
             box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
             border: 1px solid rgba(0, 0, 0, 0.2);
-            background: #e7f6e4;
+            background: #333333;
             height: 35vh;
           }
           .text {

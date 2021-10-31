@@ -51,6 +51,7 @@ const Postarkiv = ({
       <style jsx>
         {`
           .container {
+            background-color: #333;
           }
         `}
       </style>

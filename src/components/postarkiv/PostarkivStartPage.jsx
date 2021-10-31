@@ -65,22 +65,22 @@ const PostarkivStartPage = ({
             margin-bottom: 1rem;
             padding: 1.5rem 0;
             border: none;
-            background-image: linear-gradient(
-              to right,
-              #74ebd5 0%,
-              #9face6 100%
-            );
+            background-image: linear-gradient(120deg, #537255 50%, #90b884 50%);
             font-size: 1rem;
-            transition: 0.5s;
+            transition: background 0.3s, color 0.3s;
+            background-size: 220%;
           }
           .button:hover {
-            background-image: linear-gradient(
+             {
+              /* background-image: linear-gradient(
               to left,
-              #74ebd5 0%,
-              #9face6 100%
-            );
+              #537255 0%,
+              #90b884 100%
+            ); */
+            }
             color: #fff;
             cursor: pointer;
+            background-position: 100%;
           }
           .container {
             display: grid;
@@ -95,7 +95,7 @@ const PostarkivStartPage = ({
           .circle {
             height: 90rem;
             width: 90rem;
-            background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+            background-image: linear-gradient(45deg, #494949 0%, #66ca93 100%);
             position: absolute;
             border-radius: 50%;
             left: 50%;
@@ -109,7 +109,7 @@ const PostarkivStartPage = ({
             color: #808080;
           }
           .search-component-container {
-            background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+            background-image: linear-gradient(to top, #4b4b4b 0%, #9eca90 100%);
             border-radius: 10px;
             position: relative;
             overflow: hidden;
