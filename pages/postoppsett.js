@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Blade from "../src/components/poster/Blade";
 import Fillrings from "../src/components/poster/Fillrings";
 import RawRings from "../src/components/poster/RawRings";
@@ -21,19 +21,29 @@ const Postoppsett = ({
   createDate,
 }) => {
   const { user, isAuthenticated } = useAuth0();
+  const randomNumber = Math.floor(Math.random() * 2);
+
+  const [animation, setAnimation] = useState("");
+  useEffect(() => {
+    if (randomNumber === 0) {
+      setAnimation("ani1");
+    } else if (randomNumber === 1) {
+      setAnimation("ani2");
+    }
+  });
 
   return (
     <>
       <div className="container">
         <div className="info-box">
           <Link href="/skurliste">
-            <button className="btn">Skurliste</button>
+            <button className="btn btn1">Skurliste</button>
           </Link>
           <Link href="/postarkiv">
-            <button className="btn">Søk i postarkivet</button>
+            <button className="btn btn2">Søk i postarkivet</button>
           </Link>
           <Link href="/">
-            <button className="btn ">Startsiden</button>
+            <button className="btn btn3">Startsiden</button>
           </Link>
         </div>
         <div className="info-box2">
@@ -55,12 +65,12 @@ const Postoppsett = ({
         <div className="headerContainer">
           <h1 className="header">{headerPostOppsett}</h1>
         </div>
-        <div className="fillRingContainer">
+        <div className={`fillRingContainer ${animation}`}>
           {startRingsPostOppsett &&
             startRingsPostOppsett.map((item) => {
               return (
                 <>
-                  <div className="fillRingContainer">
+                  <div className={`fillRingContainer ${animation}`}>
                     <Fillrings value={item.input} />
                   </div>
                 </>
@@ -70,7 +80,7 @@ const Postoppsett = ({
             rawRingsPostOppsett.map((item) => {
               return (
                 <>
-                  <div className="fillRingContainer">
+                  <div className={`fillRingContainer ${animation}`}>
                     <RawRings
                       rawValue={item.input}
                       bladstamme={bladstamme}
@@ -88,7 +98,7 @@ const Postoppsett = ({
             endRingsPostOppsett.map((item) => {
               return (
                 <>
-                  <div className="fillRingContainer">
+                  <div className={`fillRingContainer ${animation}`}>
                     <Fillrings value={item.input} />
                   </div>
                 </>
@@ -115,6 +125,7 @@ const Postoppsett = ({
         {`
           .header {
             color: #fff;
+            animation: bounceInRight 1.2s forwards;
           }
           .headerContainer {
             grid-area: header;
@@ -139,12 +150,116 @@ const Postoppsett = ({
               url(${background});
             background-size: cover;
           }
+          @keyframes slide {
+            0% {
+              transform: translateY(40rem);
+            }
+            100% {
+              transform: translateY(0rem);
+            }
+          }
+
+          @keyframes bounceInRight {
+            0%,
+            60%,
+            75%,
+            90%,
+            100% {
+              -webkit-transition-timing-function: cubic-bezier(
+                0.215,
+                0.61,
+                0.355,
+                1
+              );
+              transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+
+            0% {
+              opacity: 0;
+              -webkit-transform: translate3d(3000px, 0, 0);
+              transform: translate3d(3000px, 0, 0);
+            }
+
+            60% {
+              opacity: 1;
+              -webkit-transform: translate3d(-25px, 0, 0);
+              transform: translate3d(-25px, 0, 0);
+            }
+
+            75% {
+              -webkit-transform: translate3d(10px, 0, 0);
+              transform: translate3d(10px, 0, 0);
+            }
+
+            90% {
+              -webkit-transform: translate3d(-5px, 0, 0);
+              transform: translate3d(-5px, 0, 0);
+            }
+
+            100% {
+              -webkit-transform: none;
+              transform: none;
+            }
+          }
+
+          @keyframes fadeInLeft {
+            0% {
+              opacity: 0;
+              -webkit-transform: translate3d(-100%, 0, 0);
+              transform: translate3d(-100%, 0, 0);
+            }
+
+            100% {
+              opacity: 1;
+              -webkit-transform: none;
+              transform: none;
+            }
+          }
+
+          @keyframes rotateIn {
+            0% {
+              -webkit-transform-origin: center;
+              transform-origin: center;
+              -webkit-transform: rotate3d(0, 0, 1, -200deg);
+              transform: rotate3d(0, 0, 1, -200deg);
+              opacity: 0;
+            }
+
+            100% {
+              -webkit-transform-origin: center;
+              transform-origin: center;
+              -webkit-transform: none;
+              transform: none;
+              opacity: 1;
+            }
+          }
+          @keyframes rollIn {
+            0% {
+              opacity: 0;
+              -webkit-transform: translate3d(-100%, 0, 0)
+                rotate3d(0, 0, 1, -120deg);
+              transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+            }
+
+            100% {
+              opacity: 1;
+              -webkit-transform: none;
+              transform: none;
+            }
+          }
+
           .fillRingContainer {
             display: flex;
             position: relative;
             justify-content: center;
             align-items: center;
             grid-area: postContainer;
+          }
+          .ani1 {
+            animation: rollIn 1.2s forwards;
+          }
+          .ani2 {
+            animation: rotateIn 1.2s forwards;
           }
           .userContainer {
             position: absolute;
@@ -183,6 +298,58 @@ const Postoppsett = ({
             background-size: 220%;
             color: #aaa;
           }
+          .btn1 {
+            animation: bounceInUp 1.2s;
+          }
+          .btn2 {
+            animation: bounceInUp 1.5s;
+          }
+          .btn3 {
+            animation: bounceInUp 1.7s;
+          }
+          @keyframes bounceInUp {
+            0%,
+            60%,
+            75%,
+            90%,
+            100% {
+              -webkit-transition-timing-function: cubic-bezier(
+                0.215,
+                0.61,
+                0.355,
+                1
+              );
+              transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+
+            0% {
+              opacity: 0;
+              -webkit-transform: translate3d(0, 3000px, 0);
+              transform: translate3d(0, 3000px, 0);
+            }
+
+            60% {
+              opacity: 1;
+              -webkit-transform: translate3d(0, -20px, 0);
+              transform: translate3d(0, -20px, 0);
+            }
+
+            75% {
+              -webkit-transform: translate3d(0, 10px, 0);
+              transform: translate3d(0, 10px, 0);
+            }
+
+            90% {
+              -webkit-transform: translate3d(0, -5px, 0);
+              transform: translate3d(0, -5px, 0);
+            }
+
+            100% {
+              -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+            }
+          }
+
           .btn:hover {
             cursor: pointer;
             background-position: 100%;
