@@ -7,6 +7,9 @@ import StartRingsCreate from "./StartRingsCreate";
 import { useAuth0 } from "@auth0/auth0-react";
 import { GrStatusWarning } from "react-icons/gr";
 import { RiErrorWarningLine } from "react-icons/ri";
+import Image from "next/image";
+import Calc from "../../../../../assets/calc.jpg";
+import Log from "../../../../../assets/log.jpg";
 
 const MiddleComponent = ({
   startFillRings,
@@ -175,18 +178,22 @@ const MiddleComponent = ({
             <p
               style={{
                 color: "#616161",
-                fontWeight: "100",
+                fontWeight: "300",
                 marginLeft: "2rem",
+                fontSize: "1.5rem",
               }}
             >
               Start med å velge sagbladtykkelse.
             </p>
 
-            <img
-              className="img"
-              src="https://c8.alamy.com/zooms/9/f69edd8580574e05865a8287aa72cbf6/ja8ckb.jpg"
-              alt=""
-            />
+            <div className="img">
+              <div className="log-img">
+                <Image src={Log} />
+              </div>
+              <div className="calc-img">
+                <Image src={Calc} />
+              </div>
+            </div>
           </div>
         )}
       </div>
@@ -237,14 +244,20 @@ const MiddleComponent = ({
         }
         .no-input-container {
           grid-area: post;
-          display: flex;
+          display: grid;
           justify-content: center;
-          width: ;
+        }
+        .log-img {
+          width: 25rem;
+        }
+        .calc-img {
+          width: 25rem;
+          margin-top: 5rem;
         }
         .img {
-          height: 15rem;
-          margin-left: 2rem;
+          display: flex;
         }
+
         .label-container-right {
           grid-area: label2;
           display: flex;

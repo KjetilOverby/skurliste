@@ -5,11 +5,11 @@ import { AppData } from "../src/contexts/AppData";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useRouter } from "next/router";
+import { RiBodyScanLine } from "react-icons/ri";
 
 const api = axios.create({
   baseURL: process.env.api,
 });
-
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [getUser, setGetUser] = useState();
@@ -389,98 +389,110 @@ function MyApp({ Component, pageProps }) {
     setOpenDeleteModal(false);
   };
 
+  const [overflow, setOverflow] = useState("");
+
+  useEffect(() => {
+    if (router.pathname === "/postoppsett") {
+      setOverflow("hidden");
+    } else {
+      setOverflow("none");
+    }
+  }, [router]);
+
   return (
-    <Auth0Provider
-      domain={domain}
-      clientId={clientId}
-      redirectUri={typeof window !== "undefined" && window.location.origin}
-    >
-      <AppData.Provider value={{ lists }}>
-        <Component
-          {...pageProps}
-          postList={postList}
-          setFilteredPostList={setFilteredPostList}
-          filteredPostList={filteredPostList}
-          setPostOppsett={setPostOppsett}
-          postOppsett={postOppsett}
-          setHeaderPostOppsett={setHeaderPostOppsett}
-          headerPostOppsett={headerPostOppsett}
-          setStartRingsPostOppsett={setStartRingsPostOppsett}
-          startRingsPostOppsett={startRingsPostOppsett}
-          setRawRingsPostOppsett={setRawRingsPostOppsett}
-          rawRingsPostOppsett={rawRingsPostOppsett}
-          setEndRingsPostOppsett={setEndRingsPostOppsett}
-          endRingsPostOppsett={endRingsPostOppsett}
-          setBladstamme={setBladstamme}
-          bladstamme={bladstamme}
-          setOpenSearchList={setOpenSearchList}
-          openSearchList={openSearchList}
-          setTreslag={setTreslag}
-          treslag={treslag}
-          setKlasse={setKlasse}
-          klasse={klasse}
-          setKlasseType={setKlasseType}
-          klasseType={klasseType}
-          setAntall={setAntall}
-          antall={antall}
-          setKubikk={setKubikk}
-          kubikk={kubikk}
-          setStatus={setStatus}
-          status={status}
-          setPost={setPost}
-          post={post}
-          setBreddePlank={setBreddePlank}
-          breddePlank={breddePlank}
-          setXLog={setXLog}
-          xLog={xLog}
-          setProsent={setProsent}
-          prosent={prosent}
-          setAnm1={setAnm1}
-          anm1={anm1}
-          setAnm2={setAnm2}
-          anm2={anm2}
-          setVs66Ty={setVs66Ty}
-          vs66Ty={vs66Ty}
-          setVs66Br={setVs66Br}
-          vs66Br={vs66Br}
-          setMkvTy={setMkvTy}
-          mkvTy={mkvTy}
-          setMkvBr={setMkvBr}
-          mkvBr={mkvBr}
-          setVs66xtraTy={setVs66xtraTy}
-          vs66xtraTy={vs66xtraTy}
-          setVs66XtraBr={setVs66XtraBr}
-          vs66XtraBr={vs66XtraBr}
-          sagblad={sagblad}
-          klasseGrense={klasseGrense}
-          createFieldHandler={createFieldHandler}
-          setOpenDeleteModal={setOpenDeleteModal}
-          openDeleteModal={openDeleteModal}
-          setGetIdField={setGetIdField}
-          getIdField={getIdField}
-          deleteFieldHandler={deleteFieldHandler}
-          showEditTools={showEditTools}
-          setShowEditTools={setShowEditTools}
-          saveUpdateField={saveUpdateField}
-          dated={dated}
-          antallSum={antallSum}
-          kubikkSum={kubikkSum}
-          background={background}
-          setRandomNumber={setRandomNumber}
-          randomNumber={randomNumber}
-          setGetProgress={setGetProgress}
-          setEditMode={setEditMode}
-          editMode={editMode}
-          editModeColor={editModeColor}
-          setEditModeColor={setEditModeColor}
-          setGetUser={setGetUser}
-          setGetIdforDelete={setGetIdforDelete}
-          deletePostHandler={deletePostHandler}
-          setCreateDate={setCreateDate}
-          createDate={createDate}
-        />
-      </AppData.Provider>
-    </Auth0Provider>
+    <body style={{ overflow: `${overflow}` }}>
+      <Auth0Provider
+        domain={domain}
+        clientId={clientId}
+        redirectUri={typeof window !== "undefined" && window.location.origin}
+      >
+        <AppData.Provider value={{ lists }}>
+          <Component
+            {...pageProps}
+            postList={postList}
+            setFilteredPostList={setFilteredPostList}
+            filteredPostList={filteredPostList}
+            setPostOppsett={setPostOppsett}
+            postOppsett={postOppsett}
+            setHeaderPostOppsett={setHeaderPostOppsett}
+            headerPostOppsett={headerPostOppsett}
+            setStartRingsPostOppsett={setStartRingsPostOppsett}
+            startRingsPostOppsett={startRingsPostOppsett}
+            setRawRingsPostOppsett={setRawRingsPostOppsett}
+            rawRingsPostOppsett={rawRingsPostOppsett}
+            setEndRingsPostOppsett={setEndRingsPostOppsett}
+            endRingsPostOppsett={endRingsPostOppsett}
+            setBladstamme={setBladstamme}
+            bladstamme={bladstamme}
+            setOpenSearchList={setOpenSearchList}
+            openSearchList={openSearchList}
+            setTreslag={setTreslag}
+            treslag={treslag}
+            setKlasse={setKlasse}
+            klasse={klasse}
+            setKlasseType={setKlasseType}
+            klasseType={klasseType}
+            setAntall={setAntall}
+            antall={antall}
+            setKubikk={setKubikk}
+            kubikk={kubikk}
+            setStatus={setStatus}
+            status={status}
+            setPost={setPost}
+            post={post}
+            setBreddePlank={setBreddePlank}
+            breddePlank={breddePlank}
+            setXLog={setXLog}
+            xLog={xLog}
+            setProsent={setProsent}
+            prosent={prosent}
+            setAnm1={setAnm1}
+            anm1={anm1}
+            setAnm2={setAnm2}
+            anm2={anm2}
+            setVs66Ty={setVs66Ty}
+            vs66Ty={vs66Ty}
+            setVs66Br={setVs66Br}
+            vs66Br={vs66Br}
+            setMkvTy={setMkvTy}
+            mkvTy={mkvTy}
+            setMkvBr={setMkvBr}
+            mkvBr={mkvBr}
+            setVs66xtraTy={setVs66xtraTy}
+            vs66xtraTy={vs66xtraTy}
+            setVs66XtraBr={setVs66XtraBr}
+            vs66XtraBr={vs66XtraBr}
+            sagblad={sagblad}
+            klasseGrense={klasseGrense}
+            createFieldHandler={createFieldHandler}
+            setOpenDeleteModal={setOpenDeleteModal}
+            openDeleteModal={openDeleteModal}
+            setGetIdField={setGetIdField}
+            getIdField={getIdField}
+            deleteFieldHandler={deleteFieldHandler}
+            showEditTools={showEditTools}
+            setShowEditTools={setShowEditTools}
+            saveUpdateField={saveUpdateField}
+            dated={dated}
+            antallSum={antallSum}
+            kubikkSum={kubikkSum}
+            background={background}
+            setRandomNumber={setRandomNumber}
+            randomNumber={randomNumber}
+            setGetProgress={setGetProgress}
+            setEditMode={setEditMode}
+            editMode={editMode}
+            editModeColor={editModeColor}
+            setEditModeColor={setEditModeColor}
+            setGetUser={setGetUser}
+            setGetIdforDelete={setGetIdforDelete}
+            deletePostHandler={deletePostHandler}
+            setCreateDate={setCreateDate}
+            createDate={createDate}
+          />
+        </AppData.Provider>
+      </Auth0Provider>
+    </body>
   );
 }
 
