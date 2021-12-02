@@ -12,13 +12,15 @@ const RawRings = ({ rawValue, bladstamme, ring, shims2, shims3, shims1 }) => {
         {ring && (
           <>
             <p className="ring">{ring}</p>
+
             <p className="shims1">
               {Number(
                 ringVal - ring - Number(shims2 != undefined && shims2)
               ).toFixed(1)}
             </p>
-            <p className="shims2">{shims3 && (shims2 - shims3).toFixed(1)}</p>
-            <p className="shims3">{shims3 != undefined && shims3}</p>
+            <p className="shims2">{shims2}</p>
+            <p className="shims3">{shims3 && (shims2 - shims3).toFixed(1)}</p>
+            <p className="shims4">{shims3 != undefined && shims3}</p>
           </>
         )}
         <div className="blade">
