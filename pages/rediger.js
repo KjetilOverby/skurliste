@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ModalComponent from "../src/components/common/ModalComponent";
 import InputComponent from "../src/components/rediger/InputComponent";
 import NySkurliste from "../src/components/rediger/NySkurliste";
@@ -62,8 +62,14 @@ const Rediger = ({
   setEditMode,
   editModeColor,
   setEditModeColor,
+  setGetUser,
 }) => {
   const { user, isAuthenticated } = useAuth0();
+  useEffect(() => {
+    if (user) {
+      setGetUser(user);
+    }
+  }, [user]);
   return (
     <>
       {user && user.sub === Users ? (

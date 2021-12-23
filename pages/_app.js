@@ -13,7 +13,6 @@ const api = axios.create({
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [getUser, setGetUser] = useState();
-  const { user, isAuthenticated } = useAuth0();
   const [randomNumber, setRandomNumber] = useState(
     Math.floor(Math.random() * 12)
   );
