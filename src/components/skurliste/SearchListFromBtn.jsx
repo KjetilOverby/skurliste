@@ -14,7 +14,6 @@ const SearchListFromBtn = ({
   setCreateDate,
 }) => {
   const router = useRouter();
-
   return (
     <>
       <div className="container">
@@ -40,34 +39,56 @@ const SearchListFromBtn = ({
               );
             })}
         </h1>
-        <button onClick={() => setOpenSearchList(false)}>Lukk</button>
-        <button onClick={searchAllBlades}>Søk alle blad</button>
+        <div className="option-btn-container">
+          <button
+            className="option-btn"
+            onClick={() => setOpenSearchList(false)}
+          >
+            Lukk
+          </button>
+          <button className="option-btn" onClick={searchAllBlades}>
+            Søk alle blad
+          </button>
+        </div>
       </div>
       <style jsx>
         {`
           .container {
-            background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+            background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
             position: fixed;
             padding: 2rem;
             margin-left: 1rem;
             margin-top: 1rem;
             border-radius: 5px;
             box-shadow: 10px 10px 50px black;
-            border: 1px solid grey;
             animation: bounceInLeft .7s forwards;
           }
 
           .btn {
-            border: 1px solid white;
+            border: none;
             padding: 0.5rem;
-            color: white;
+            color: #1d1475;
             margin: 1rem;
             transition: 0.5s;
             border-radius: 5px;
+            background: #ffffff;
+            font-weight: 300
           }
           .btn:hover {
             cursor: pointer;
-            background-color: #507885;
+            background-color: #8fd1e7;
+          }
+          .option-btn-container {
+            display: flex;
+            width: 18rem;
+            justify-content: space-between;
+            padding-left: 1rem;
+            
+          }
+          .option-btn {
+            width: 8rem;
+            height: 2rem;
+            
           }
           @keyframes move {
             0% {

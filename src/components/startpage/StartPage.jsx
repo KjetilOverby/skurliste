@@ -163,8 +163,8 @@ const StartPage = ({
           height: 5rem;
           width: 45rem;
           font-size: 1.5rem;
-          background: rgba(250, 250, 250, 0.1);
-          border: 1px solid white;
+          background: rgba(250, 250, 250, 0.082);
+          border: none;
           color: white;
           border-radius: 5px;
           transition: background 0.5s;
