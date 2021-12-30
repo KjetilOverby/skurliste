@@ -92,7 +92,7 @@ const SearchComponent = ({
         {`
           .container {
             height: 40vh;
-            width: 50vw;
+            width: 90%;
             z-index: 100;
           }
           .header {
@@ -153,7 +153,7 @@ const SearchComponent = ({
           .text {
             font-size: 1.2rem;
             margin-bottom: 1rem;
-            color: #1f1a58;
+            color: #a06332;
           }
           @media (max-width: 1100px) {
             .container {

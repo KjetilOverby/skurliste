@@ -21,19 +21,20 @@ const PostarkivStartPage = ({
     <>
       <div className="container">
         <div className="header-container">
+          <div className="btn-container">
+            <Link href="/">
+              <button className="button">Startsiden</button>
+            </Link>
+            <Link href="/skurliste">
+              <button className="button">Skurliste</button>
+            </Link>
+            <Link href="/create">
+              <button className="button">Lag ny post</button>
+            </Link>
+          </div>
           <h1 className="header">Søk i postarkiv</h1>
         </div>
-        <div className="btn-container">
-          <Link href="/">
-            <button className="button">Startsiden</button>
-          </Link>
-          <Link href="/skurliste">
-            <button className="button">Skurliste</button>
-          </Link>
-          <Link href="/create">
-            <button className="button">Lag ny post</button>
-          </Link>
-        </div>
+
         <div className="search-component-container">
           <div className="circle"></div>
           <SearchComponent
@@ -56,12 +57,23 @@ const PostarkivStartPage = ({
       <style jsx>
         {`
           .btn-container {
-            grid-area: btn;
             display: flex;
             flex-direction: column;
             padding: 0 2rem;
+            position: absolute;
+            left: 0;
+            align-items: flex-start;
           }
           .button {
+            border: none;
+            background: transparent;
+            font-size: 1.2rem;
+            font-weight: 100
+          }
+          .button:hover {
+            color: #bababa
+          }
+          {/* .button {
             margin-bottom: 1rem;
             padding: 1.5rem 0;
             border: none;
@@ -81,11 +93,11 @@ const PostarkivStartPage = ({
             color: #fff;
             cursor: pointer;
             background-position: 100%;
-          }
+          } */}
           .container {
             display: grid;
             grid-template-rows: 10rem 1fr 5rem;
-            grid-template-columns: 20rem 1fr 20rem;
+            grid-template-columns: 10rem 1fr 10rem;
             grid-template-areas:
               "header header header"
               "btn search ."
@@ -95,7 +107,7 @@ const PostarkivStartPage = ({
           .circle {
             height: 90rem;
             width: 90rem;
-            background-image: linear-gradient(45deg, #494949 0%, #66ca93 100%);
+            background-image: linear-gradient(to right, #434343 0%, black 100%);
             position: absolute;
             border-radius: 50%;
             left: 50%;
@@ -109,7 +121,7 @@ const PostarkivStartPage = ({
             color: #808080;
           }
           .search-component-container {
-            background-image: linear-gradient(to top, #4b4b4b 0%, #9eca90 100%);
+            background-image: linear-gradient(to right, #434343 0%, black 100%);
             border-radius: 10px;
             position: relative;
             overflow: hidden;
@@ -121,7 +133,7 @@ const PostarkivStartPage = ({
           }
           @media (max-width: 1620px) {
             .container {
-              grid-template-columns: 15rem 1fr 10rem;
+              grid-template-columns: 5rem 1fr 5rem;
             }
             .search-component-container {
               margin-bottom: 10rem;
