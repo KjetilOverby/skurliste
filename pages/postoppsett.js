@@ -373,6 +373,47 @@ const Postoppsett = ({
           @media (max-width: 1000px) {
             grid-template-rows: 1rem 1fr 0rem;
           }
+          .btn {
+            height: 3rem;
+          }
+          .header {
+            font-size: 1rem;
+            margin-top: -3rem;
+          }
+          .container {
+            padding-top: 2.5rem;
+            grid-template-areas:
+              "postContainer postContainer"
+              "header ."
+              ". .";
+          }
+          .info-box {
+            top: 25rem;
+          }
+          .info-box2 {
+            bottom: 25rem;
+          }
+          @media (max-width: 550px) {
+            .header {
+              font-weight: 100;
+              font-size: 0.8rem;
+              position: relative;
+            }
+            .info-box {
+              top: 20rem;
+            }
+            .info-box2 {
+              top: 33rem;
+            }
+            .container {
+              grid-template-rows: 3rem 10rem 1fr;
+              padding-top: 2.5rem;
+              grid-template-areas:
+                "header header"
+                "postContainer postContainer"
+                ". .";
+            }
+          }
         `}
       </style>
     </>

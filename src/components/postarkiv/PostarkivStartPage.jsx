@@ -150,6 +150,15 @@ const PostarkivStartPage = ({
                 "search search search";
             }
           }
+          @media (max-width: 550px) {
+            .container {
+              grid-template-rows: 5rem 0rem 1fr 5rem;
+            }
+            .btn-container {
+              top: 5.5rem;
+              z-index:100
+            }
+          }
         `}
       </style>
     </>

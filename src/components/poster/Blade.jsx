@@ -62,7 +62,27 @@ const Blade = ({ bladstamme }) => {
           @media (max-width: 1000px) {
             .blade {
               height: 18rem;
-              width: 3px;
+              width: 2px;
+            }
+            .sagsnitt {
+              font-size: 0.8rem;
+            }
+            .bladstamme {
+              font-size: 0.8rem;
+            }
+          }
+          @media (max-width: 550px) {
+            .blade {
+              height: 12rem;
+              width: 2px;
+            }
+            .sagsnitt {
+              font-size: 0.5rem;
+              top: -1rem;
+            }
+            .bladstamme {
+              font-size: 0.5rem;
+              bottom: -1rem;
             }
           }
         `}

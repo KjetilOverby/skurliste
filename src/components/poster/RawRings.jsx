@@ -152,6 +152,9 @@ const RawRings = ({ rawValue, bladstamme, ring, shims2, shims3, shims1 }) => {
             .shims1 {
               top: 14rem;
             }
+            .shims2 {
+              top: 15.5rem;
+            }
           }
           @media (max-width: 1350px) {
             .rawRing {
@@ -171,7 +174,67 @@ const RawRings = ({ rawValue, bladstamme, ring, shims2, shims3, shims1 }) => {
             }
             .blade {
               height: 18rem;
-              width: 3px;
+              width: 2px;
+            }
+            .ring {
+              top: 8rem;
+              font-size: 0.8rem;
+            }
+            .shims1 {
+              top: 9rem;
+              font-size: 0.8rem;
+            }
+            .shims2 {
+              top: 10rem;
+              font-size: 0.8rem;
+            }
+            .sagsnitt {
+              font-size: 0.8rem;
+            }
+            .bladstamme {
+              font-size: 0.8rem;
+            }
+            .rawValue {
+              font-size: 0.8rem;
+              top: -1.2rem;
+            }
+          }
+          @media (max-width: 550px) {
+            .rawValue {
+              font-size: 0.5rem;
+              top: -1rem;
+            }
+            .rawRing {
+              height: 4rem;
+              width: 1.8rem;
+              font-size: 0.7rem;
+              font-weight: 100;
+              border-radius: 2px;
+              margin: 0 0.1rem;
+            }
+            .sagsnitt {
+              font-size: 0.5rem;
+              top: -1rem;
+            }
+            .blade {
+              height: 12rem;
+              width: 2px;
+            }
+            .bladstamme {
+              font-size: 0.5rem;
+              bottom: -1rem;
+            }
+            .shims1 {
+              top: 5.2rem;
+              font-size: 0.5rem;
+            }
+            .shims2 {
+              top: 6rem;
+              font-size: 0.5rem;
+            }
+            .ring {
+              top: 4.5rem;
+              font-size: 0.5rem;
             }
           }
         `}

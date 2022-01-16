@@ -151,7 +151,7 @@ const StartPage = ({
         .container {
           background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
             url(${background});
-          height: 100vh;
+          min-height: 100vh;
           width: 100vw;
           background-size: cover;
           display: grid;
@@ -222,11 +222,19 @@ const StartPage = ({
           }
         }
         @media (max-width: 550px) {
+          .container {
+          }
           .header {
-            font-size: 2rem;
+            font-size: 1.5rem;
           }
           .button {
             width: 22rem;
+            height: 3rem;
+            font-size: 1.2rem;
+            font-weight: 100;
+          }
+          .btn-container {
+            margin-top: -8rem;
           }
         }
       `}</style>

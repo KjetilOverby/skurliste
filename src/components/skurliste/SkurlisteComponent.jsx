@@ -500,6 +500,8 @@ const SkurlisteComponent = ({
               width: 90rem;
             }
           }
+          @media (max-width: 550px) {
+          }
         `}
       </style>
     </>

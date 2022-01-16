@@ -55,6 +55,19 @@ const Fillrings = ({ value }) => {
               font-size: 0.9rem;
             }
           }
+          @media (max-width: 550px) {
+            .fillRing {
+              height: 4rem;
+              width: 1.8rem;
+              font-size: 0.7rem;
+              font-weight: 100;
+              border-radius: 2px;
+              margin: 0 0.1rem;
+            }
+            .sagsnitt {
+              font-size: 0.8rem;
+            }
+          }
         `}
       </style>
     </>
