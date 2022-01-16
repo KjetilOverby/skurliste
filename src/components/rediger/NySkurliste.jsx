@@ -104,7 +104,7 @@ const NySkurliste = ({
       <style jsx>
         {`
           .anm {
-            color: #ce5c5c;
+            color: #ffffff;
           }
           .container {
             display: flex;

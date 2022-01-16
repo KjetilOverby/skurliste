@@ -18,9 +18,12 @@ const RawRings = ({ rawValue, bladstamme, ring, shims2, shims3, shims1 }) => {
                 ringVal - ring - Number(shims2 != undefined && shims2)
               ).toFixed(1)}
             </p>
-            <p className="shims2">{shims2}</p>
+            <p className="shims2">
+              {shims2 != undefined &&
+                shims2 - Number(shims3 != undefined && shims3)}
+            </p>
             <p className="shims3">{shims3 && (shims2 - shims3).toFixed(1)}</p>
-            <p className="shims4">{shims3 != undefined && shims3}</p>
+            {/* <p className="shims4">{shims3 != undefined && shims3}</p> */}
           </>
         )}
         <div className="blade">
@@ -107,6 +110,13 @@ const RawRings = ({ rawValue, bladstamme, ring, shims2, shims3, shims1 }) => {
             left: 50%;
             transform: translateX(-50%);
           }
+          .shims4 {
+            color: #ffffff;
+            position: absolute;
+            top: 20.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+          }
           .rawRing {
             height: 14rem;
             width: 5.5rem;
@@ -155,6 +165,9 @@ const RawRings = ({ rawValue, bladstamme, ring, shims2, shims3, shims1 }) => {
             .shims2 {
               top: 15.5rem;
             }
+            .shims3 {
+              top: 17rem;
+            }
           }
           @media (max-width: 1350px) {
             .rawRing {
@@ -164,6 +177,18 @@ const RawRings = ({ rawValue, bladstamme, ring, shims2, shims3, shims1 }) => {
             }
             .blade {
               height: 25rem;
+            }
+            .ring {
+              top: 10rem;
+            }
+            .shims1 {
+              top: 11.5rem;
+            }
+            .shims2 {
+              top: 13rem;
+            }
+            .shims3 {
+              top: 14.5rem;
             }
           }
           @media (max-width: 1000px) {
@@ -186,6 +211,10 @@ const RawRings = ({ rawValue, bladstamme, ring, shims2, shims3, shims1 }) => {
             }
             .shims2 {
               top: 10rem;
+              font-size: 0.8rem;
+            }
+            .shims3 {
+              top: 11rem;
               font-size: 0.8rem;
             }
             .sagsnitt {
@@ -230,6 +259,10 @@ const RawRings = ({ rawValue, bladstamme, ring, shims2, shims3, shims1 }) => {
             }
             .shims2 {
               top: 6rem;
+              font-size: 0.5rem;
+            }
+            .shims3 {
+              top: 7rem;
               font-size: 0.5rem;
             }
             .ring {

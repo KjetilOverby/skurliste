@@ -313,7 +313,9 @@ const SkurlisteComponent = ({
                     {item.vs66 ? (
                       <p>{item.vs66}</p>
                     ) : (
-                      <BiBlock style={{ color: "red", fontSize: "1.5rem" }} />
+                      <BiBlock
+                        style={{ color: "#b34e4e", fontSize: "1.5rem" }}
+                      />
                     )}
                     {item.vs66Xtra && <p>{item.vs66Xtra}</p>}
                   </div>
@@ -347,7 +349,9 @@ const SkurlisteComponent = ({
                     {item.mkvBord ? (
                       <p>{item.mkvBord}</p>
                     ) : (
-                      <BiBlock style={{ color: "red", fontSize: "1.5rem" }} />
+                      <BiBlock
+                        style={{ color: "#b34e4e", fontSize: "1.5rem" }}
+                      />
                     )}
                   </div>
                   <div
@@ -418,8 +422,9 @@ const SkurlisteComponent = ({
             display: grid;
             background-color: #8d8d8d;
             grid-gap: 2px 1px;
-            border: 1px solid black;
+            border: 1px solid #757575;
             width: 100%;
+            box-shadow: 10px 10px 20px grey;
           }
           .input {
             width: 4rem;
@@ -434,19 +439,15 @@ const SkurlisteComponent = ({
           }
 
           .tablesquareTop {
-            background-image: linear-gradient(
-              #9efbd3 0%,
-              #bee8eb 48%,
-              #a2dbeb 100%
-            );
+            background: #e7e7e7;
             color: #475769;
           }
           .postSquare {
-            background: #e6ebff;
+            background: #ffffff;
           }
           .postSquare:hover {
             cursor: pointer;
-            background: #696969;
+            background: #488b97;
             color: #fff;
           }
           .treslag {
@@ -460,23 +461,23 @@ const SkurlisteComponent = ({
           }
 
           .stop-text {
-            color: red;
+            color: #b34e4e;
           }
           .red-text {
-            color: red;
+            color: #b34e4e;
           }
 
           .vs66 {
             display: flex;
             flex-direction: column;
-            background-color: #d2e1e9;
+            background-color: #ffffff;
           }
           .vs66XtraBrContainer {
             display: flex;
             flex-direction: column;
           }
           .mkv {
-            background-color: #f6facf;
+            background-color: #ffffff;
           }
           .klContainer {
             display: flex;

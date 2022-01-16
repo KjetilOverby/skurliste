@@ -126,6 +126,7 @@ const Postoppsett = ({
           .header {
             color: #fff;
             animation: bounceInRight 1.2s forwards;
+            font-weight: normal;
           }
           .headerContainer {
             grid-area: header;
@@ -370,28 +371,11 @@ const Postoppsett = ({
               transform: translateX(0rem);
             }
           }
-          @media (max-width: 1000px) {
-            grid-template-rows: 1rem 1fr 0rem;
-          }
+
           .btn {
             height: 3rem;
           }
-          .header {
-            font-size: 1rem;
-            margin-top: -3rem;
-          }
-          .container {
-            padding-top: 2.5rem;
-            grid-template-areas:
-              "postContainer postContainer"
-              "header ."
-              ". .";
-          }
-          .info-box {
-            top: 25rem;
-          }
-          .info-box2 {
-            bottom: 25rem;
+           {
           }
           @media (max-width: 550px) {
             .header {
@@ -412,6 +396,30 @@ const Postoppsett = ({
                 "header header"
                 "postContainer postContainer"
                 ". .";
+            }
+            .header {
+              font-size: 1rem;
+              margin-top: -3rem;
+            }
+          }
+
+          @media (max-height: 375px) {
+            .container {
+              padding-top: 2.5rem;
+              grid-template-areas:
+                "postContainer postContainer"
+                "header ."
+                ". .";
+            }
+            .info-box {
+              top: 25rem;
+            }
+            .info-box2 {
+              bottom: 25rem;
+            }
+            .header {
+              font-size: 1rem;
+              margin-top: -3rem;
             }
           }
         `}
