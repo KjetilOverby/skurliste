@@ -5,6 +5,7 @@ import styles from "../styles/Home.module.css";
 import StartPage from "../src/components/startpage/StartPage";
 import Link from "next/link";
 import { useAuth0 } from "@auth0/auth0-react";
+import StartPage2 from "../src/components/startpage/StartPage2";
 
 export default function Home({
   dated,
@@ -30,7 +31,16 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <StartPage
+      {/* <StartPage
+        dated={dated}
+        antallSum={antallSum}
+        kubikkSum={kubikkSum}
+        background={background}
+        setRandomNumber={setRandomNumber}
+        randomNumber={randomNumber}
+        user={user}
+      /> */}
+      <StartPage2
         dated={dated}
         antallSum={antallSum}
         kubikkSum={kubikkSum}
