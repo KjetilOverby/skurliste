@@ -1,13 +1,14 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
-const ButtonConponent = ({ img, header, imgWidth, link }) => {
+const ButtonConponent = ({ header, imgWidth, link, image }) => {
   return (
     <>
       <Link href={`${link}`}>
         <div className="container">
           <div className="img-container">
-            <img className="img" src={img} alt="" />
+            <Image src={image} />
           </div>
           <h1 className="header">{header}</h1>
         </div>

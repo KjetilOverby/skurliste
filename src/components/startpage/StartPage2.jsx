@@ -9,6 +9,10 @@ var dateFormat = require("dateformat");
 import Users from "../../../utils/users";
 import ButtonConponent from "./startpagecomponents/ButtonConponent";
 import { useMediaQuery } from "react-responsive";
+import add from "../../../assets/add.png";
+import edit from "../../../assets/edit.png";
+import postarkiv from "../../../assets/postarkiv.png";
+import skurliste from "../../../assets/skurliste.png";
 
 //https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1415&q=80
 //https://images.unsplash.com/photo-1545241201-fee9df605ca8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80
@@ -122,31 +126,31 @@ const StartPage2 = ({
         </button>
         <div className="btn-container">
           <ButtonConponent
-            img="https://www.sersyassociates.com/Images/database_256.png"
             header="Postarkiv"
             imgWidth="7rem"
             link="/postarkiv"
+            image={postarkiv}
           />
           <ButtonConponent
             header="Skurliste"
-            img="https://m1.pagewizcdn.com/Media/2019-01-10-21-34-24-987kxirvxhummqvhbfvfnjobdkwt_UserMedia.png"
             imgWidth="10rem"
             link="skurliste"
+            image={skurliste}
           />
           {!isMobile && (
             <>
               <ButtonConponent
                 header="Ny post"
-                img="https://icons.iconarchive.com/icons/gianni-polito/colobrush/256/system-database-add-icon.png"
                 imgWidth="6rem"
                 link="create"
+                image={add}
               />
               {user && user.sub === Users && (
                 <ButtonConponent
                   header="Rediger"
-                  img="https://www.gimp.org/images/frontpage/200px-Scribus_logo.svg.png"
                   imgWidth="6rem"
                   link="/rediger"
+                  image={edit}
                 />
               )}
             </>
@@ -163,14 +167,16 @@ const StartPage2 = ({
       </div>
 
       <style jsx>{`
-        @import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
+         {
+          /* @import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap"); */
+        }
         .arrow-container {
           position: absolute;
           left: 0;
         }
 
         .container {
-          background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)),
             url(${background});
           min-height: 100vh;
           width: 100vw;
@@ -210,10 +216,10 @@ const StartPage2 = ({
           margin-top: 10rem;
         }
         .header {
-          color: #a0a0a0;
+          color: ${color};
           font-size: 6rem;
           margin-top: 5rem;
-          font-family: "Fredericka the Great", cursive;
+
           color: color;
         }
         .login-button {
