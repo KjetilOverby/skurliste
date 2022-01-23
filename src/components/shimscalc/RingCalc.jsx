@@ -22,6 +22,18 @@ const RingCalc = ({ setOpenPage }) => {
   const [ringExistSmall, setRingExistSmall] = useState();
   const [ringExistShims, setRingExistShims] = useState();
 
+  const [ringExistV, setRingExistV] = useState();
+  const [ringExistSmallV, setRingExistSmallV] = useState();
+  const [ringExistShimsV, setRingExistShimsV] = useState();
+
+  const [ringExistV2, setRingExistV2] = useState();
+  const [ringExistSmallV2, setRingExistSmallV2] = useState();
+  const [ringExistShimsV2, setRingExistShimsV2] = useState();
+
+  const [ringExistV3, setRingExistV3] = useState();
+  const [ringExistSmallV3, setRingExistSmallV3] = useState();
+  const [ringExistShimsV3, setRingExistShimsV3] = useState();
+
   const getRings = (e) => {
     setRingValue(e.target.innerHTML);
     setUpdateFirst(!updateFirst);
@@ -56,6 +68,36 @@ const RingCalc = ({ setOpenPage }) => {
   useEffect(() => {
     setRingExistShims(ringObject.shims.filter((item) => item == firstCalc));
   }, [updateFirst, updateSecond, updateThird, firstCalc]);
+
+  useEffect(() => {
+    setRingExistV(ringObject.big.filter((item) => item == ringValue));
+  }, [updateFirst, updateSecond, updateThird, ringValue]);
+  useEffect(() => {
+    setRingExistSmallV(ringObject.small.filter((item) => item == ringValue));
+  }, [updateFirst, updateSecond, updateThird, ringValue]);
+  useEffect(() => {
+    setRingExistShimsV(ringObject.shims.filter((item) => item == ringValue));
+  }, [updateFirst, updateSecond, updateThird, ringValue]);
+
+  useEffect(() => {
+    setRingExistV2(ringObject.big.filter((item) => item == secondCalc));
+  }, [updateFirst, updateSecond, updateThird, secondCalc]);
+  useEffect(() => {
+    setRingExistSmallV2(ringObject.small.filter((item) => item == secondCalc));
+  }, [updateFirst, updateSecond, updateThird, secondCalc]);
+  useEffect(() => {
+    setRingExistShimsV2(ringObject.shims.filter((item) => item == secondCalc));
+  }, [updateFirst, updateSecond, updateThird, secondCalc]);
+
+  useEffect(() => {
+    setRingExistV3(ringObject.big.filter((item) => item == ringValue3));
+  }, [updateFirst, updateSecond, updateThird, ringValue3]);
+  useEffect(() => {
+    setRingExistSmallV3(ringObject.small.filter((item) => item == ringValue3));
+  }, [updateFirst, updateSecond, updateThird, ringValue3]);
+  useEffect(() => {
+    setRingExistShimsV3(ringObject.shims.filter((item) => item == ringValue3));
+  }, [updateFirst, updateSecond, updateThird, ringValue3]);
 
   console.log(ringExist && ringExist.length);
 
@@ -95,33 +137,82 @@ const RingCalc = ({ setOpenPage }) => {
           {ringValue !== 0 && (
             <div className="ring-calc-container">
               <h1 className="ring-val">{ringValue}</h1>
-              <img
-                className="img"
-                src="https://www.swiftrivermachine.com/wp-content/uploads/2017/10/Z101021-distance-ring-50_38x25.bmp"
-                alt=""
-              />
+
+              {ringExistV && ringExistV.length == 1 && (
+                <img
+                  className="img"
+                  src="https://www.swiftrivermachine.com/wp-content/uploads/2017/10/Z101021-distance-ring-50_38x25.bmp"
+                  alt=""
+                />
+              )}
+              {ringExistSmallV && ringExistSmallV.length == 1 && (
+                <img
+                  className="img-small"
+                  src="https://www.swiftrivermachine.com/wp-content/uploads/2017/10/Z101022-distance-ring-50_40x15.bmp"
+                  alt=""
+                />
+              )}
+              {ringExistShimsV && ringExistShimsV.length == 1 && (
+                <img
+                  className="img-small"
+                  src="https://dy5bctajj6i3s.cloudfront.net/300x300/din_988_passscheiben.jpg"
+                  alt=""
+                />
+              )}
             </div>
           )}
 
           {secondCalc !== 0 && (
             <div className="ring-calc-container">
               <h1 className="ring-val">{secondCalc}</h1>
-              <img
-                className="img"
-                src="https://www.swiftrivermachine.com/wp-content/uploads/2017/10/Z101021-distance-ring-50_38x25.bmp"
-                alt=""
-              />
+              {ringExistV2 && ringExistV2.length == 1 && (
+                <img
+                  className="img"
+                  src="https://www.swiftrivermachine.com/wp-content/uploads/2017/10/Z101021-distance-ring-50_38x25.bmp"
+                  alt=""
+                />
+              )}
+              {ringExistSmallV2 && ringExistSmallV2.length == 1 && (
+                <img
+                  className="img-small"
+                  src="https://www.swiftrivermachine.com/wp-content/uploads/2017/10/Z101022-distance-ring-50_40x15.bmp"
+                  alt=""
+                />
+              )}
+              {ringExistShimsV2 && ringExistShimsV2.length == 1 && (
+                <img
+                  className="img-small"
+                  src="https://dy5bctajj6i3s.cloudfront.net/300x300/din_988_passscheiben.jpg"
+                  alt=""
+                />
+              )}
             </div>
           )}
 
           {ringValue3 !== 0 && (
             <div className="ring-calc-container">
               <h1 className="ring-val">{ringValue3}</h1>
-              <img
-                className="img"
-                src="https://www.swiftrivermachine.com/wp-content/uploads/2017/10/Z101021-distance-ring-50_38x25.bmp"
-                alt=""
-              />
+              {ringExistV3 && ringExistV3.length == 1 && (
+                <img
+                  className="img"
+                  src="https://www.swiftrivermachine.com/wp-content/uploads/2017/10/Z101021-distance-ring-50_38x25.bmp"
+                  alt=""
+                />
+              )}
+              {ringExistSmallV3 && ringExistSmallV3.length == 1 && (
+                <img
+                  className="img-small"
+                  src="https://www.swiftrivermachine.com/wp-content/uploads/2017/10/Z101022-distance-ring-50_40x15.bmp"
+                  alt=""
+                />
+              )}
+              {ringExistShimsV3 && ringExistShimsV3.length == 1 && (
+                <img
+                  className="img-small"
+                  src="https://dy5bctajj6i3s.cloudfront.net/300x300/din_988_passscheiben.jpg"
+                  alt=""
+                />
+              )}
             </div>
           )}
 
@@ -194,13 +285,13 @@ const RingCalc = ({ setOpenPage }) => {
             font-size: 3rem;
             color: #507eac;
             font-weight: 300;
+            min-width: 8rem;
           }
           .ring-calc-container {
             display: flex;
             height: 3rem;
             align-items: center;
             width: 12rem;
-            justify-content: space-between;
           }
 
           @keyframes slide {

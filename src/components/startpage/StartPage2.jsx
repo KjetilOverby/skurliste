@@ -13,6 +13,7 @@ import add from "../../../assets/add.png";
 import edit from "../../../assets/edit.png";
 import postarkiv from "../../../assets/postarkiv.png";
 import skurliste from "../../../assets/skurliste.png";
+import calculator from "../../../assets/calc.png";
 
 //https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1415&q=80
 //https://images.unsplash.com/photo-1545241201-fee9df605ca8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80
@@ -134,8 +135,14 @@ const StartPage2 = ({
           <ButtonConponent
             header="Skurliste"
             imgWidth="10rem"
-            link="skurliste"
+            link="/skurliste"
             image={skurliste}
+          />
+          <ButtonConponent
+            header="Kalkulator"
+            imgWidth="6rem"
+            link="/skimskalkulator"
+            image={calculator}
           />
           {!isMobile && (
             <>
