@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import RingCalc from "../src/components/shimscalc/RingCalc";
 import ShimsCalc from "../src/components/shimscalc/ShimsCalc";
 import Link from "next/link";
+import RawGauge from "../src/components/shimscalc/RawGauge";
 
-const skimskalkulator = () => {
+const Skimskalkulator = () => {
   const [openPage, setOpenPage] = useState("");
 
   return (
@@ -15,6 +16,7 @@ const skimskalkulator = () => {
         </Link>
         <ShimsCalc setOpenPage={setOpenPage} />
         {openPage === "ring" && <RingCalc setOpenPage={setOpenPage} />}
+        {openPage === "raw" && <RawGauge setOpenPage={setOpenPage} />}
       </div>
       <style jsx>
         {`
@@ -29,4 +31,4 @@ const skimskalkulator = () => {
   );
 };
 
-export default skimskalkulator;
+export default Skimskalkulator;

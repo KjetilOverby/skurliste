@@ -1,31 +1,31 @@
 import React from "react";
 import ringObject from "../common/create/ringObject";
 
-const ringTable = ({ getRings, color }) => {
+const RingTable = ({ getRings, color }) => {
   return (
     <>
       <div className="container">
         <p className="ring-container-header">Små ringer</p>
         <div className="small-container">
           {ringObject.small.map((small) => (
-            <div onClick={getRings} className="ring-box">
+            <div key={small} onClick={getRings} className="ring-box">
               {small}
             </div>
           ))}
         </div>
         <p className="ring-container-header">Store ringer</p>
         <div className="small-container">
-          {ringObject.big.map((small) => (
-            <div onClick={getRings} className="ring-box">
-              {small}
+          {ringObject.big.map((big) => (
+            <div key={big} onClick={getRings} className="ring-box">
+              {big}
             </div>
           ))}
         </div>
         <p className="ring-container-header">skims</p>
         <div className="small-container">
-          {ringObject.shims.map((small) => (
-            <div onClick={getRings} className="ring-box">
-              {small}
+          {ringObject.shims.map((shims) => (
+            <div key={shims} onClick={getRings} className="ring-box">
+              {shims}
             </div>
           ))}
         </div>
@@ -76,4 +76,4 @@ const ringTable = ({ getRings, color }) => {
   );
 };
 
-export default ringTable;
+export default RingTable;

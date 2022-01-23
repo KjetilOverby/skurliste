@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import RingTable from "./ringTable";
 import ringObject from "../common/create/ringObject";
 
-const RingCalc = ({ setOpenPage }) => {
+const RawGauge = ({ setOpenPage }) => {
   const [inputValue, setInputValue] = useState(0);
   const [ringValue, setRingValue] = useState(0);
   const [ringValue2, setRingValue2] = useState(0);
   const [ringValue3, setRingValue3] = useState(0);
+  const [xValue, setXValue] = useState();
 
   const [firstCalc, setFirstCalc] = useState(0);
   const [secondCalc, setSecondCalc] = useState(0);
@@ -48,15 +49,19 @@ const RingCalc = ({ setOpenPage }) => {
     setUpdateThird(!updateThird);
   };
   useEffect(() => {
-    setFirstCalc(Number(inputValue - ringValue).toFixed(1));
+    setFirstCalc(Number(inputValue - ringValue + 1.4).toFixed(1));
   }, [updateFirst]);
   useEffect(() => {
-    setFirstCalc(Number(firstCalc - ringValue2).toFixed(1));
+    setFirstCalc(Number(firstCalc - ringValue2 + 1.4).toFixed(1));
     setSecondCalc(ringValue2);
   }, [updateSecond]);
   useEffect(() => {
-    setFirstCalc(Number(firstCalc - ringValue3).toFixed(1));
+    setFirstCalc(Number(firstCalc - ringValue3 + 1.4).toFixed(1));
   }, [updateThird]);
+
+  useEffect(() => {
+    setXValue(Number(inputValue) + Number(1.4));
+  }, [inputValue]);
 
   useEffect(() => {
     setRingExist(ringObject.big.filter((item) => item == firstCalc));
@@ -114,7 +119,7 @@ const RingCalc = ({ setOpenPage }) => {
           <button onClick={() => setOpenPage("")}>Tilbake</button>
           <div>
             <div>
-              <p>Skriv inn en verdi</p>
+              <p>Skriv inn et råmål</p>
               <input
                 type="number"
                 onChange={(e) => setInputValue(e.target.value)}
@@ -153,7 +158,9 @@ const RingCalc = ({ setOpenPage }) => {
         </div>
 
         <div className="middle-panel">
-          <h1 className="input-val">{inputValue}</h1>
+          <h1 className="input-val">Råmål: {inputValue}</h1>
+          <h1 className="input-val">Xverdi: {xValue > 1.4 && xValue} </h1>
+
           <hr />
           {ringValue !== 0 && (
             <div className="ring-calc-container">
@@ -374,4 +381,4 @@ const RingCalc = ({ setOpenPage }) => {
   );
 };
 
-export default RingCalc;
+export default RawGauge;
