@@ -3,7 +3,7 @@ import RingTable from "./ringTable";
 import ringObject from "../common/create/ringObject";
 
 const RingCalc = ({ setOpenPage }) => {
-  const [inputValue, setInputValue] = useState(0);
+  const [inputValue, setInputValue] = useState("");
   const [ringValue, setRingValue] = useState(0);
   const [ringValue2, setRingValue2] = useState(0);
   const [ringValue3, setRingValue3] = useState(0);
@@ -99,12 +99,13 @@ const RingCalc = ({ setOpenPage }) => {
   }, [updateFirst, updateSecond, updateThird, ringValue3]);
 
   const nullstill = () => {
-    setInputValue(0);
+    setInputValue("");
     setRingValue(0);
     setRingValue2(0);
     setRingValue3(0);
     setFirstCalc(0);
     setSecondCalc(0);
+    setRingCount(0);
   };
 
   return (
@@ -116,6 +117,7 @@ const RingCalc = ({ setOpenPage }) => {
             <div>
               <p>Skriv inn en verdi</p>
               <input
+                value={inputValue}
                 type="number"
                 onChange={(e) => setInputValue(e.target.value)}
               />
