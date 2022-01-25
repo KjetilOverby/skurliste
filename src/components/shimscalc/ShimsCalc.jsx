@@ -51,7 +51,7 @@ const ShimsCalc = ({ setOpenPage }) => {
             grid-template-rows: 4rem 18rem 1fr;
             place-items: center;
             padding: 1rem;
-            box-sizing: inherit;
+            border: 1px solid transparent;
           }
           .img-container:hover {
             border: 1px solid #dadada;
