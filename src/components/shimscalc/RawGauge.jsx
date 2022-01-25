@@ -111,7 +111,6 @@ const RawGauge = ({ setOpenPage }) => {
     setFirstCalc(0);
     setSecondCalc(0);
     setRingCount(0);
-    setUpdateFirst(false);
   };
 
   return (
@@ -247,7 +246,7 @@ const RawGauge = ({ setOpenPage }) => {
             </div>
           )}
 
-          {firstCalc !== 0 && updateFirst && (
+          {firstCalc !== 0 && (
             <div className="ring-calc-container">
               <h1 className="ring-val ring4">{firstCalc}</h1>
               {ringExist && ringExist.length == 1 && (

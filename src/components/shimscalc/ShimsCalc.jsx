@@ -1,4 +1,7 @@
 import React from "react";
+import Image from "next/image";
+import distansering from "../../../assets/distansering2.bmp";
+import planke from "../../../assets/planke.jpeg";
 
 const ShimsCalc = ({ setOpenPage }) => {
   return (
@@ -9,20 +12,14 @@ const ShimsCalc = ({ setOpenPage }) => {
           <div></div>
           <div onClick={() => setOpenPage("ring")} className="img-container">
             <h4 className="img-header">Ring</h4>
-            <img
-              className="img"
-              src="https://www.swiftrivermachine.com/wp-content/uploads/2017/10/Z101021-distance-ring-50_38x25.bmp"
-              alt=""
-            />
+            <Image src={distansering} />
+
             <p className="text">Legg sammen flere ringer for å få en verdi.</p>
           </div>
           <div onClick={() => setOpenPage("raw")} className="img-container">
             <h4 className="img-header">Råmål</h4>
-            <img
-              className="img"
-              src="https://www.byggmakker.no/globalassets/nobbimages/0502---konstruksjonsvirke/5310190173426094624173.jpg?width=400&quality=80"
-              alt=""
-            />
+
+            <Image src={planke} />
             <p className="text">
               Regn ut hvilke skims man må bruke ut i fra gitt råmål.
             </p>
@@ -54,11 +51,11 @@ const ShimsCalc = ({ setOpenPage }) => {
             grid-template-rows: 4rem 18rem 1fr;
             place-items: center;
             padding: 1rem;
-            transition: transform 0.5s, box-shadow 0.5s;
+            box-sizing: inherit;
           }
           .img-container:hover {
-            transform: scale(1.1);
-            box-shadow: 5px 5px 40px grey;
+            border: 1px solid #dadada;
+            border-radius: 10px;
             cursor: pointer;
           }
           .img-main-container {
