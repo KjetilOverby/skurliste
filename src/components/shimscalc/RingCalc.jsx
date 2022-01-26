@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import RingTable from "./ringTable";
 import ringObject from "../common/create/ringObject";
+import ButtonComponent from "../common/buttons/ButtonComponent";
 
 const RingCalc = ({ setOpenPage }) => {
   const [inputValue, setInputValue] = useState("");
@@ -112,7 +113,11 @@ const RingCalc = ({ setOpenPage }) => {
     <>
       <div className="container">
         <div className="left-panel">
-          <button onClick={() => setOpenPage("")}>Tilbake</button>
+          <ButtonComponent
+            title="Tilbake"
+            type="outline"
+            func={() => setOpenPage("")}
+          />
           <div>
             <div>
               <p>Skriv inn en verdi</p>
@@ -138,19 +143,24 @@ const RingCalc = ({ setOpenPage }) => {
         </div>
         <div className="btn-section">
           <div>
-            <button
-              style={{ marginRight: "1rem" }}
-              onClick={() => setRingCount(ringCount - 1)}
-            >
-              Tilbake
-            </button>
-            <button onClick={() => setRingCount(ringCount + 1)}>
-              Neste ring
-            </button>
+            <ButtonComponent
+              type="outline"
+              title="Tilbake"
+              func={() => setRingCount(ringCount - 1)}
+            />
+            <ButtonComponent
+              type="outline"
+              title="Neste ring"
+              func={() => setRingCount(ringCount + 1)}
+            />
           </div>
           <div>
             <h4 className="ring-count-header">Ring {ringCount + 1}</h4>
-            <button onClick={nullstill}>Nullstill</button>
+            <ButtonComponent
+              func={nullstill}
+              title="nullstill"
+              type="red-outline"
+            />
           </div>
         </div>
 

@@ -276,6 +276,7 @@ const Postoppsett = ({
             display: flex;
             flex-direction: column;
             padding: 2rem;
+            z-index: 100;
           }
           .info-box2 {
             color: #bdbdbd;

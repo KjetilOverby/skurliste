@@ -7,6 +7,7 @@ import Link from "next/link";
 import Users from "../utils/users";
 import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from "../src/components/auth/LoginButton";
+import ButtonComponent from "../src/components/common/buttons/ButtonComponent";
 
 const Rediger = ({
   lists,
@@ -86,10 +87,12 @@ const Rediger = ({
             <h1 className="header">Legg til eller rediger klasser</h1>
             <div className="btn-container">
               <Link href="/skurliste">
-                <button className="btn">Til skurliste</button>
+                <div>
+                  <ButtonComponent type="outline" title="Til skurliste" />
+                </div>
               </Link>
               <Link href="/">
-                <button className="btn">Til startsiden</button>
+                <ButtonComponent title="Til startsiden" type="outline" />
               </Link>
             </div>
             <InputComponent
@@ -175,7 +178,7 @@ const Rediger = ({
           }
           .btn-container {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             width: 10rem;
           }
           .header {

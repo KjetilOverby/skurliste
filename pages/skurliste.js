@@ -4,6 +4,7 @@ import Link from "next/link";
 var dateFormat = require("dateformat");
 import { useAuth0 } from "@auth0/auth0-react";
 import Users from "../utils/users";
+import ButtonComponent from "../src/components/common/buttons/ButtonComponent";
 
 const Skurliste = ({
   filteredPostList,
@@ -35,11 +36,15 @@ const Skurliste = ({
           </div>
           <div className="btn-container">
             <Link href="/">
-              <button className="btn">Til startsiden</button>
+              <div>
+                <ButtonComponent title="Startsiden" type="outline" />
+              </div>
             </Link>
             {user && user.sub === Users && (
               <Link href="/rediger">
-                <button className="btn">Rediger skurliste</button>
+                <div>
+                  <ButtonComponent title="Rediger liste" type="outline" />
+                </div>
               </Link>
             )}
           </div>
@@ -65,12 +70,9 @@ const Skurliste = ({
       </div>
       <style jsx>
         {`
-          .btn {
-            margin-bottom: 0.5rem;
-          }
           .btn-container {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             width: 10rem;
           }
           .container {
