@@ -10,7 +10,7 @@ const ButtonComponent = ({ title, func, ml, type }) => {
         {`
           .container {
             background: dodgerblue;
-            min-width: 7rem;
+            min-width: 8rem;
             padding: 0.5rem;
             border: none;
             border-radius: 5px;
@@ -22,6 +22,7 @@ const ButtonComponent = ({ title, func, ml, type }) => {
           }
           .container:hover {
             background: #1973cc;
+            cursor: pointer;
           }
           .outline {
             border: 1px solid #1973cc;

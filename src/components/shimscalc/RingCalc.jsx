@@ -380,6 +380,28 @@ const RingCalc = ({ setOpenPage }) => {
               height: 3rem;
             }
           }
+          @media (max-width: 800px) {
+            .container {
+              grid-template-rows: auto auto 15rem 5rem;
+              grid-template-columns: 1fr;
+              grid-template-areas:
+                "middle"
+                "left"
+                "btn"
+                ".";
+              overflow: scroll;
+            }
+            .middle-panel {
+              margin: 0;
+            }
+            .btn-section {
+              grid-area: btn;
+              margin-top: 0;
+            }
+            .ring-count-header {
+              margin: 0;
+            }
+          }
         `}
       </style>
     </>

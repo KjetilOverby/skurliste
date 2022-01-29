@@ -173,7 +173,9 @@ const RawGauge = ({ setOpenPage }) => {
 
         <div className="middle-panel">
           <h1 className="input-val">Råmål: {inputValue}</h1>
-          <h1 className="input-val">Xverdi: {xValue > 1.4 && xValue} </h1>
+          <h1 className="input-val">
+            Xverdi: {Number(xValue > 1.4 && xValue).toFixed(1)}{" "}
+          </h1>
 
           <hr />
           {ringValue !== 0 && (
@@ -387,6 +389,30 @@ const RawGauge = ({ setOpenPage }) => {
             }
             .ring-calc-container {
               height: 3rem;
+            }
+          }
+          @media (max-width: 800px) {
+            .container {
+              grid-template-rows: auto auto 15rem 5rem;
+              grid-template-columns: 1fr;
+              grid-template-areas:
+                "middle"
+                "left"
+                "btn"
+                ".";
+              overflow: scroll;
+            }
+            .middle-panel {
+              margin: 0;
+
+              width: 100vw;
+            }
+            .btn-section {
+              grid-area: btn;
+              margin-top: 0;
+            }
+            .ring-count-header {
+              margin: 0;
             }
           }
         `}
