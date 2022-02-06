@@ -31,11 +31,33 @@ const SearchListFromBtn = ({
                 setOpenSearchList(false);
               };
               return (
-                <>
-                  <p key={item._id} onClick={getPostOppsett} className="btn">
-                    {item.header}
-                  </p>
-                </>
+                <div
+                  key={item.id}
+                  className="post-container"
+                  onClick={getPostOppsett}
+                >
+                  <p className="header">{item.header}</p>
+                  <div className="ring-container">
+                    {item.startRings.map((item) => (
+                      <p key={item.input._id} className="rings">
+                        {item.input}
+                      </p>
+                    ))}
+                    {item.rawInput.map((item) => (
+                      <p key={item.input._id} className="rings rawinput">
+                        {(item.input + 1.4).toFixed(1)}
+                        <p key={item.input._id} className="rawGauge">
+                          {item.input}
+                        </p>
+                      </p>
+                    ))}
+                    {item.endRings.map((item) => (
+                      <p key={item.input._id} className="rings endrings">
+                        {item.input}
+                      </p>
+                    ))}
+                  </div>
+                </div>
               );
             })}
         </h1>
@@ -54,7 +76,7 @@ const SearchListFromBtn = ({
       <style jsx>
         {`
           .container {
-            background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+            background-image: linear-gradient(to top, #c2c2c2 0%, #ffffff 100%);
             position: fixed;
             padding: 2rem;
             margin-left: 1rem;
@@ -62,6 +84,18 @@ const SearchListFromBtn = ({
             border-radius: 5px;
             box-shadow: 10px 10px 50px black;
             animation: bounceInLeft .7s forwards;
+            overflow: scroll;
+            max-height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+          .header {
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #415a61;
+            font-size: 1.2rem
           }
 
           .btn {
@@ -77,6 +111,58 @@ const SearchListFromBtn = ({
           .btn:hover {
             cursor: pointer;
             background-color: #8fd1e7;
+          }
+         
+        
+          .header-component {
+            padding: 2rem 0;
+            background-color: #d8d8d8;
+            width: 100%;
+            margin-bottom: 2rem;
+            position: fixed;
+            z-index: 100;
+          }
+          .header-component-fill {
+            height: 10rem;
+          }
+          .rings {
+            background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+            border: 1px solid #a3a1a171;
+            padding: 0.5rem;
+            font-size: 0.5rem;
+            height: 3.5rem;
+            width: 1.8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 0.2rem;
+            border-radius: 3px;
+            box-shadow: 2px 2px 10px grey;
+           
+          }
+          .endrings {
+          }
+          .rawinput {
+            background-image: linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%);
+            position: relative;
+          }
+          .ring-container {
+            display: flex;
+          }
+          .rawGauge {
+            position: absolute;
+            top: -0.8rem;
+          }
+          .post-container {
+            margin-bottom: 5rem;
+            transition: 0.5s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;align-items: center;
+          }
+          .post-container:hover {
+            cursor: pointer;
+            transform: scale(1.05);
           }
           .option-btn-container {
             display: flex;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PostarkivStartPage from "../src/components/postarkiv/PostarkivStartPage";
 import axios from "axios";
+import PostarkivStartpage2 from "../src/components/postarkiv/PostarkivStartpage2";
 
 const api = axios.create({
   baseURL: process.env.api,
@@ -32,7 +33,7 @@ const Postarkiv = ({
   return (
     <>
       <div className="container">
-        <PostarkivStartPage
+        {/* <PostarkivStartPage
           postarkiv={postarkiv}
           setGetSearch={setGetSearch}
           getSearch={getSearch}
@@ -46,12 +47,29 @@ const Postarkiv = ({
           setBladstamme={setBladstamme}
           setGetIdforDelete={setGetIdforDelete}
           setCreateDate={setCreateDate}
+        /> */}
+        <PostarkivStartpage2
+          setGetSearch={setGetSearch}
+          getSearch={getSearch}
+          setGetID={setGetID}
+          getID={getID}
+          setHeaderPostOppsett={setHeaderPostOppsett}
+          setStartRingsPostOppsett={setStartRingsPostOppsett}
+          setRawRingsPostOppsett={setRawRingsPostOppsett}
+          rawRingsPostOppsett={rawRingsPostOppsett}
+          setEndRingsPostOppsett={setEndRingsPostOppsett}
+          setBladstamme={setBladstamme}
+          setGetIdforDelete={setGetIdforDelete}
+          setCreateDate={setCreateDate}
+          postarkiv={postarkiv}
         />
       </div>
       <style jsx>
         {`
-          .container {
+           {
+            /* .container {
             background-color: #333;
+          } */
           }
         `}
       </style>
