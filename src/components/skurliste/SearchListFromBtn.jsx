@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
+import ButtonComponent from "../common/buttons/ButtonComponent";
 
 const SearchListFromBtn = ({
   filteredPostList,
@@ -62,15 +63,18 @@ const SearchListFromBtn = ({
             })}
         </h1>
         <div className="option-btn-container">
-          <button
+          <ButtonComponent
             className="option-btn"
-            onClick={() => setOpenSearchList(false)}
-          >
-            Lukk
-          </button>
-          <button className="option-btn" onClick={searchAllBlades}>
-            Søk alle blad
-          </button>
+            func={() => setOpenSearchList(false)}
+            title="LUKK"
+            type="outline"
+          />
+
+          <ButtonComponent
+            title="søk alle blad"
+            className="option-btn"
+            func={searchAllBlades}
+          />
         </div>
       </div>
       <style jsx>
@@ -88,7 +92,6 @@ const SearchListFromBtn = ({
             max-height: 80%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
           }
           .header {
