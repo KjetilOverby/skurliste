@@ -1,11 +1,20 @@
 import React from "react";
+import Link from "next/link";
 
-const ButtonComponent = ({ title, func, ml, type }) => {
+const ButtonComponent = ({ title, func, ml, type, link }) => {
   return (
     <>
-      <button onClick={func} className={`container ${type} `}>
-        {title}
-      </button>
+      {!link && (
+        <button onClick={func} className={`container ${type} `}>
+          {title}
+        </button>
+      )}
+      {link && (
+        <Link href={`${link}`}>
+          <button className={`container ${type} `}>{title}</button>
+        </Link>
+      )}
+
       <style jsx>
         {`
           .container {

@@ -3,6 +3,7 @@ import { AppData } from "../../contexts/AppData";
 import Link from "next/link";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+import { ImInfo } from "react-icons/im";
 import LoginButton from "../auth/LoginButton";
 import Logout from "../auth/Logout";
 var dateFormat = require("dateformat");
@@ -97,6 +98,15 @@ const StartPage2 = ({
               onClick={upRandomNumber}
               style={{ color: "white", cursor: "pointer" }}
             />
+            <Link href="/info">
+              <ImInfo
+                style={{
+                  color: "white",
+                  marginLeft: "1rem",
+                  cursor: "pointer",
+                }}
+              />
+            </Link>
           </div>
 
           <h1 className="header">Postarkiv</h1>

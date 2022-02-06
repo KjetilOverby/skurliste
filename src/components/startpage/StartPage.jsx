@@ -3,6 +3,7 @@ import { AppData } from "../../contexts/AppData";
 import Link from "next/link";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+import { ImInfo } from "react-icons/im";
 import LoginButton from "../auth/LoginButton";
 import Logout from "../auth/Logout";
 var dateFormat = require("dateformat");
@@ -89,6 +90,7 @@ const StartPage = ({
               onClick={upRandomNumber}
               style={{ color: "white", cursor: "pointer" }}
             />
+            <ImInfo />
           </div>
           <h1 className="header">
             Skurlister <span style={{ color: color }}>Moelven Våler</span>
