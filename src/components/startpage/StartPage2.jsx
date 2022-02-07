@@ -43,6 +43,7 @@ const StartPage2 = ({
   randomNumber,
   user,
 }) => {
+  const currentYear = new Date().getFullYear();
   const isMobile = useMediaQuery({ query: `(max-width: 1000px)` });
   const { lists } = useContext(AppData);
   const [color, setColor] = useState();
@@ -52,6 +53,7 @@ const StartPage2 = ({
       setRandomNumber(0);
     }
   };
+
   const downRandomNumber = () => {
     setRandomNumber(randomNumber - 1);
     if (randomNumber === 0) {
@@ -177,7 +179,7 @@ const StartPage2 = ({
           <div className="userContainer">
             <p className="bottom-text">
               innlogged som: {user.name} * email: {user.email} * © copyright
-              2022
+              2016-{currentYear}
             </p>
           </div>
         )}
