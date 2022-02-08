@@ -36,9 +36,14 @@ const PostarkivStartpage2 = ({
               placeholder="Søk"
               onChange={(e) => setInput(e.target.value)}
             />
-            <p className="antall">
-              Antall: {filteredData && filteredData.length}
-            </p>
+            <div>
+              <p className="antall">
+                Antall poster: {postarkiv && postarkiv.length}
+              </p>
+              <p className="antall">
+                Antall treff: {filteredData && filteredData.length}
+              </p>
+            </div>
           </div>
         </div>
 
@@ -98,6 +103,7 @@ const PostarkivStartpage2 = ({
           .header {
             margin-bottom: 2rem;
             text-align: center;
+            color: white;
           }
           .header-component {
             padding: 2rem 0;
@@ -111,7 +117,7 @@ const PostarkivStartpage2 = ({
             display: grid;
             place-items: center;
             width: 100%;
-            background-color: #ffffff;
+            background-color: transparent;
             z-index: 100;
             margin-bottom: 5rem;
           }
@@ -138,7 +144,15 @@ const PostarkivStartpage2 = ({
             height: 10rem;
           }
           .rings {
-            background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            background-image: linear-gradient(
+              to top,
+              #ffffff 0%,
+              #cceaf0 1%,
+              #78a7b6 26%,
+              #d1f4f8 48%,
+              #b2dbee 75%,
+              #28778f 100%
+            );
             border: 1px solid #a3a1a171;
             padding: 0.5rem;
             font-size: 0.8rem;
@@ -149,16 +163,18 @@ const PostarkivStartpage2 = ({
             align-items: center;
             margin-right: 0.2rem;
             border-radius: 3px;
-            box-shadow: 2px 2px 10px grey;
           }
           .endrings {
           }
           .rawinput {
             background-image: linear-gradient(
-              -225deg,
-              #ffe29f 0%,
-              #ffa99f 48%,
-              #ff719a 100%
+              to top,
+              #ffffff 0%,
+              #ece478 1%,
+              #7f8833 26%,
+              #f3f57f 48%,
+              #dce2a5 75%,
+              #6f7708 100%
             );
             position: relative;
           }
@@ -168,6 +184,7 @@ const PostarkivStartpage2 = ({
           .rawGauge {
             position: absolute;
             top: -1.2rem;
+            color: #3d9bf3;
           }
           .post-container {
             margin-bottom: 5rem;

@@ -67,9 +67,17 @@ const Postarkiv = ({
       <style jsx>
         {`
            {
-            /* .container {
-            background-color: #333;
-          } */
+            .container {
+              background: linear-gradient(
+                  rgba(0, 0, 0, 0.5),
+                  rgba(0, 0, 0, 0.5)
+                ),
+                url("https://images.unsplash.com/photo-1617400120050-a1e45fa16c02?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80");
+              background-repeat: no-repeat;
+              background-attachment: fixed;
+              background-size: cover;
+              min-height: 100vh;
+            }
           }
         `}
       </style>

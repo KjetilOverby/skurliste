@@ -127,7 +127,7 @@ const HeaderComponent = ({ color, editHeader }) => {
         .tabs {
           text-transform: uppercase;
           transition: 0.5s;
-          color: ${color};
+          color: white;
           font-size: 1rem;
           font-weight: 100;
         }

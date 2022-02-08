@@ -80,7 +80,8 @@ const SearchListFromBtn = ({
       <style jsx>
         {`
           .container {
-            background-image: linear-gradient(to top, #c2c2c2 0%, #ffffff 100%);
+            background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+ background-blend-mode: multiply,multiply;
             position: fixed;
             padding: 2rem;
             margin-left: 1rem;
@@ -129,7 +130,8 @@ const SearchListFromBtn = ({
             height: 10rem;
           }
           .rings {
-            background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+            background-image: linear-gradient(to top, #ffffff 0%, lightgrey 1%, #b6b6b6 26%, #efefef 48%, #d9d9d9 75%, #959595 100%);
+ background-blend-mode: screen;
             border: 1px solid #a3a1a171;
             padding: 0.5rem;
             font-size: 0.9rem;
@@ -142,12 +144,13 @@ const SearchListFromBtn = ({
             margin-right: 0.2rem;
             border-radius: 5px;
             box-shadow: 2px 2px 10px grey;
+            
            
           }
           .endrings {
           }
           .rawinput {
-            background-image: linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%);
+            background-image: linear-gradient(to top, #ffffff 0%, #aad8b3 1%, #53b368 26%, #bde6ca 48%, #9debc7 75%, #499481 100%);
             position: relative;
            
           }
