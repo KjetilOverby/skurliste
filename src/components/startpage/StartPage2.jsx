@@ -178,8 +178,15 @@ const StartPage2 = ({
         {user && user.sub === Users && (
           <div className="userContainer">
             <p className="bottom-text">
-              innlogged som: {user.name} * email: {user.email} * © copyright
-              2016-{currentYear}
+              innlogged som: {user.name} * email: {user.email} * Postarkiv ©
+              copyright 2016-{currentYear}
+            </p>
+          </div>
+        )}
+        {!user && (
+          <div className="userContainer">
+            <p className="bottom-text">
+              Postarkiv © copyright 2016-{currentYear}
             </p>
           </div>
         )}

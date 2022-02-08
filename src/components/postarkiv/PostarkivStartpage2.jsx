@@ -28,7 +28,6 @@ const PostarkivStartpage2 = ({
   return (
     <>
       <div className="container">
-        <div className="header-fill"></div>
         <div className="headerComponentContainer">
           <HeaderComponent />
           <div className="input-container">
@@ -109,18 +108,28 @@ const PostarkivStartpage2 = ({
             z-index: 100;
           }
           .headerComponentContainer {
-            position: fixed;
             display: grid;
             place-items: center;
             width: 100%;
-            background-color: #d3d3d3;
+            background-color: #ffffff;
             z-index: 100;
+            margin-bottom: 5rem;
           }
           .header-fill {
             height: 10rem;
           }
           .input {
             margin-bottom: 2rem;
+            height: 3rem;
+            font-size: 1.5rem;
+            width: 15rem;
+            border-radius: 10px;
+            border: none;
+            padding: 0 1rem;
+            font-weight: bold;
+            color: grey;
+            outline: none;
+            background: #c0c0c044;
           }
           .input-container {
             display: flex;
@@ -132,9 +141,9 @@ const PostarkivStartpage2 = ({
             background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
             border: 1px solid #a3a1a171;
             padding: 0.5rem;
-            font-size: 0.5rem;
-            height: 3.5rem;
-            width: 1.8rem;
+            font-size: 0.8rem;
+            height: 4.5rem;
+            width: 2.2rem;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -158,7 +167,7 @@ const PostarkivStartpage2 = ({
           }
           .rawGauge {
             position: absolute;
-            top: -0.8rem;
+            top: -1.2rem;
           }
           .post-container {
             margin-bottom: 5rem;

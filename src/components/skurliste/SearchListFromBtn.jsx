@@ -132,14 +132,15 @@ const SearchListFromBtn = ({
             background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
             border: 1px solid #a3a1a171;
             padding: 0.5rem;
-            font-size: 0.5rem;
-            height: 3.5rem;
-            width: 1.8rem;
+            font-size: 0.9rem;
+            font-weight: 300;
+            height: 4.5rem;
+            width: 2.3rem;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-right: 0.2rem;
-            border-radius: 3px;
+            border-radius: 5px;
             box-shadow: 2px 2px 10px grey;
            
           }
@@ -148,13 +149,14 @@ const SearchListFromBtn = ({
           .rawinput {
             background-image: linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%);
             position: relative;
+           
           }
           .ring-container {
             display: flex;
           }
           .rawGauge {
             position: absolute;
-            top: -0.8rem;
+            top: -1.2rem;
           }
           .post-container {
             margin-bottom: 5rem;

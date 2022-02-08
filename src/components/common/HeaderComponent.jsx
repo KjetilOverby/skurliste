@@ -40,6 +40,9 @@ const HeaderComponent = ({ color, editHeader }) => {
                   <Link href="/create">
                     <p className="tabs-mobile">Lag ny post</p>
                   </Link>
+                  <Link href="/skimskalkulator">
+                    <p className="tabs-mobile">Kalkulator</p>
+                  </Link>
                 </div>
               )}
               {openSidebar && (
@@ -67,6 +70,9 @@ const HeaderComponent = ({ color, editHeader }) => {
               </Link>
               <Link href="/create">
                 <p className="tabs">Lag ny post</p>
+              </Link>
+              <Link href="/skimskalkulator">
+                <p className="tabs">Kalkulator</p>
               </Link>
             </>
           )}

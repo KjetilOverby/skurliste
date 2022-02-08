@@ -22,6 +22,7 @@ const Postoppsett = ({
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const randomNumber = Math.floor(Math.random() * 2);
+  const currentYear = new Date().getFullYear();
 
   const [animation, setAnimation] = useState("");
   useEffect(() => {
@@ -108,8 +109,15 @@ const Postoppsett = ({
         {user && user.sub === Users && (
           <div className="userContainer">
             <p className="bottom-text">
-              innlogged som: {user.name} * email: {user.email} * © copyright
-              2021
+              innlogged som: {user.name} * email: {user.email} * Postarkiv ©
+              copyright 2016-{currentYear}
+            </p>
+          </div>
+        )}
+        {!user && (
+          <div className="userContainer">
+            <p className="bottom-text">
+              Postarkiv © copyright 2016-{currentYear}
             </p>
           </div>
         )}

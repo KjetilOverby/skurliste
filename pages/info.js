@@ -115,9 +115,6 @@ const info = () => {
           Etterhvert ble det lagt inn manuelt søk og mulighet til å lage nye
           poster å lagre de. Da ble det også innloggin på denne siden. Denne
           appen erstatter etterhvert den tredje utgaven."
-          link={
-            <a href="https://mkv-calculator-mobile.vercel.app">Tredje utgave</a>
-          }
         />
       </div>
       <style jsx>
