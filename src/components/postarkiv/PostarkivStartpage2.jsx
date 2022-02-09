@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import HeaderComponent from "../common/HeaderComponent";
+import dateFormat from "dateformat";
 
 const PostarkivStartpage2 = ({
   postarkiv,
@@ -86,6 +87,11 @@ const PostarkivStartpage2 = ({
                     </p>
                   ))}
                 </div>
+                {item.date && (
+                  <p className="date">
+                    {dateFormat(item.date, "dd.mm.yyyy HH:MM")}
+                  </p>
+                )}
               </div>
             );
           })}
@@ -99,6 +105,12 @@ const PostarkivStartpage2 = ({
           .container {
             display: grid;
             place-items: center;
+          }
+          .date {
+            color: #fff;
+            font-style: italic;
+            font-weight: 100;
+            font-size: 0.8rem;
           }
           .header {
             margin-bottom: 2rem;
@@ -194,6 +206,19 @@ const PostarkivStartpage2 = ({
             transform: scale(1.05);
             color: blue;
             cursor: pointer;
+          }
+          @media (max-width: 768px) {
+            .input-container {
+              flex-direction: column;
+            }
+            .rings {
+              width: 1.5rem;
+              font-size: 0.6rem;
+              height: 3.5rem;
+            }
+            .rawGauge {
+              font-size: 0.5rem;
+            }
           }
         `}
       </style>

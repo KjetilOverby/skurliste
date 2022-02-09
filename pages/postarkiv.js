@@ -78,6 +78,10 @@ const Postarkiv = ({
               background-size: cover;
               min-height: 100vh;
             }
+            @media (max-width: 756px) {
+              .container {
+              }
+            }
           }
         `}
       </style>
