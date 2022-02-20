@@ -80,6 +80,7 @@ const Postarkiv = ({
             }
             @media (max-width: 756px) {
               .container {
+                overflow: hidden;
               }
             }
           }

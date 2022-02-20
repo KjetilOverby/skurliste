@@ -117,6 +117,7 @@ const InputComponent = ({
             <option value="85">85</option>
             <option value="92">92</option>
             <option value="100">100</option>
+            <option value="105">105</option>
             <option value="112">112</option>
             <option value="125">125</option>
             <option value="127">127</option>
