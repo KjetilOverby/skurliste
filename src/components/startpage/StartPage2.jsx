@@ -111,7 +111,7 @@ const StartPage2 = ({
             </Link>
           </div>
 
-          <h1 className="header">Postarkiv</h1>
+          <h1 className="header">Postarkiv.</h1>
           <p className="text">
             Sist oppdatert: {dateFormat(dated, "dd.mm.yyyy HH:MM")}
           </p>
